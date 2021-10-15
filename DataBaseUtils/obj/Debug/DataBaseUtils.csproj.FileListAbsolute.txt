@@ -1,0 +1,21 @@
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\bin\Debug\DataBaseUtils.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\bin\Debug\DataBaseUtils.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\bin\Debug\Interop.ADODB.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\bin\Debug\Interop.JRO.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\obj\Debug\Interop.ADODB.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\obj\Debug\Interop.JRO.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\obj\Debug\DataBaseUtils.csproj.ResolveComReference.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\obj\Debug\DataBaseUtils.csproj.CoreCompileInputs.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\obj\Debug\DataBaseUtils.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\obj\Debug\DataBaseUtils.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\DataBaseUtils\obj\Debug\DataBaseUtils.csprojAssemblyReference.cache
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\bin\Debug\DataBaseUtils.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\bin\Debug\DataBaseUtils.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\bin\Debug\Interop.ADODB.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\bin\Debug\Interop.JRO.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\obj\Debug\Interop.ADODB.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\obj\Debug\Interop.JRO.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\obj\Debug\DataBaseUtils.csproj.ResolveComReference.cache
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\obj\Debug\DataBaseUtils.csproj.CoreCompileInputs.cache
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\obj\Debug\DataBaseUtils.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\DataBaseUtils\obj\Debug\DataBaseUtils.pdb

@@ -1,0 +1,11 @@
+// ---------------------------------------
+// TODO: Cosas por hacer:
+// ---------------------------------------
+
+-------- 21/07/09 --------------
+* Se comienza con la versión 2.  [HECHO]
+* Añadir gestión de proyectos: proyecto <- punto <- valor [HECHO]
+* Importar/exportar proyectos [HECHO]
+* Soporte para idiomas (INI) [HECHO] (al final por XML)
+* Tabla IPH.
+* Tabla y grafico de caudales con coeficientes.

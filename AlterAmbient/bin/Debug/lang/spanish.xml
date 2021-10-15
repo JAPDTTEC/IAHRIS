@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+	<idString>Castellano - Spanish BETA</idString>
+	<excelFile>FicheroModelo_Castellano.xlsx</excelFile>
+	<forms>
+		<form id="FormInicial" string="IAHRIS (Índices de Alteración hidrológica de RIoS)">
+			<!-- Menus -->
+			<control id="GestiónDeProyectosToolStripMenuItem">Gestión de Proyectos</control>
+			<control id="AñadirProyectoToolStripMenuItem">Añadir Proyecto</control>
+			<control id="EliminarProyectoToolStripMenuItem">Eliminar Proyecto</control>
+			<control id="GestiónDePuntosToolStripMenuItem">Gestión de Puntos</control>
+			<control id="AñadirPuntoToolStripMenuItem">Añadir Punto</control>
+			<control id="EliminarPuntoToolStripMenuItem">Eliminar Punto</control>
+			<control id="GestiónDeAlteracionesToolStripMenuItem">Gestión de Alteraciones</control>
+			<control id="AñadirAlteraciónToolStripMenuItem">Añadir Alteración</control>
+			<control id="EliminarAlteraciónToolStripMenuItem">Eliminar Alteración</control>
+			<control id="GestiónDeListasToolStripMenuItem">Gestión de Series</control>
+			<control id="AñadirListaToolStripMenuItem">Añadir Serie</control>
+			<control id="EliminarListaToolStripMenuItem">Eliminar Serie</control>
+			<control id="GestBBDDToolStripMenuItem">Gestión base de datos</control>
+			<control id="ImportarToolStripMenuItem">Importar Base de Datos</control>
+			<control id="ExportarToolStripMenuItem">Exportar Base de Datos</control>
+			<control id="ManualesToolStripMenuItem">Manuales</control>
+			<!-- Groupbox proyecto -->
+			<control id="gbProyecto">Proyecto</control>
+			<control id="lblDescripcion">Descripción</control>
+			<!-- Groupbox punto -->
+			<control id="gbPuntos">Datos del Punto</control>
+			<control id="lblPuntoClave">Código del Punto</control>
+			<control id="lblPuntoNombre">Descripción del Punto</control>
+			<control id="lblPuntoNListas">Nº de alteraciones asociadas</control>
+			<control id="lblMesInicio">Mes inicio año hidro. para cálculo</control>
+			<control id="cmbMesInicio">
+				<item tag="1">enero</item>
+				<item tag="2">febrero</item>
+				<item tag="3">marzo</item>
+				<item tag="4">abril</item>
+				<item tag="5">mayo</item>
+				<item tag="6">junio</item>
+				<item tag="7">julio</item>
+				<item tag="8">agosto</item>
+				<item tag="9">septiembre</item>
+				<item tag="10">octubre</item>
+				<item tag="11">noviembre</item>
+				<item tag="12">diciembre</item>
+			</control>
+			<!-- Groupbox series -->
+			<control id="gbListas">Datos de Series asociadas al Punto</control>
+			<control id="lblDatosMensuales">                         Datos mensuales                         </control>
+			<control id="lblDatosDiarios">                                Datos diarios                             </control>
+			<control id="lblListasNaturales">Series de Valores Naturales:</control>
+			<control id="lblDiario">Serie Diaria</control>
+			<control id="lblMensual">Serie Mensual</control>
+			<control id="lblListasAlteradas">Series de Valores Alterados:</control>
+			<control id="lblADiario">Código</control>
+			<control id="lblAltNombreEstatico">Descrip.</control>
+			<control id="lblASerieDiaria">Serie Diaria</control>
+			<control id="lblASerieMensual">Serie Mensual</control>
+			<control id="lblTotalAños">TOTAL:</control>
+			<control id="chkboxUsarCoe">Usar coetaneidad para Valores Habituales</control>
+			<control id="chkboxUsarCoeDiaria">Usar coetaneidad para Avenidas y Sequías</control>
+			<!-- Groupbox leyenda -->
+			<control id="grpboxLeyenda">Leyenda</control>
+			<control id="lblLeyenda1">C: Año Completo</control>
+			<control id="lblLeyenda2">I: Año Incompleto</control>
+			<control id="lblLeyenda3">CD: Calculado con diarios</control>
+			<control id="lblLeyenda4">SD: Año sin datos</control>
+			<control id="lblLeyenda5">CO: Año coetáneo</control>
+			<control id="lblLeyenda6">NCO: Año no coetáneo</control>
+			<control id="lblLeyenda7">NS: Sin serie cargada</control>
+			<!-- Groupbox Informes -->
+			<control id="gbInforme">Informes a realizar:</control>
+			<control id="btnCalcular">Calcular</control>
+		</form>
+		<form id="FormAnadirProyecto" string="Añadir Proyecto">
+			<!-- Puntos -->
+			<control id="gbProyecto">Nuevo Proyecto</control>
+			<control id="lblNombre">Nombre</control>
+			<control id="lblDescripcion">Descripción</control>
+			<!-- Comunes -->
+			<control id="btnAceptar">Aceptar</control>
+			<control id="btnCancelar">Cancelar</control>
+		</form>
+		<form id="FormEliminarProyecto" string="Eliminar Proyecto">
+			<!-- Puntos -->
+			<control id="gbProyectos">Proyecto a eliminar</control>
+			<control id="lblProyecto">Proyecto</control>
+			<control id="lblPuntosAso">Puntos asociados:</control>
+			<!-- Comunes -->
+			<control id="btnAceptar">Aceptar</control>
+			<control id="btnCancelar">Cancelar</control>
+		</form>
+		<form id="FormAnadirPunto" string="Añadir Punto">
+			<!-- Puntos -->
+			<control id="gbAnadirPunto">Datos del Punto</control>
+			<control id="lblCodigo">Código Punto</control>
+			<control id="lblDescrip">Descripción Punto</control>
+			<control id="lblProyecto">Proyecto asociado</control>
+      <control id="lblPunto">Punto asociado</control>
+			<!-- Comunes -->
+			<control id="btnAceptar">Aceptar</control>
+			<control id="btnCancelar">Cancelar</control>
+		</form>
+		<form id="FormEliminarPunto" string="Eliminar Punto">
+			<!-- Puntos -->
+			<control id="lblPunto">_____Punto_____</control>
+			<control id="lblAlteracion">____Alteración____</control>
+			<control id="lblAdvertencia">Atención: Al eliminar el punto, se eliminaran las alteraciones asociadas y todas las series asociadas al punto y la alteración.</control>
+			<!-- Comunes -->
+			<control id="btnBorrar">Borrar</control>
+		</form>
+		<form id="FormAnadirAlteracion" string="Añadir Alteración">
+			<!-- Alteraciones -->
+			<control id="gbAnadirPunto">Datos de la Alteración</control>
+			<control id="lblCodigo">Código Alteración</control>
+			<control id="lblDescrip">Descripción Alteración</control>
+      <control id="lblProyecto">Proyecto asociado</control>
+      <control id="lblPunto">Punto asociado</control>
+			<!-- Comunes -->
+			<control id="btnAceptar">Aceptar</control>
+			<control id="btnCancelar">Cancelar</control>
+		</form>
+		<form id="FormEliminarAlteracion" string="Eliminar Alteración">
+			<!-- Puntos -->
+			<control id="lblPunto">_____Punto_____</control>
+			<control id="lblAlteracion">____Alteración____</control>
+			<control id="lblAdvertencia">Atención: Al eliminar la alteración, se eliminaran las series asociadas.</control>
+			<!-- Comunes -->
+			<control id="btnBorrar">Borrar</control>
+		</form>
+		<form id="FormAnadirListas" string="Añadir Series de Datos">
+			<!-- Puntos -->
+			<control id="lblSeleccion">Seleccione la Serie de datos en formato CSV:</control>
+			<control id="lblInfo">INFORMACIÓN:</control>
+			<control id="btnExaminar">Examinar...</control>
+			<control id="grpboxDetalles">Detalles del Fichero</control>
+			<control id="btnCargarLista">Cargar</control>
+		</form>
+		<form id="FormEliminarLista" string="Eliminar Serie">
+			<!-- Puntos -->
+			<control id="lblSeleccion">Seleccione Punto al que eliminar series asociadas:</control>
+			<control id="gbNaturales">Series Naturales</control>
+			<control id="gbAlteradas">Series Alteradas</control>
+			<control id="btnBorrarNatDiaria">Borrar Serie Natural Diaria</control>
+			<control id="btnBorrarNatMensual">Borrar Serie Natural Mensual</control>
+			<control id="btnAltDiaria">Borrar Serie Alteración Diaria</control>
+			<control id="btnAltMensual">Borrar Serie Alteración Mensual</control>
+			<control id="lblSelecAlt">Seleccione alteración</control>
+		</form>
+		<form id="FormImportar" string="Importar Base de Datos">
+			<!-- Puntos -->
+			<control id="lblSeleccion">Seleccione la Base de Datos a importar:</control>
+			<control id="btnExaminar">Examinar...</control>
+			<control id="gbProyectos">Importar un Proyecto completo</control>
+			<control id="btnImportarProyecto">Importar</control>
+			<control id="gbPuntos">Importar Puntos a un Proyecto:</control>
+			<control id="lblProyectoOrigen">Proyecto donde importar:</control>
+			<control id="btnCrearProy">Crear Proyecto Nuevo</control>
+			<control id="btnImportarPuntos">Importar</control>
+			<control id="lblInformacion">Información:</control>
+		</form>
+		<form id="FormCalculo">
+			<control id="lblCalculo">Calculando...<br/><br/>Espere, por favor.</control>
+		</form>
+	</forms>
+	<messages>
+		<errors>
+			<error id="strError">Error</error>
+			<error id="strErrorFatal">Error grave</error>
+			<error id="strErrorRead">Error de lectura</error>
+			<error id="strNoPoint">No hay ningún punto definido en el sistema. Primero, defina uno para declarar una alteración</error>
+			<error id="strNoFoundXLS">No se encuentra el fichero modelos en el directorio del programa.<br/>El programa esperaba el fichero en: </error>
+			<error id="strNoFoundDB">No se encuentra la base de datos en el directorio del programa.<br/>El programa esperaba el fichero en: </error>
+			<error id="strErrorExport">Se ha producido un error al exportar la base de datos: </error>
+			<error id="strInvalidName">Nombre inválido</error>
+			<error id="strNoPointDefined">No hay ningún punto definido en el sistema.<br/>Primero, defina uno para declarar una alteración.</error>
+			<error id="strErrorInsertAlt">Error al insertar la alteración.</error>
+			<error id="strErrorInsertAltDupId">Error al insertar la alteración.<br/>El código de alteración ya existe en el sistema.</error>
+			<error id="strErrorInsertProj">Error al insertar el proyecto.</error>
+			<error id="strErrorInsertPoint">Error al insertar el punto.</error>
+			<error id="strErrorInsertPointDupId">Error al insertar el punto.<br/>El código de punto ya existe en el sistema.</error>
+			<error id="strEmptyValues">No se permiten campos vacíos.</error>
+			<error id="strTooLongCode">El código es demasiado largo.<br/>La longitud del código no puede superar los 12 caracteres.</error>
+			<error id="strTooLongName">El nombre es demasiado largo.<br/>La longitud de la descripción no puede superar los 20 caracteres.</error>
+			<error id="strErrorCSVHeader">Error en la cabecera. No se encentran los campos requeridos.<br/>Formato: "TipoDeFechas;TipoSerie;IdAlteración;IdPunto".</error>
+			<error id="strErrorCSVHeaderDate">Error en el campo de definición de tipo de fecha (Mensual/Diaria).</error>
+			<error id="strErrorCSVHeaderType">Error en el campo de definición de tipo de valores (Natural/Alterado).</error>
+			<error id="strErrorCSVHeaderAlt">No se encuentran todos los campos en la cabecera para definir una serie alterada.</error>
+			<error id="strErrorCSVHeaderGeneral">El formato de los campos de la cabecera no es correcto.</error>
+			<error id="strErrorCSVDateFormatDaily">Formato de la fechas DIARIAS no es correcto.</error>
+			<error id="strErrorCSVDateFormatMonthly">Formato de la fechas MENSUALES no es correcto.</error>
+			<error id="strErrorCSVValueNegative">Solo son válidos los valores mayor o igual a cero<br/>Se ha encontrado un valor con valor negativo en la línea: </error>
+			<error id="strErrorCSVDateFormat">Se ha encontrado un formato de fecha incorrecto en la línea </error>
+			<error id="strErrorCSVValueError">Se ha encontrado un valor no numérico en la línea</error>
+			<error id="strErrorDB">Base de datos no accesible en este momento.</error>
+			<error id="strPointNotInDB">El punto</error>
+			<error id="strAltNotInDB">La alteración</error>
+			<error id="strNotInDB">no se encuentra en la base de datos.</error>
+			<error id="strNotAsociated">no está asociada al punto</error>
+			<error id="strNotSaveFile">No se ha podido salvar correctamente el fichero:</error>
+    </errors>
+    <infos>
+      <info id="yes">Si</info>
+      <info id="no">No</info>
+      <info id="strInfo">Información</info>
+      <info id="strType">Tipo</info>
+      <info id="strPerio">Periodicidad</info>
+      <info id="strPoint">Punto</info>
+      <info id="strAlt">Alteración</info>
+      <info id="strCalcular">Calcular</info>
+      <info id="strOperationEnd">Operación terminada</info>
+      <info id="strExportacion">Exportación realizada con exito al fichero: </info>
+      <info id="strDBv1">La base tiene una versión antigua (v1) se procede a la importación de sus datos.</info>
+      <info id="strDBv1_2">
+        La base tiene una versión antigua (v1) se procede a la importación de sus datos.<br/>Solo se permite la selección de puntos.
+      </info>
+      <info id="strDBNotValid">La base no es reconocida. Formato incorrecto.</info>
+      <info id="strNameProject">El nombre ya existe, elige otro nombre para tu proyecto</info>
+      <info id="strImportProjEnd">Finalizada la importacion del proyecto </info>
+      <info id="strImportPointsEnd">Finalizada la importacion de los puntos al proyecto </info>
+      <info id="strDeleteProject">Eliminado el proyecto correctamente.</info>
+      <info id="strAddListOK_1">Concluida correctamente la serie en el sistema.</info>
+      <info id="strAddListOK_2">Lineas analizadas</info>
+      <info id="strAddListOK_3">Datos válidos incluidos</info>
+      <info id="strSerieOverwrite">
+        La serie ya esta en el sistema.<br/>Pulse OK para sobreescribirla, o CANCEL en otro caso.
+      </info>
+      <info id="strNone">Ninguna</info>
+      <info id="strAttention">Atención</info>
+      <info id="strOverwrite">El fichero ya existe. ¿Desea sobreescribirlo?.</info>
+      <info id="strReportOk">Fichero salvado correctamente en:</info>
+      <info id="strWarningDifferentNamePoint">EL nombre del punto seleccionado no coincide con el nombre del punto en el fichero CVS. Pulse "Aceptar" para continuar, o "Cancelar" para abortar la operación </info>
+    </infos>
+		<others>
+			<other id="informe1">INFORME 1:RN: variabilidad interanual</other>
+			<other id="informe1a">INFORME 1a: RA: variabilidad interanual</other>
+      <other id="informe1b">INFORME 1b: RN y RA: variabilidad interanual</other>
+			<other id="informe2">INFORME 2: RN: variabilidad intranual (estadísticos)</other>
+      <other id="informe2a">INFORME 2a: RN: variabilidad intranual (medianas)</other>
+			<other id="informe3">INFORME 3: RA: variabilidad intranual (estadísticos)</other>
+      <other id="informe3a">INFORME 3a: RA: variabilidad intranual (medianas)</other>
+      <other id="informe3b">INFORME 3b: RN y RA: variabilidad intranual (medianas)</other>
+      <other id="informe4">INFORME 4: RN: caracterización con diarios</other>
+      <other id="informe4a">INFORME 4a: RN: caracterización con mensuales</other>
+      <other id="informe5">INFORME 5: RA: caracterización con diarios</other>
+      <other id="informe5a">INFORME 5a: RA: caracterización con mensuales</other>
+			<other id="informe5b">INFORME 5b: RA: caracterización con diarios</other>
+			<other id="informe6">INFORME 6: RN: curva anual caudales clasificados </other>
+      <other id="informe6a">INFORME 6a: RA: curva anual caudales clasificados </other>
+      <other id="informe6b">INFORME 6b: RN y RA: curva anual caudales clasificados </other>
+      <other id="informe6c">INFORME 6c: RN: curvas mensuales caudales clasificados</other>
+      <other id="informe6d">INFORME 6d: RA: curvas mensuales caudales clasificados </other>
+      <other id="informe6e">INFORME 6e: RN y RA: curvas mensuales caudales clasificados </other>
+			<other id="informe7a">INFORME 7a: IAH: habituales con diarios coetáneos</other>
+			<other id="informe7b">INFORME 7b: IAH: habituales con mensuales coetáneos</other>
+			<other id="informe7c">INFORME 7c: IAH: habituales con no coetáneos</other>
+			<other id="informe7d">INFORME 7d: IAH: avenidas y sequías</other>
+			<other id="informe8">INFORME 8: Masas muy alteradas (P10-90)</other>
+			<other id="informe8a">INFORME 8a: Masas muy alteradas (IAH): diarios coetáneos</other>
+			<other id="informe8b">INFORME 8b: Masas muy alteradas (IAH): diarios no coetáneos</other>
+			<other id="informe8c">INFORME 8c: Masas muy alteradas (IAH): mensuales coetáneos</other>
+			<other id="informe8d">INFORME 8d: Masas muy alteradas (IAH): mensuales no coetáneos</other>
+			<other id="informe9">INFORME 9: RAC mensual: RN con diarios</other>
+			<other id="informe9a">INFORME 9a: RAC mensual: RN con mensuales</other>
+    <other id="informe9b">INFORME 9b: RAC avenidas y sequías</other>
+    <other id="informe10a">INFORME 10a: Sig. ambiental IAH: diarios coetáneos</other>
+      <other id="informe10b">INFORME 10b: Sig. ambiental IAH: mensuales coetáneos</other>
+      <other id="informe10c">INFORME 10c: Sig. ambiental IAH: diarios no coetáneos</other>
+      <other id="informe10d">INFORME 10d: Sig. ambiental IAH: mensuales no coetáneos</other>
+		</others>
+		<tables>
+			<column id="noitem">Seleccione un punto de la lista para analizar sus series asociadas.</column>
+			<column id="year">Año<br/>hidrológico</column>
+			<column id="dailynat">Natural<br/>Diaria<br/>Serie</column>
+			<column id="dailynatinter">Natural<br/>Diaria<br/>Cálculo</column>
+			<column id="dailyalt">Alterada<br/>Diaria<br/>Serie</column>
+			<column id="dailyaltinter">Alterada<br/>Diaria<br/>Cálculo</column>
+			<column id="coedaily">Coeta.<br/>Diaria</column>
+			<column id="monthlynat">Natural<br/>Mensual<br/>Serie</column>
+			<column id="monthlynatinter">Natural<br/>Mensual<br/>Cálculo</column>
+			<column id="monthlyalt">Alterada<br/>Mensual<br/>Serie</column>
+			<column id="monthlyaltinter">Alterada<br/>Mensual<br/>Cálculo</column>
+			<column id="coemonthly">Coeta.<br/>Mensual</column>
+		</tables>
+		<months>
+			<month id="1">Enero</month>
+			<month id="2">Febrero</month>
+			<month id="3">Marzo</month>
+			<month id="4">Abril</month>
+			<month id="5">Mayo</month>
+			<month id="6">Junio</month>
+			<month id="7">Julio</month>
+			<month id="8">Agosto</month>
+			<month id="9">Septiembre</month>
+			<month id="10">Octubre</month>
+			<month id="11">Noviembre</month>
+			<month id="12">Diciembre</month>
+		</months>
+	</messages>
+</language>

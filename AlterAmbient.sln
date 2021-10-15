@@ -1,0 +1,111 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlterAmbient", "AlterAmbient\AlterAmbient.csproj", "{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F21347F3-FA96-047B-1E16-E244C449F2AD} = {F21347F3-FA96-047B-1E16-E244C449F2AD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseUtils", "DataBaseUtils\DataBaseUtils.csproj", "{F133D485-6CE3-437B-9E52-8859AF1FB259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiLangXML", "MultiLangXML\MultiLangXML.csproj", "{F21347F3-FA96-047B-1E16-E244C449F2AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAHRIS.Calculo", "IAHRIS.Calculo\IAHRIS.Calculo.csproj", "{832E795D-6374-4B4F-998A-EC25A452F1F5}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IAHRISInstaller", "IAHRISInstaller\IAHRISInstaller.vdproj", "{1E1FFE22-F44C-4079-B256-71B2FCC92CF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}.Release|Win32.ActiveCfg = Release|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F133D485-6CE3-437B-9E52-8859AF1FB259}.Release|Win32.ActiveCfg = Release|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F21347F3-FA96-047B-1E16-E244C449F2AD}.Release|Win32.ActiveCfg = Release|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Debug|Win32.Build.0 = Debug|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Release|Win32.ActiveCfg = Release|Any CPU
+		{832E795D-6374-4B4F-998A-EC25A452F1F5}.Release|Win32.Build.0 = Release|Any CPU
+		{1E1FFE22-F44C-4079-B256-71B2FCC92CF3}.Debug|Any CPU.ActiveCfg = Debug
+		{1E1FFE22-F44C-4079-B256-71B2FCC92CF3}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{1E1FFE22-F44C-4079-B256-71B2FCC92CF3}.Debug|Win32.ActiveCfg = Debug
+		{1E1FFE22-F44C-4079-B256-71B2FCC92CF3}.Release|Any CPU.ActiveCfg = Release
+		{1E1FFE22-F44C-4079-B256-71B2FCC92CF3}.Release|Mixed Platforms.ActiveCfg = Release
+		{1E1FFE22-F44C-4079-B256-71B2FCC92CF3}.Release|Win32.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		BuildVersion_AssemblyInfoFilename = 
+		BuildVersion_UseGlobalSettings = False
+		BuildVersion_ConfigurationName = Any
+		BuildVersion_BuildVersioningStyle = None.None.None.None
+		BuildVersion_UpdateAssemblyVersion = False
+		BuildVersion_UpdateFileVersion = False
+		SolutionGuid = {D6495203-7E2A-4A58-9073-4D21C7D512F4}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfproapp.ttec.es:8080/tfs/default
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AlterAmbient\\AlterAmbient.csproj
+		SccProjectName1 = AlterAmbient
+		SccLocalPath1 = AlterAmbient
+		SccProjectUniqueName2 = DataBaseUtils\\DataBaseUtils.csproj
+		SccProjectName2 = DataBaseUtils
+		SccLocalPath2 = DataBaseUtils
+		SccProjectUniqueName3 = MultiLangXML\\MultiLangXML.csproj
+		SccProjectName3 = MultiLangXML
+		SccLocalPath3 = MultiLangXML
+		SccProjectUniqueName4 = IAHRIS.Calculo\\IAHRIS.Calculo.csproj
+		SccProjectName4 = IAHRIS.Calculo
+		SccLocalPath4 = IAHRIS.Calculo
+		SccProjectUniqueName5 = IAHRISInstaller\\IAHRISInstaller.vdproj
+		SccProjectName5 = IAHRISInstaller
+		SccLocalPath5 = IAHRISInstaller
+	EndGlobalSection
+EndGlobal

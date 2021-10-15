@@ -1,0 +1,91 @@
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\AlterAmbient.csprojAssemblyReference.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\Interop.VBIDE.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\AlterAmbient.csproj.ResolveComReference.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormAcercaDe.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormAnadirListas.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormAnadirProyecto.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormAnadirPunto.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormBienvenida.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormEliminarPunto.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormEliminarLista.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormEliminarProyecto.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormImportar.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormInicial.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.FormCalculo.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.Resources.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\AlterAmbient.csproj.GenerateResource.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\AlterAmbient.csproj.CoreCompileInputs.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\IAHRIS.exe.config
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\IAHRIS.exe
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\IAHRIS.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\IAHRIS.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\DataBaseUtils.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\MultiLangXML.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\XPTable.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\Interop.JRO.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\Interop.ADODB.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\DataBaseUtils.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\MultiLangXML.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\MultiLangXML.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\XPTable.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\Office.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\Interop.VBIDE.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\AlterAmbient.csproj.CopyComplete
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.exe
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\obj\Debug\IAHRIS.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\conf.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\IAHRISv2.mdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\lang\english.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\lang\spanish.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\IAHRIS.Calculo.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\IAHRIS.Calculo.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\EPPlus.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\EPPlus.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\Report\FicheroModelo_Castellano.xlsx
+C:\Users\japd\source\repos\IAHRIS-2.2-master\AlterAmbient\bin\Debug\Report\FicheroModelo_Ingles.xlsx
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\conf.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\IAHRISv2.mdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\lang\english.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\lang\spanish.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\Report\FicheroModelo_Castellano.xlsx
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\Report\FicheroModelo_Ingles.xlsx
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\IAHRIS.exe.config
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\IAHRIS.exe
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\IAHRIS.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\IAHRIS.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\DataBaseUtils.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\IAHRIS.Calculo.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\MultiLangXML.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\XPTable.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\Interop.JRO.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\EPPlus.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\Interop.ADODB.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\DataBaseUtils.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\IAHRIS.Calculo.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\MultiLangXML.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\MultiLangXML.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\XPTable.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\EPPlus.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\AlterAmbient.csprojAssemblyReference.cache
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormAcercaDe.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormAnadirListas.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormAnadirProyecto.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormAnadirPunto.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormBienvenida.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormEliminarPunto.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormEliminarLista.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormEliminarProyecto.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormImportar.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormInicial.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.FormCalculo.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.Resources.resources
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\AlterAmbient.csproj.GenerateResource.cache
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\AlterAmbient.csproj.CoreCompileInputs.cache
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\AlterAmbient.csproj.CopyComplete
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.exe
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\obj\Debug\IAHRIS.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\MathNet.Numerics.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\AlterAmbient\bin\Debug\MathNet.Numerics.xml

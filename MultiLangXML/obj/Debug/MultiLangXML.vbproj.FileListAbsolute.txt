@@ -1,0 +1,10 @@
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\bin\Debug\MultiLangXML.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\bin\Debug\MultiLangXML.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\bin\Debug\MultiLangXML.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\obj\Debug\MultiLangXML.vbprojAssemblyReference.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\obj\Debug\MultiLangXML.Resources.resources
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\obj\Debug\MultiLangXML.vbproj.GenerateResource.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\obj\Debug\MultiLangXML.vbproj.CoreCompileInputs.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\obj\Debug\MultiLangXML.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\obj\Debug\MultiLangXML.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\MultiLangXML\obj\Debug\MultiLangXML.pdb

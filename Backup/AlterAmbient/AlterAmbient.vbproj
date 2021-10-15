@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF6367D9-594B-4D7E-96A7-CDBCAA7CA948}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>IAHRIS.My.MyApplication</StartupObject>
+    <RootNamespace>IAHRIS</RootNamespace>
+    <AssemblyName>IAHRIS</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>IAHRIS_ICONO.ico</ApplicationIcon>
+    <PublishUrl>http://localhost/IAHRIS/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>IAHRIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>IAHRIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XPTable, Version=1.0.2.0, Culture=neutral, PublicKeyToken=24950705800d2198">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>LIB\XPTable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAcercaDe.Designer.vb">
+      <DependentUpon>FormAcercaDe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAcercaDe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnadirListas.Designer.vb">
+      <DependentUpon>FormAnadirListas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnadirListas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnadirProyecto.Designer.vb">
+      <DependentUpon>FormAnadirProyecto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnadirProyecto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnadirPunto.Designer.vb">
+      <DependentUpon>FormAnadirPunto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnadirPunto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBienvenida.Designer.vb">
+      <DependentUpon>FormBienvenida.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBienvenida.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarPunto.Designer.vb">
+      <DependentUpon>FormEliminarPunto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarPunto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarLista.Designer.vb">
+      <DependentUpon>FormEliminarLista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarLista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarProyecto.Designer.vb">
+      <DependentUpon>FormEliminarProyecto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarProyecto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImportar.Designer.vb">
+      <DependentUpon>FormImportar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormImportar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LIB\DataBase.vb" />
+    <Compile Include="FormInicial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInicial.Designer.vb">
+      <DependentUpon>FormInicial.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCalculo.Designer.vb">
+      <DependentUpon>FormCalculo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCalculo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD\Calculo.vb" />
+    <Compile Include="MOD\RellenarForm.vb" />
+    <Compile Include="MOD\TestFechas.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormAcercaDe.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAcercaDe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnadirListas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAnadirListas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnadirProyecto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAnadirProyecto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnadirPunto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAnadirPunto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBienvenida.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormBienvenida.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarPunto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEliminarPunto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarLista.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEliminarLista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarProyecto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEliminarProyecto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormImportar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInicial.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormInicial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCalculo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCalculo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataBaseUtils\DataBaseUtils.csproj">
+      <Project>{F133D485-6CE3-437B-9E52-8859AF1FB259}</Project>
+      <Name>DataBaseUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MultiLangXML\MultiLangXML.vbproj">
+      <Project>{4037C698-36CE-4B8A-9C4E-283AA6DEC60D}</Project>
+      <Name>MultiLangXML</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoMAL.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoOK.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar Day.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.bmp" />
+    <None Include="Resources\delete2.bmp" />
+    <None Include="Resources\no information.bmp" />
+    <None Include="Resources\CheckInterpolado.ico" />
+    <None Include="Resources\wait30trans.gif" />
+    <Content Include="Globe 2.ico" />
+    <Content Include="IAHRIS_ICONO.ico" />
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_AssemblyInfoFilename="" BuildVersion_UseGlobalSettings="False" BuildVersion_IncrementBeforeBuild="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_ConfigurationName="Release" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

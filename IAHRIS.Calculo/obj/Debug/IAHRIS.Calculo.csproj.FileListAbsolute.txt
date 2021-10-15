@@ -1,0 +1,30 @@
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.csprojAssemblyReference.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.csproj.CoreCompileInputs.cache
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\bin\Debug\IAHRIS.Calculo.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\bin\Debug\IAHRIS.Calculo.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\bin\Debug\MultiLangXML.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\bin\Debug\MultiLangXML.pdb
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\bin\Debug\MultiLangXML.xml
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.csproj.CopyComplete
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\bin\Debug\EPPlus.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\japd\source\repos\IAHRIS-2.2-master\IAHRIS.Calculo\bin\Debug\EPPlus.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\IAHRIS.Calculo.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\IAHRIS.Calculo.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\EPPlus.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\MultiLangXML.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\MultiLangXML.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\MultiLangXML.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\EPPlus.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.csprojAssemblyReference.cache
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.csproj.CoreCompileInputs.cache
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.csproj.CopyComplete
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\obj\Debug\IAHRIS.Calculo.pdb
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\MathNet.Numerics.dll
+C:\Users\japd\source\repos\IAHRIS\Desarrollo\IAHRIS 2.3\IAHRIS.Calculo\bin\Debug\MathNet.Numerics.xml
