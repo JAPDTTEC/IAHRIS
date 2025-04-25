@@ -1,0 +1,661 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IAHRIS</name>
+    </assembly>
+    <members>
+        <member name="T:IAHRIS.Automatizacion">
+            <summary>
+            Clase encargada de cargar y exportar datos desde iahris a traves de parámetros de texto.
+            </summary>
+        </member>
+        <member name="T:IAHRIS.Automatizacion.DatosCSV">
+            <summary>
+            Struct de los datos formateados(fecha y caudal) que se extraen del csv.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.Automatizacion.CrearYCargarEnPunto(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Carga los datos de un CSV en un punto de un proyecto. Si el punto y/o el proyecto no existen los crea.
+            </summary>
+            <param name="nombrePunto">Nombre del punto</param>
+            <param name="descripcion">Descripción del punto</param>
+            <param name="nombreProyecto">Nombre del proyecto</param>
+            <param name="descripcionProyecto">Descripción del proyecto</param>
+            <param name="nombreRegimen">Nombre del régimen del punto</param>
+            <param name="abrevRegimen">Abreviatura del régimen del punto</param>
+            <param name="csv">Ruta donde se encuentra el CSV del cual se cargarán los datos</param>      
+            <param name="mesInicio">Mes de inicio donde comienza el año a efectos de cálculo</param>      
+        </member>
+        <member name="M:IAHRIS.Automatizacion.CrearYCargarEnAlteracion(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Carga los datos de un CSV en una alteración de un proyecto. Si la alteración y/o el proyecto no existen los crea. El punto
+            debe existir. Si no existe el método no lo crea y debe crearse por separado.
+            </summary>
+            <param name="nombrePunto">Nombre del punto</param>
+            <param name="nombreAlteracion">Nombre de la alteración</param>
+            <param name="descripcion">Descripción de la alteración</param>
+            <param name="nombreProyecto">Nombre del proyecto</param>
+            <param name="descripcionProyecto">Descripción del proyecto</param>
+            <param name="nombreRegimen">Nombre del régimen de la alteración</param>
+            <param name="abrevRegimen">Abreviatura del régimen de la alteración</param>
+            <param name="csv">Ruta donde se encuentra el CSV del cual se cargarán los datos</param>      
+        </member>
+        <member name="M:IAHRIS.Automatizacion.ExportarExceldePunto(System.String,System.String,System.String)">
+            <summary>
+            Exporta el excel de un punto de un proyecto a la ruta indicada.
+            </summary>
+            <param name="nombrePunto">Nombre del punto</param>       
+            <param name="nombreProyecto">Nombre del proyecto</param>
+            <param name="exportacion">Ruta donde se exportará el excel</param>      
+        </member>
+        <member name="M:IAHRIS.Automatizacion.ExportarExceldeAlteracion(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Exporta el excel de una alteración de un proyecto a la ruta indicada.
+            </summary>
+            <param name="nombrePunto">Nombre del punto</param> 
+            <param name="nombreAlteracion">Nombre del punto</param> 
+            <param name="nombreProyecto">Nombre del proyecto</param>
+            <param name="exportacion">Ruta donde se exportará el excel</param>
+            <param name="cvh">Parámetro de coetaneidad para valores habituales. 0 para no, 1 para si.</param>  
+            <param name="cas">Parámetro de coetaneidad de avenidas y sequías. 0 para no, 1 para si.</param>  
+            <remarks>Si IAHRIS no puede cambiar el uso de coetaneidad ignorará los parámetros de coetaneidad.</remarks>
+        </member>
+        <member name="M:IAHRIS.Automatizacion.SeleccionProceso(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Comunica los parametros recibidos por linea de comandos en la aplicacion con el metodo adecuado para la tarea seleccionada
+            </summary>
+            <param name="nombrePunto">Nombre del punto</param> 
+            <param name="nombreAlteracion">Nombre de la alteración</param> 
+            <param name="descripcion">Descripcion del punto o de la alteración</param>
+            <param name="nombreProyecto">Nombre del proyecto</param>
+            <param name="descripcionProyecto">Descripción del proyecto</param>  
+            <param name="nombreRegimen">Nombre del regimen del punto o de la alteracion</param>  
+            <param name="abrevRegimen">Abreviatura del regimen del punto o de la alteracion</param> 
+            <param name="csv">Ruta del archivo csv</param> 
+            <param name="exportacion">Ruta a la cual se exportará el excel</param>
+            <param name="cvh">Parámetro de coetaneidad para valores habituales. 0 para no, 1 para si.</param>
+            <param name="cas">Parámetro de coetaneidad de avenidas y sequías. 0 para no, 1 para si.</param>  
+            <param name="cm">Selector de proceso. CD para Crear y Carga, GIS para Exportar Excel</param>  
+            <param name="pa">Selector de punto/alteracion. P para punto, A para Alteración</param>  
+            <param name="mesInicio">Mes de inicio donde comienza el año a efectos de cálculo</param>      
+            <remarks>Si IAHRIS no puede cambiar el uso de coetaneidad ignorará los parámetros de coetaneidad.</remarks>
+        </member>
+        <member name="M:IAHRIS.Automatizacion.ExisteCodigo(System.String,System.String,System.Int32)">
+            <summary>
+            Funcion para manejar puntos y alteraciones y comprobar si ya existen o se pueden añadir a un proyecto.
+            </summary>
+            <param name="tabla">Parametro para seleccionar la tabla de los puntos o la de las alteraciones</param>
+            <param name="codigo">Clave del punto o de la alteracion</param>
+            <param name="id">Parametro para seleccionar el proyecto a comprobar o la id del punto</param>
+            <returns>Devuelve true si el punto o alteracion se puede añadir y false y hay algun error.</returns>
+        </member>
+        <member name="M:IAHRIS.Automatizacion.LeerCSV(System.String,IAHRIS.Rellenar.ComboItem)">
+            <summary>
+            Función para comprobar el CSV a añadir.
+            </summary>
+            <param name="_rutafichero">Ruta del CSV</param>
+            <param name="punto">Clave del punto o de la alteración a la que añadir el CSV</param>
+        </member>
+        <member name="M:IAHRIS.Automatizacion.AnadirCSV(System.String,IAHRIS.Rellenar.ComboItem,IAHRIS.Rellenar.ComboItem)">
+            <summary>
+            Función para añadir el CSV a un punto o una alteración
+            </summary>
+            <param name="_rutafichero">Ruta del fichero CSV</param>
+            <param name="punto">Clave del punto al que añadir el CSV</param>
+            <param name="alt">Clave de la alteración a la que añadir el CSV, si no se asigna un valor toma null para añadir a un punto.</param>
+        </member>
+        <member name="M:IAHRIS.Automatizacion.ComprobarSerie">
+            <summary>
+            Comprobaciones sobre puntos y alteraciones
+            </summary>
+            <returns>Devuelve true si esta todo correcto y false si hay algun error</returns>
+        </member>
+        <member name="T:IAHRIS.DibujoGraficos">
+            <summary>
+            Clase encargada de dibujar los gráficos de Caudales Ecológicos.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.DibujoGraficos.GraficoValoracionesEscenario(OxyPlot.WindowsForms.PlotView,System.Collections.Generic.List{IAHRIS.Calculo.CaudalesEcologicos.Escenarios.EscenarioDTO},System.Collections.Generic.List{IAHRIS.Calculo.CaudalesEcologicos.Escenarios.EscenarioDTO})">
+            <summary>
+            Carga una serie de puntos y de lineas y las dibuja en un gráfico
+            </summary>
+            <param name="plot1">El gráfico</param>
+            <param name="puntos">List de Escenarios de los puntos del gráfico</param>
+            <param name="lineas">List de Escenarios de las lineas de puntuación del gráfico</param>
+        </member>
+        <member name="M:IAHRIS.DibujoGraficos.AddPointLabel(OxyPlot.PlotModel,OxyPlot.Series.ScatterPoint,System.String)">
+             <summary>
+            Carga una etiquta en el modelo de un gráfico.
+             </summary>
+             <param name="plotModel">El modelo del gráfico</param>
+             <param name="point">Las coordenadas de la etiqueta</param>
+             <param name="label">El texto de la etiqueta</param>
+        </member>
+        <member name="F:IAHRIS.FormAnadirEscenario.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormAnadirEscenario.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IAHRIS.FormAnadirEscenario.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:IAHRIS.FormAnadirEscenarioRNORM.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormAnadirEscenarioRNORM.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IAHRIS.FormAnadirEscenarioRNORM.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:IAHRIS.FormEditarEscenario.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormEditarEscenario.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IAHRIS.FormEditarEscenario.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:IAHRIS.FormEliminarEscenario.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormEliminarEscenario.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:IAHRIS.FormEliminarEscenario.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.GdalConfiguration.#cctor">
+            <summary>
+            Construction of Gdal/Ogr
+            </summary>
+        </member>
+        <member name="P:IAHRIS.GdalConfiguration.Usable">
+            <summary>
+            Gets a value indicating if the GDAL package is set up properly.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.GdalConfiguration.ConfigureOgr">
+            <summary>
+            Method to ensure the static constructor is being called.
+            </summary>
+            <remarks>Be sure to call this function before using Gdal/Ogr/Osr</remarks>
+        </member>
+        <member name="M:IAHRIS.GdalConfiguration.ConfigureGdal">
+            <summary>
+            Method to ensure the static constructor is being called.
+            </summary>
+            <remarks>Be sure to call this function before using Gdal/Ogr/Osr</remarks>
+        </member>
+        <member name="M:IAHRIS.GdalConfiguration.GetPlatform">
+            <summary>
+            Function to determine which platform we're on
+            </summary>
+        </member>
+        <member name="P:IAHRIS.GdalConfiguration.IsWindows">
+            <summary>
+            Gets a value indicating if we are on a windows platform
+            </summary>
+        </member>
+        <member name="T:IAHRIS.My.Resources.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.Calendar_Day">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.check">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.CheckInterpolado">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.chorreras_021">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.delete2">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.IAHRIS_TITULO">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.icoMAL">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.iconoacceso">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.icoOK">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.LOGO">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.Logo_MITECO">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.LOGO1">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.LOGOTIPO_UPM">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.no_information">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.SIGLAS">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.SIGLAS_INGLES">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:IAHRIS.My.Resources.Resources.wait30trans">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:IAHRIS.FormAcercaDe">
+            <summary>
+            Formulario Acerca De
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormAcercaDe.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:IAHRIS.FormAnadirListas.TablaValorDTO">
+            <summary>
+            Clase mapeo de la Tabla Valor.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormAnadirListas.ComprobarSerie">
+            <summary>
+            Comprobaciones de existencia de la lista, y si es alteracion si pertence al punto
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:IAHRIS.FormAnadirListas.InsertarListayValores(IAHRIS.FormAnadirListas.DatosCSV[],System.DateTime,System.DateTime)">
+            <summary>
+            Con los datos leidos del fichero, genera e inserta una lista a la que añade los datos del fichero.
+            </summary>
+            <param name="datos">datos leídos en el fichero.</param>
+            <param name="fechaINI">fecha Inicio serie.</param>
+            <param name="fechaFIN">fecha Fin serie.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IAHRIS.FormAnadirPunto.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormAnadirPunto.#ctor(IAHRIS.BBDD.OleDbDataBase,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Formulario Añadir Punto
+            </summary>
+            <param name="MDB">Base de Datos</param>
+            <param name="tipo">Punto o Alteración</param>
+            <param name="editar">True si es formulario de Editar</param>
+            <param name="p"></param>
+        </member>
+        <member name="M:IAHRIS.FormAnadirPunto.FormAnadirPunto_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Este método no hace nada.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:IAHRIS.FormBienvenida.Dispose(System.Boolean)">
+            <summary>
+            Form reemplaza a Dispose para limpiar la lista de componentes.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:IAHRIS.FormBienvenida.#ctor">
+            <summary>
+            Formulario con la pantalla de bienvenida.
+            </summary>
+        </member>
+        <member name="T:IAHRIS.FormBienvenida.DatosCSV">
+            <summary>
+            Estructura con los Datos de CSV
+            </summary>
+        </member>
+        <member name="F:IAHRIS.FormBienvenida.DatosCSV.fechas">
+            <summary>
+            fechas del fichero
+            </summary>
+        </member>
+        <member name="F:IAHRIS.FormBienvenida.DatosCSV.valores">
+            <summary>
+            Valores del fichero
+            </summary>
+        </member>
+        <member name="T:IAHRIS.FormBienvenida.CabeceraCSV">
+            <summary>
+            Estructura con la cabecera del CSV
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormBienvenida.FormBienvenida_Shown(System.Object,System.EventArgs)">
+            <summary>
+            Se ejecuta la primera vez que el formulario se muestra y contiene los metodos para ejecutar por consola.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:IAHRIS.FormEliminarPunto">
+            <summary>
+            Formulario para eliminar los puntos de BBDD
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormEliminarPunto.#ctor(IAHRIS.BBDD.OleDbDataBase,System.String)">
+            <summary>
+            Eliminar un punto de la base de datos.
+            </summary>
+            <param name="MDB">Base de datos</param>
+            <param name="tipo">Punto o Alteracion</param>
+        </member>
+        <member name="M:IAHRIS.FormImportar.ValidarVersionBBDD(System.String@)">
+            <summary>
+            Esta función nos dice que tipo de versión tenemos al importar la bbdd
+            </summary>
+            <param name="message">Mensaje de error o de información</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:IAHRIS.FormInicial.ActualizarCombos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormInicial.RellenarListaInformes(System.Boolean)">
+            <summary>
+            Rellena la lista con los Informes que va a exportar en el Excel
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormInicial.ResetearFormPrincipal">
+            <summary>
+            Limpiar formulario inicial.
+            </summary>
+        </member>
+        <member name="T:IAHRIS.FormCalculo">
+            <summary>
+            Formulario que se usa para el calculo y generación de Informes de Excel.
+            </summary>
+        </member>
+        <member name="M:IAHRIS.FormCalculo.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.Form1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="F:DatosSimpa.Form1.components">
+            <summary>
+            Variable del diseñador necesaria.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.Form1.Dispose(System.Boolean)">
+            <summary>
+            Limpiar los recursos que se estén usando.
+            </summary>
+            <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        </member>
+        <member name="M:DatosSimpa.Form1.InitializeComponent">
+            <summary>
+            Método necesario para admitir el Diseñador. No se puede modificar
+            el contenido de este método con el editor de código.
+            </summary>
+        </member>
+        <member name="F:DatosSimpa.FormGMaps.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.FormGMaps.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DatosSimpa.FormGMaps.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.GdalConfiguration.#cctor">
+            <summary>
+            Construction of Gdal/Ogr
+            </summary>
+        </member>
+        <member name="P:DatosSimpa.GdalConfiguration.Usable">
+            <summary>
+            Gets a value indicating if the GDAL package is set up properly.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.GdalConfiguration.ConfigureOgr">
+            <summary>
+            Method to ensure the static constructor is being called.
+            </summary>
+            <remarks>Be sure to call this function before using Gdal/Ogr/Osr</remarks>
+        </member>
+        <member name="M:DatosSimpa.GdalConfiguration.ConfigureGdal">
+            <summary>
+            Method to ensure the static constructor is being called.
+            </summary>
+            <remarks>Be sure to call this function before using Gdal/Ogr/Osr</remarks>
+        </member>
+        <member name="M:DatosSimpa.GdalConfiguration.GetPlatform">
+            <summary>
+            Function to determine which platform we're on
+            </summary>
+        </member>
+        <member name="P:DatosSimpa.GdalConfiguration.IsWindows">
+            <summary>
+            Gets a value indicating if we are on a windows platform
+            </summary>
+        </member>
+        <member name="T:DatosSimpa.GestorDescargas">
+            <summary>
+            Clase encargada de comunicarse con la web del ministerio y realizar las descargas de ficheros
+            necearias para la obtención de Datos de SIMPA.    /// 
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.GestorDescargas.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.GestorDescargas.GetRutaFichero(System.DateTime,System.DateTime)">
+            <summary>
+            Con los años de inicio y final, compone el nombre de los ficheros que necesita
+            </summary>
+            <param name="añoInicio">año Inicio de rango</param>
+            <param name="añoFinal">año Fin del rango.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DatosSimpa.GestorDescargas.FicheroActualizado(System.String)">
+            <summary>
+            comprueba si el fichero de la ruta recibida está ya cacheado en local o hay una versión posterior.
+            </summary>
+            <param name="rutaFichero">ruta del fichero</param>
+            <returns>Booleano que indica si el fichero está actualizado</returns>
+        </member>
+        <member name="M:DatosSimpa.GestorDescargas.IniciarDescarga(System.String,System.Net.WebClient)">
+            <summary>
+            Descarga de SIMPA el fichero indicado por parametro. Crea un cliente de descarga por defecto aunque puede
+            recibir uno por parametro que tenga asociados los eventos deseados por el usuario.
+            </summary>
+            <param name="fichero">ruta del fichero que descarga</param>
+            <param name="myWebClient">WebClient personalidazo del usuario o crea uno por defecto si no está indicado</param>
+            <returns></returns>
+        </member>
+        <member name="T:DatosSimpa.MotorDatos">
+            <summary>
+            Clase encargada de recuperar todos los ficheros de SIMPA 
+            comprendidos entre las fechas indicadas, de los que leera y obtendrá los valores
+            con las aportaciones para un punto dado por el usuario.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.MotorDatos.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.MotorDatos.ObtenerFicheros(System.DateTime,System.DateTime)">
+            <summary>
+            Busca los ficheros con datos comprendidos entre las fechas indicadas por el usuario.
+            </summary>
+            <param name="fechaInicio"></param>
+            <param name="fechaFin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DatosSimpa.MotorDatos.GetAportacionesRaster(DatosSimpa.Logica.UTMCoordinate,System.String)">
+            <summary>
+            Lee un raster de datos y obtiene el valor para la coordinada especificada
+            </summary>
+            <param name="punto">Coordinada o punto del raster del que recuperar el valor.</param>
+            <param name="ruta">Ruta en la que se encuentra el fichero raster</param>
+            <returns></returns>
+        </member>
+        <member name="F:DatosSimpa.ProgresoDatosForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.ProgresoDatosForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DatosSimpa.ProgresoDatosForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:DatosSimpa.ProgresoDescargaForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.ProgresoDescargaForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DatosSimpa.ProgresoDescargaForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:DatosSimpa.ProgresoDescompresionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DatosSimpa.ProgresoDescompresionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DatosSimpa.ProgresoDescompresionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MissionPlanner.Maps.WMSProvider">
+            <summary>
+            WMS Custom
+            </summary>
+        </member>
+    </members>
+</doc>

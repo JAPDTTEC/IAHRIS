@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{832E795D-6374-4B4F-998A-EC25A452F1F5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IAHRIS.Calculo</RootNamespace>
+    <AssemblyName>IAHRIS.Calculo</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=6.2.19.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.2.19\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=4.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.15.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.7.0.0\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.7.2.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.7.2\lib\net461\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calculations.cs" />
+    <Compile Include="CaudalesEcologicos\Escenarios\EscenarioDTO.cs" />
+    <Compile Include="CaudalesEcologicos\Escenarios\Escenarios.cs" />
+    <Compile Include="CaudalesEcologicos\Escenarios\IEscenario.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\CabeceraRCE.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\Informe2_RCE.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\Informe3_RCE.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\Informe4_RCE.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\Informe5_RCE.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\Informe6_RCE.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\Informe7_RCE.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\Informe_RCE.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\ADMM.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\CalculoMetodosCEs.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\FDC.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\Iahris_PXX.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\IMetodo.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\NMTM.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\Tennant.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\Tessman.cs" />
+    <Compile Include="CaudalesEcologicos\Metodos\VMF.cs" />
+    <Compile Include="CaudalesEcologicos\SerieRCE.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataBase.cs" />
+    <Compile Include="FrecuenciasRelativas.cs" />
+    <Compile Include="IAH2.cs" />
+    <Compile Include="CaudalesEcologicos\Informes\Informe1_RCE.cs" />
+    <Compile Include="IndicesHidro\Informes\Cabecera.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe1.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe10a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe10b.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe10c.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe10d.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe1a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe1aSR.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe1b.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe1bSR.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe1SR.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe2.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe2a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe3.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe3a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe3b.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe3c.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe4.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe4a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe4aSR.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe4SR.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe5.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe5a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe5aSR.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe5b.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe5bSR.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe5SR.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe6.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe6a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe6b.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe6c.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe6d.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe6e.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe7a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe7b.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe7c.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe7d.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe8.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe8a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe8b.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe8c.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe8d.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe9.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe9a.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe9b.cs" />
+    <Compile Include="SerieCaudalMensualClasificado.cs" />
+    <Compile Include="IAHRISDataSet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportController.cs" />
+    <Compile Include="Reports.cs" />
+    <Compile Include="SerieCaudalMensualCurvaClasificado.cs" />
+    <Compile Include="TestFechas.cs" />
+    <Compile Include="IndicesHidro\Informes\Informe3bSR.cs" />
+    <Compile Include="IndicesHidro\Tipologias\Tipologia.cs" />
+    <Compile Include="CaudalesEcologicos\Tipologias\TipologiaCE.cs" />
+    <Compile Include="Utiles.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataBaseUtils\DataBaseUtils.csproj">
+      <Project>{f133d485-6ce3-437b-9e52-8859af1fb259}</Project>
+      <Name>DataBaseUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MultiLangXML\MultiLangXML.csproj">
+      <Project>{f21347f3-fa96-047b-1e16-e244c449f2ad}</Project>
+      <Name>MultiLangXML</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

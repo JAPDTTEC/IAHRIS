@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="IAHRIS.Calculo.Calculations">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ERAgIIEIAYECCCYAACgAQFABABIAECKgAIAIABAAEBI=</HashCode>
+      <FileName>Calculations.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_dataSet" />
+      <Field Name="_datos" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IAHRIS.Calculo.IAHRISConstants">
+    <Position X="4" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAAAAAAEBAAABAAAEAAAAIAAYCAAAwAAgQAAAAEA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAHRIS.Calculo.IAHRISDataSet">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oQxGhmPDikGGAAISjUBAKABHJFpILEABkwNWkIMEYhE=</HashCode>
+      <FileName>IAHRISDataSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAHRIS.Calculo.ReportController">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAgAAAAACAQgAADQwgARAAgAAhAIAAAAAAg=</HashCode>
+      <FileName>ReportController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_calculations" />
+      <Field Name="_reports" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IAHRIS.Calculo.Reports">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgIAQAAKAAMAAAIAAAAAAAAQQAAAEAIh2PQLAAAAeCY=</HashCode>
+      <FileName>Reports.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_dataSet" />
+      <Field Name="_datos" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IAHRIS.Calculo.TestFechas" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAACAAABAggAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>TestFechas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAHRIS.BBDD.OleDbDataBase" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAACAgQAAQIAAAAAABAAADAAgAAABMBDAEA=</HashCode>
+      <FileName>DataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="IAHRIS.Calculo.SerieAnual" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAIAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.SerieMensual" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAQAAAAAAAAAAAAAAAgAAAAI=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.SerieDiaria" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.AportacionMensual" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.AportacionAnual" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAABAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.GraficoAlterada" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAABIAAAAAAAAIAAAAAAAAAABAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.Indices" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAABQAAACAAAAAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.DatosKS" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.DatosCalculo">
+    <Position X="9.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAAAAAIAAAIAgACAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.TablaCQC" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAACAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.TablaFrecuencias" Collapsed="true">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAACAAAAAAQAAARAAAAAQAAAAAACAAACAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IAHRIS.Calculo.TablaEstacionalidad" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAQAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="IAHRIS.Calculo.TIPOAÑO" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAACAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="IAHRIS.Calculo.STRING_MES" Collapsed="true">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAABAAACAIAEABAAAAAAAAgIAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="IAHRIS.Calculo.STRING_MES_ORD" Collapsed="true">
+    <Position X="4" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAABAAACAIAEABAAAAAAAAgIAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="IAHRIS.Calculo.STRING_MES_COMPLETO" Collapsed="true">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAAIIIAAAAAAACAAQCAAQAAAAAGAAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

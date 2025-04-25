@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MultiLangXML</name>
+    </assembly>
+    <members>
+        <member name="T:MultiLangXML.My.Resources.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:MultiLangXML.My.Resources.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:MultiLangXML.My.Resources.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="T:MultiLangXML.MultiIdiomasXML">
+            <summary>
+            Clase encargada de traducir los literales de la aplicación
+            </summary>
+        </member>
+        <member name="T:MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE">
+            <summary>
+            Enumeración con Tipos de Mensaje
+            </summary>
+        </member>
+        <member name="F:MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR">
+            <summary>
+            Mensajes de error
+            </summary>
+        </member>
+        <member name="F:MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO">
+            <summary>
+            Mensajes de informacion
+            </summary>
+        </member>
+        <member name="F:MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_OTHER">
+            <summary>
+            Nombres de informes
+            </summary>
+        </member>
+        <member name="F:MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE">
+            <summary>
+            Tabla de Informacion
+            </summary>
+        </member>
+        <member name="F:MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_MONTH">
+            <summary>
+            Nombres de meses
+            </summary>
+        </member>
+        <member name="M:MultiLangXML.MultiIdiomasXML.#ctor(System.Windows.Forms.Form@)">
+            <summary>
+            Creación de la clase
+            </summary>
+            <param name="form">Formulario a traducir</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:MultiLangXML.MultiIdiomasXML.traducirForm(System.String,System.String)">
+            <summary>
+            Traducir formulario
+            </summary>
+            <param name="rutaXML">Ruta al XML donde se encuentra la traducción</param>
+            <param name="rutaXSD">Ruta donde se encuentra el XSD de validación del XML</param>
+            <returns>Devuelve true si la traduccion ha sido correcta y false si ha habido algun error</returns>
+            <remarks>El fichero XSD no se puede modificar y esta unido a cada versión de la librería</remarks>
+        </member>
+        <member name="M:MultiLangXML.MultiIdiomasXML.traducirFormPorConf(System.String,System.String)">
+            <summary>
+            Traducir formulario
+            </summary>
+            <param name="rutaApp">Ruta a la carpeta donde se encuentra la aplicación</param>
+            <param name="rutaXML">Ruta al XML donde se encuentra la traducción</param>
+            <returns>Si todo ha ido bien</returns>
+        </member>
+        <member name="M:MultiLangXML.MultiIdiomasXML.traducirControl(System.Object,System.Xml.XPath.XPathDocument,System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Traducir un control
+            </summary>
+            <param name="ctrlObj">Control a traducir</param>
+            <param name="xmldoc">XML que se usa para traducir</param>
+            <param name="xmlnav">El navegador de XML</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:MultiLangXML.MultiIdiomasXML.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE,System.String)">
+            <summary>
+            Traducir un literal
+            </summary>
+            <param name="tipo"></param>
+            <param name="strID"></param>
+            <returns>Devuelve un string con el mensaje en el idioma que esta seleccionado</returns>
+        </member>
+        <member name="M:MultiLangXML.MultiIdiomasXML.cambiarIdioma(System.String)">
+            <summary>
+            Cambiar el idioma
+            </summary>
+            <param name="ruta">ruta del xml de la traduccion</param>
+            <returns>devuelve true si el cambio ha sido correcto y false si ha habido algun error.</returns>
+        </member>
+        <member name="P:MultiLangXML.MultiIdiomasXML.getRutaExcel">
+            <summary>
+            Obtener ruta del excel
+            </summary>
+        </member>
+    </members>
+</doc>

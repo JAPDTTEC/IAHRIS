@@ -1,0 +1,2237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <StartupObject>IAHRIS.My.MyApplication</StartupObject>
+    <RootNamespace>IAHRIS</RootNamespace>
+    <AssemblyName>IAHRIS</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>LOGO.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(ProjectDir)**\*.vb</DefaultItemExcludes>
+    <LangVersion>latest</LangVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>D:\IAHRISSetup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>IAHRIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DefineConstants>
+    </DefineConstants>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>IAHRIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F079A878403EF26275361BFB6CC8D8C84973EC4E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>AlterAmbient_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=6.2.19.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.2.19\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="gdalconst_csharp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.3.7.2\lib\netstandard2.0\gdalconst_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="gdal_csharp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.3.7.2\lib\netstandard2.0\gdal_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.5.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.Core.1.7.5\lib\net45\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI.CoordinateSystems, Version=1.7.5.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.CoordinateSystems.1.7.5\lib\net45\GeoAPI.CoordinateSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=2.1.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Core.2.1.7\lib\net472\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=2.1.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinForms.2.1.7\lib\net472\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=2.1.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinPresentation.2.1.7\lib\net472\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.2.2.0\lib\net462\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NetTopologySuite, Version=1.15.3.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.Core.1.15.3\lib\net45\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools, Version=1.13.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.2\lib\net403-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.MsSqlSpatial, Version=1.13.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.2\lib\net403-client\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.PostGis, Version=1.13.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.2\lib\net403-client\NetTopologySuite.IO.PostGis.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ogr_csharp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.3.7.2\lib\netstandard2.0\ogr_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="osr_csharp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <HintPath>..\packages\GDAL.3.7.2\lib\netstandard2.0\osr_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot, Version=2.1.2.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Core.2.1.2\lib\net45\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.WindowsForms, Version=2.1.2.0, Culture=neutral, PublicKeyToken=245eacd6b5d2d338, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.WindowsForms.2.1.2\lib\net45\OxyPlot.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.1.13.2\lib\net403-client\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="ProjNET, Version=1.4.0.0, Culture=neutral, PublicKeyToken=a1f5bdcd9c6f5740, processorArchitecture=MSIL">
+      <HintPath>..\packages\ProjNET4GeoAPI.1.4.1\lib\net45\ProjNET.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCompress, Version=0.34.2.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.34.2\lib\net462\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpMap, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpMap.1.2.0\lib\netstandard2.0\SharpMap.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpMap.UI, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpMap.UI.1.2.0\lib\net472\SharpMap.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.118.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.9.0.1\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Extensions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Resources.Extensions.4.7.0\lib\netstandard2.0\System.Resources.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.7.0.0\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XPTable, Version=1.6.1.139, Culture=neutral, PublicKeyToken=24950705800d2198, processorArchitecture=MSIL">
+      <HintPath>..\packages\XPTable.1.6.1.139\lib\net20\XPTable.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdSharp, Version=0.7.2.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.7.2\lib\net461\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Automatizacion.cs" />
+    <Compile Include="DatosSIMPA\API\MitecoAPI.cs" />
+    <Compile Include="DatosSIMPA\API\WMSProvider.cs" />
+    <Compile Include="DatosSIMPA\DTO\DatoFicheroGuia.cs" />
+    <Compile Include="DatosSIMPA\DTO\DatosSimpaDTO.cs" />
+    <Compile Include="DatosSIMPA\DTO\EstacionAforoDTO.cs" />
+    <Compile Include="DatosSIMPA\DTO\FicheroSimpaDTO.cs" />
+    <Compile Include="DatosSIMPA\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosSIMPA\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosSIMPA\FormGMaps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosSIMPA\FormGMaps.Designer.cs">
+      <DependentUpon>FormGMaps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosSIMPA\GDAL\GdalConfiguration.cs" />
+    <Compile Include="DatosSIMPA\GestorDescargas.cs" />
+    <Compile Include="DatosSIMPA\Logica\Coordenadas.cs" />
+    <Compile Include="DatosSIMPA\Logica\Descomprimir.cs" />
+    <Compile Include="DatosSIMPA\Logica\GenerarFicheroDatos.cs" />
+    <Compile Include="DatosSIMPA\MotorDatos.cs" />
+    <Compile Include="DatosSIMPA\ProgresoDatosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosSIMPA\ProgresoDatosForm.Designer.cs">
+      <DependentUpon>ProgresoDatosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosSIMPA\ProgresoDescargaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosSIMPA\ProgresoDescargaForm.Designer.cs">
+      <DependentUpon>ProgresoDescargaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosSIMPA\ProgresoDescompresionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosSIMPA\ProgresoDescompresionForm.Designer.cs">
+      <DependentUpon>ProgresoDescompresionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DibujoGraficos.cs" />
+    <Compile Include="FormAnadirEscenario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnadirEscenario.Designer.cs">
+      <DependentUpon>FormAnadirEscenario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnadirEscenarioRNORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnadirEscenarioRNORM.Designer.cs">
+      <DependentUpon>FormAnadirEscenarioRNORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditarEscenario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarEscenario.Designer.cs">
+      <DependentUpon>FormEditarEscenario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarEscenario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarEscenario.Designer.cs">
+      <DependentUpon>FormEliminarEscenario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GdalConfiguration.cs" />
+    <Compile Include="InterpretacionComandos.cs" />
+    <Compile Include="My Project\MyNamespace.Dynamic.Designer.cs" />
+    <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
+    <Compile Include="FormAcercaDe.Designer.cs">
+      <DependentUpon>FormAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnadirListas.Designer.cs">
+      <DependentUpon>FormAnadirListas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnadirListas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnadirProyecto.Designer.cs">
+      <DependentUpon>FormAnadirProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnadirProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnadirPunto.Designer.cs">
+      <DependentUpon>FormAnadirPunto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnadirPunto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBienvenida.Designer.cs">
+      <DependentUpon>FormBienvenida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBienvenida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarPunto.Designer.cs">
+      <DependentUpon>FormEliminarPunto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarPunto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarLista.Designer.cs">
+      <DependentUpon>FormEliminarLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarProyecto.Designer.cs">
+      <DependentUpon>FormEliminarProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImportar.Designer.cs">
+      <DependentUpon>FormImportar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormImportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LIB\DataBase.cs" />
+    <Compile Include="FormInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInicial.Designer.cs">
+      <DependentUpon>FormInicial.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCalculo.Designer.cs">
+      <DependentUpon>FormCalculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCalculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD\RellenarForm.cs" />
+    <Compile Include="MOD\TestFechas.cs" />
+    <Compile Include="My Project\AssemblyInfo.cs" />
+    <Compile Include="My Project\Application.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DatosSIMPA\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatosSIMPA\FormGMaps.resx">
+      <DependentUpon>FormGMaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatosSIMPA\ProgresoDatosForm.resx">
+      <DependentUpon>ProgresoDatosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatosSIMPA\ProgresoDescargaForm.resx">
+      <DependentUpon>ProgresoDescargaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatosSIMPA\ProgresoDescompresionForm.resx">
+      <DependentUpon>ProgresoDescompresionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAcercaDe.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnadirEscenario.resx">
+      <DependentUpon>FormAnadirEscenario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnadirEscenarioRNORM.resx">
+      <DependentUpon>FormAnadirEscenarioRNORM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnadirListas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAnadirListas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnadirProyecto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAnadirProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnadirPunto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAnadirPunto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBienvenida.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarEscenario.resx">
+      <DependentUpon>FormEditarEscenario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarEscenario.resx">
+      <DependentUpon>FormEliminarEscenario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarPunto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEliminarPunto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarLista.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEliminarLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarProyecto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEliminarProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormImportar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInicial.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCalculo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCalculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>IAHRIS.My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AlterAmbient_TemporaryKey.pfx" />
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <Content Include="gdal\curl-ca-bundle.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\cubewerx_extra.wkt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\default.rsc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ecw_cs.wkt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\eedaconf.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\epsg.wkt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\esri_StatePlane_extra.wkt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gdalinfo_output.schema.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gdalmdiminfo_output.schema.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gdalvrt.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gfs.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gmlasconf.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gml_registry.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_center.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_process.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_subcenter.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_0.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_13.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_14.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_15.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_16.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_17.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_18.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_19.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_190.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_191.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_2.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_20.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_21.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_3.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_4.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_5.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_6.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_0_7.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_10_0.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_10_1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_10_191.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_10_2.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_10_3.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_10_4.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_1_0.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_1_1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_1_2.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_20_0.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_20_1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_20_2.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_2_0.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_2_3.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_2_4.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_2_5.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_2_6.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_3_0.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_3_1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_3_2.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_3_3.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_3_4.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_3_5.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_3_6.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_0.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_10.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_2.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_3.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_4.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_5.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_6.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_7.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_8.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_4_9.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_local_Canada.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_local_HPC.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_local_index.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_local_MRMS.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_local_NCEP.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_2_local_NDFD.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_4_5.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\grib2_table_versions.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gt_datum.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gt_ellips.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\header.dxf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\inspire_cp_BasicPropertyUnit.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\inspire_cp_CadastralBoundary.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\inspire_cp_CadastralParcel.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\inspire_cp_CadastralZoning.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_AdmArea.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_AdmBdry.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_AdmPt.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_BldA.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_BldL.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_Cntr.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_CommBdry.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_CommPt.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_Cstline.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_ElevPt.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_GCP.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_LeveeEdge.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_RailCL.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_RdArea.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_RdASL.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_RdCompt.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_RdEdg.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_RdMgtBdry.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_RdSgmtA.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_RvrMgtBdry.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_SBAPt.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_SBArea.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_SBBdry.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_WA.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_WL.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_WStrA.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\jpfgdgml_WStrL.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\netcdf_config.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\nitf_spec.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ogrinfo_output.schema.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ogrvrt.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\osmconf.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ozi_datum.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ozi_ellips.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\pdfcomposition.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\plscenesconf.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ruian_vf_ob_v1.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ruian_vf_st_uvoh_v1.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ruian_vf_st_v1.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\ruian_vf_v1.gfs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\s57agencies.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\s57attributes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\s57expectedinput.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\s57objectclasses.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\seed_2d.dgn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\seed_3d.dgn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\stateplane.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\template_tiles.mapml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\tms_LINZAntarticaMapTileGrid.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\tms_MapML_APSTILE.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\tms_MapML_CBMTILE.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\tms_NZTM2000.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\trailer.dxf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\vdv452.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\vicar.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\GDALLicense.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\GISInternalsLicense.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\CH">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\deformation_model.schema.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\GL27">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\ITRF2000">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\ITRF2008">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\ITRF2014">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\nad27">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\nad83">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\other.extra">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\proj.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\proj.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\projjson.schema.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\triangulation.schema.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\world">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>IAHRIS.My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gdal\data\bag_template.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gdalicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\GDALLogoBW.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\GDALLogoColor.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\GDALLogoGS.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gmlasconf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\gml_registry.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\LICENSE.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\nitf_spec.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\pci_datum.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\pci_ellips.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\pds4_template.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\data\vdv452.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\license.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\share\nad.lst">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\adrg.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\concrt140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\freexl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\gdal.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\gdalconst_wrap.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\gdal_wrap.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\geos.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\geos_c.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\iconv-2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\libcrypto-1_1-x64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\libcurl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\libexpat.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\libmysql.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\libpng16.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\libpq.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\librttopo.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\libssl-1_1-x64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\libxml2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\msvcp140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\msvcp140_1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\msvcp140_2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\ogdi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\ogr_wrap.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\openjp2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\osr_wrap.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\pcre.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\proj_9_1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\remote.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\rpf.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\skeleton.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\spatialite.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\sqlite3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\tiff.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\tiffxx.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\vcruntime140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\vcruntime140_1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\vrf.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\xerces-c_3_2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\zlib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x64\zstd.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\adrg.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\concrt140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\freexl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\gdal.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\gdalconst_wrap.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\gdal_wrap.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\geos.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\geos_c.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\iconv-2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\libcrypto-1_1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\libcurl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\libexpat.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\libmysql.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\libpng16.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\libpq.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\librttopo.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\libssl-1_1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\libxml2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\msvcp140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\msvcp140_1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\msvcp140_2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\ogdi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\ogr_wrap.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\openjp2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\osr_wrap.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\pcre.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\proj_9_1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\remote.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\rpf.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\skeleton.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\spatialite.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\sqlite3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\tiff.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\tiffxx.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\vcruntime140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\vrf.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\xerces-c_3_2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\zlib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gdal\x86\zstd.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\FicheroModelo_Castellano.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\FicheroModelo_RCE_Castellano.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\LOGO.png" />
+    <None Include="Resources\LOGO.ico" />
+    <None Include="Resources\iconoacceso.png" />
+    <None Include="Resources\chorreras 021.jpg" />
+    <None Include="Resources\SIGLAS-INGLES.png" />
+    <None Include="Resources\SIGLAS.png" />
+    <None Include="Resources\Logo MITECO.png" />
+    <None Include="Resources\IAHRIS-TITULO.png" />
+    <None Include="Resources\LOGOTIPO-UPM.png" />
+    <None Include="packages.config" />
+    <None Include="Report\FicheroModelo_Castellano_v2.3.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="DatosSIMPA\Datos\EstacionesHidrograficas.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\calculator.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\check.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\connect.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\connect_bw.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\execute.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\group-layer.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\hide.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-db-schema.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-hide.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-opacity-decrease.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-opacity-increase.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-postgis.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-raster.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-show.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-spatialite.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-wfs.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\layer-wms.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\line-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\line-layer.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\module-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\no-paint.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\no-wait.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\paint.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\point-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\point-layer.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\polygon-layer.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\projection-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\python-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\raster-info.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\raster-overview.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\raster-pyramids.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\rectangle-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\show.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\table-layer.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\16x16\wait.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\24-to-8-bits.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-fringe.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-help.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-light.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-raster.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-rotate.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-settings.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-vector.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-view.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\3d-volume.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\8-to-24-bits.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\angle-measure.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\annotation-form.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\annotation-move.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\annotation-text.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\annotation.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\area-measure.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\boundary-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\boundary-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\boundary-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\boundary-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\boundary-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\boundary.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\calculator.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\centroid-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\centroid-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\centroid-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\centroid-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\centroid-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\centroid.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\check.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\circle-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\circle-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\circle-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\circle-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\circle-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\class-super.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\command-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\crs-change.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\data-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\dem.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\edit-copy.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\edit-cut.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\edit-paste.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\execute.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\exit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\file-merge.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\flythrough.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp-move.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp-open.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp-rms.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp-save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\gcp.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\georectify.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\google-map.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\grass-tools.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\graticule.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\group.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\help.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\hide.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\histogram-equalize-max.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\histogram-equalize.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\image-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\image-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\image-load.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\island-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\island-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\island.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\label-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\label-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\label-move.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\label-rotate.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\label.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-bottom.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-db-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-db-sql-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-db-sql-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-db-sql-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-db-sql-import.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-db-sql-open.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-db-sql-save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-db.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-down.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-gps.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-hide.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-import.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-info.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-more.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-opacity-decrease.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-opacity-increase.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-opacity.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-open.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-ows.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-raster-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-raster-analyze.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-raster-histogram.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-raster-more.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-raster-profile.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-raster-scatterplot.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-raster.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-raster3d-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-show.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-sqlite-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-top.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-up.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-vector-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-vector-chart-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-vector-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-vector-more.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-vector-selected-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-vector-thematic-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-vector.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wcs-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wcs.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wfs-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wfs.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wms-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wms-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wms-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wms-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer-wps-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layers-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\layer_to_preview_add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\legend-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\length-measure.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\line-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\line-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\line-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\line-move.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\line-polygon-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\line-split.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\line.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\locked.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\loop-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-extent-info.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-import.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-info.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-open.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-redraw.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map-settings.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\map.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapserver-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-import.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-open.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset-save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\mapset.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\measure.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\merge.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\modeler-main.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\modeler-variables.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\module-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\monitor-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\monitor-erase.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\monitor.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\move.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\north-arrow-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\north-arrow.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\open-street-maps.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\open-trad.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\options.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\order-higher.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\order-lower.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\order-to-back.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\order-to-front.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\overlay-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ows.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\page-info.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\page-settings.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\page.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pan-selection.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pan.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pdf-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pgversion-commit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pgversion-diff.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pgversion-drop.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pgversion-help.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pgversion-init.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pgversion-load.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pgversion-log.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pgversion-revert.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\point-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\point.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pointer-info.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\pointer.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon-change.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon-db-extract.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon-merge.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon-move.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon-split.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygon.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\polygons-from-raster.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\print-compose.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\print-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\print.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\processing.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\projection-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\projection-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\projection.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ps-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ps-load.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ps-save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ps-script.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ps.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\python-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\query-spatial-vector.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\quit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\raster-calculator.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\raster-clip.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\raster-info.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\raster-interpolate.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\raster-overview.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\raster-pyramids.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\raster-stats.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\rectangle-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\rectangle-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\rectangle-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\rectangle-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\rectangle-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\redo.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\redraw.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\region.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\regression.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\relation-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\reload.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ring-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ring-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ring.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\saga.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\save-as-trad.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\save-as.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\save-edits-trad.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\save-trad.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\scale-bar.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\script-load.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\script-save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\script.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\search.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\select-cancel.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\select-freehand.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\select-one.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\select-polygon.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\select-radius.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\select-rectangle.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\select.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\selected-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\selected-rows-move-top.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\selection-invert.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\settings.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\shape.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\shortest-distance.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\show.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\split.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\square-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\square-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\square-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\square-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\square-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\stats.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\svg-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\table-field-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\table-field-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\table-manager.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\table.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\text-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\tiles.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\tips.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\tools.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\touch.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\undo.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\ungroup.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\unlocked.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\unselect.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vector-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vector-edit.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vector-save.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vector-tools.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vertex-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vertex-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vertex-move.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vertex-tools.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\vertex.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\view-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\view.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\VRT.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\wps-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\wps.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-1to1.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-extent.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-in.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-last.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-layer.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-more.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-next.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-out.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-point.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-refresh.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-region.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-selection.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\24x24\zoom-touch.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\angle-measure.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\area-measure.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\calculator.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\check.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\color.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\command-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\data-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\data-select.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-connect-schema.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-connect.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-copy.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-execute.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-import.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-login.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\db.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\execute.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\hide.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-hide.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-opacity-decrease.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-opacity-increase.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-point-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-point-grass.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-raster-grass.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-raster.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-show.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-vector-connect.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-vector-disconnect.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-vector-grass.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\layer-vector.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\length-measure.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\mapserver-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\measure.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\module-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\point-grass.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\projection-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\python-export.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\raster-grass.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\raster-info.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\raster-overview.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\raster-pyramids.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\raster.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\relation-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\show.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\style-line.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\style-point.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\style-polygon.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table-field-add.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table-field-create.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table-field-delete.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table-field-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table-remove.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\table.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\vector-grass.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\32x32\vector.png" />
+    <Content Include="DatosSIMPA\Forms\Icons\ReadMe.txt" />
+    <Content Include="Forms\Icons\16x16\calculator.png" />
+    <Content Include="Forms\Icons\16x16\check.png" />
+    <Content Include="Forms\Icons\16x16\connect.png" />
+    <Content Include="Forms\Icons\16x16\connect_bw.png" />
+    <Content Include="Forms\Icons\16x16\execute.png" />
+    <Content Include="Forms\Icons\16x16\group-layer.png" />
+    <Content Include="Forms\Icons\16x16\hide.png" />
+    <Content Include="Forms\Icons\16x16\layer-db-schema.png" />
+    <Content Include="Forms\Icons\16x16\layer-hide.png" />
+    <Content Include="Forms\Icons\16x16\layer-opacity-decrease.png" />
+    <Content Include="Forms\Icons\16x16\layer-opacity-increase.png" />
+    <Content Include="Forms\Icons\16x16\layer-postgis.png" />
+    <Content Include="Forms\Icons\16x16\layer-raster.png" />
+    <Content Include="Forms\Icons\16x16\layer-show.png" />
+    <Content Include="Forms\Icons\16x16\layer-spatialite.png" />
+    <Content Include="Forms\Icons\16x16\layer-wfs.png" />
+    <Content Include="Forms\Icons\16x16\layer-wms.png" />
+    <Content Include="Forms\Icons\16x16\line-add.png" />
+    <Content Include="Forms\Icons\16x16\line-layer.png" />
+    <Content Include="Forms\Icons\16x16\module-add.png" />
+    <Content Include="Forms\Icons\16x16\no-paint.png" />
+    <Content Include="Forms\Icons\16x16\no-wait.png" />
+    <Content Include="Forms\Icons\16x16\paint.png" />
+    <Content Include="Forms\Icons\16x16\point-add.png" />
+    <Content Include="Forms\Icons\16x16\point-layer.png" />
+    <Content Include="Forms\Icons\16x16\polygon-layer.png" />
+    <Content Include="Forms\Icons\16x16\projection-add.png" />
+    <Content Include="Forms\Icons\16x16\python-export.png" />
+    <Content Include="Forms\Icons\16x16\raster-info.png" />
+    <Content Include="Forms\Icons\16x16\raster-overview.png" />
+    <Content Include="Forms\Icons\16x16\raster-pyramids.png" />
+    <Content Include="Forms\Icons\16x16\rectangle-add.png" />
+    <Content Include="Forms\Icons\16x16\show.png" />
+    <Content Include="Forms\Icons\16x16\table-layer.png" />
+    <Content Include="Forms\Icons\16x16\wait.png" />
+    <Content Include="Forms\Icons\24x24\24-to-8-bits.png" />
+    <Content Include="Forms\Icons\24x24\3d-fringe.png" />
+    <Content Include="Forms\Icons\24x24\3d-help.png" />
+    <Content Include="Forms\Icons\24x24\3d-light.png" />
+    <Content Include="Forms\Icons\24x24\3d-raster.png" />
+    <Content Include="Forms\Icons\24x24\3d-rotate.png" />
+    <Content Include="Forms\Icons\24x24\3d-settings.png" />
+    <Content Include="Forms\Icons\24x24\3d-vector.png" />
+    <Content Include="Forms\Icons\24x24\3d-view.png" />
+    <Content Include="Forms\Icons\24x24\3d-volume.png" />
+    <Content Include="Forms\Icons\24x24\8-to-24-bits.png" />
+    <Content Include="Forms\Icons\24x24\angle-measure.png" />
+    <Content Include="Forms\Icons\24x24\annotation-form.png" />
+    <Content Include="Forms\Icons\24x24\annotation-move.png" />
+    <Content Include="Forms\Icons\24x24\annotation-text.png" />
+    <Content Include="Forms\Icons\24x24\annotation.png" />
+    <Content Include="Forms\Icons\24x24\area-measure.png" />
+    <Content Include="Forms\Icons\24x24\boundary-add.png" />
+    <Content Include="Forms\Icons\24x24\boundary-create.png" />
+    <Content Include="Forms\Icons\24x24\boundary-delete.png" />
+    <Content Include="Forms\Icons\24x24\boundary-edit.png" />
+    <Content Include="Forms\Icons\24x24\boundary-remove.png" />
+    <Content Include="Forms\Icons\24x24\boundary.png" />
+    <Content Include="Forms\Icons\24x24\calculator.png" />
+    <Content Include="Forms\Icons\24x24\centroid-add.png" />
+    <Content Include="Forms\Icons\24x24\centroid-create.png" />
+    <Content Include="Forms\Icons\24x24\centroid-delete.png" />
+    <Content Include="Forms\Icons\24x24\centroid-edit.png" />
+    <Content Include="Forms\Icons\24x24\centroid-remove.png" />
+    <Content Include="Forms\Icons\24x24\centroid.png" />
+    <Content Include="Forms\Icons\24x24\check.png" />
+    <Content Include="Forms\Icons\24x24\circle-add.png" />
+    <Content Include="Forms\Icons\24x24\circle-create.png" />
+    <Content Include="Forms\Icons\24x24\circle-delete.png" />
+    <Content Include="Forms\Icons\24x24\circle-edit.png" />
+    <Content Include="Forms\Icons\24x24\circle-remove.png" />
+    <Content Include="Forms\Icons\24x24\class-super.png" />
+    <Content Include="Forms\Icons\24x24\command-add.png" />
+    <Content Include="Forms\Icons\24x24\create.png" />
+    <Content Include="Forms\Icons\24x24\crs-change.png" />
+    <Content Include="Forms\Icons\24x24\data-add.png" />
+    <Content Include="Forms\Icons\24x24\dem.png" />
+    <Content Include="Forms\Icons\24x24\edit-copy.png" />
+    <Content Include="Forms\Icons\24x24\edit-cut.png" />
+    <Content Include="Forms\Icons\24x24\edit-paste.png" />
+    <Content Include="Forms\Icons\24x24\edit.png" />
+    <Content Include="Forms\Icons\24x24\execute.png" />
+    <Content Include="Forms\Icons\24x24\exit.png" />
+    <Content Include="Forms\Icons\24x24\file-merge.png" />
+    <Content Include="Forms\Icons\24x24\flythrough.png" />
+    <Content Include="Forms\Icons\24x24\gcp-add.png" />
+    <Content Include="Forms\Icons\24x24\gcp-create.png" />
+    <Content Include="Forms\Icons\24x24\gcp-delete.png" />
+    <Content Include="Forms\Icons\24x24\gcp-move.png" />
+    <Content Include="Forms\Icons\24x24\gcp-open.png" />
+    <Content Include="Forms\Icons\24x24\gcp-remove.png" />
+    <Content Include="Forms\Icons\24x24\gcp-rms.png" />
+    <Content Include="Forms\Icons\24x24\gcp-save.png" />
+    <Content Include="Forms\Icons\24x24\gcp.png" />
+    <Content Include="Forms\Icons\24x24\georectify.png" />
+    <Content Include="Forms\Icons\24x24\google-map.png" />
+    <Content Include="Forms\Icons\24x24\grass-tools.png" />
+    <Content Include="Forms\Icons\24x24\graticule.png" />
+    <Content Include="Forms\Icons\24x24\group.png" />
+    <Content Include="Forms\Icons\24x24\help.png" />
+    <Content Include="Forms\Icons\24x24\hide.png" />
+    <Content Include="Forms\Icons\24x24\histogram-equalize-max.png" />
+    <Content Include="Forms\Icons\24x24\histogram-equalize.png" />
+    <Content Include="Forms\Icons\24x24\image-add.png" />
+    <Content Include="Forms\Icons\24x24\image-export.png" />
+    <Content Include="Forms\Icons\24x24\image-load.png" />
+    <Content Include="Forms\Icons\24x24\island-add.png" />
+    <Content Include="Forms\Icons\24x24\island-delete.png" />
+    <Content Include="Forms\Icons\24x24\island.png" />
+    <Content Include="Forms\Icons\24x24\label-add.png" />
+    <Content Include="Forms\Icons\24x24\label-edit.png" />
+    <Content Include="Forms\Icons\24x24\label-move.png" />
+    <Content Include="Forms\Icons\24x24\label-rotate.png" />
+    <Content Include="Forms\Icons\24x24\label.png" />
+    <Content Include="Forms\Icons\24x24\layer-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-bottom.png" />
+    <Content Include="Forms\Icons\24x24\layer-create.png" />
+    <Content Include="Forms\Icons\24x24\layer-db-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-db-sql-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-db-sql-create.png" />
+    <Content Include="Forms\Icons\24x24\layer-db-sql-export.png" />
+    <Content Include="Forms\Icons\24x24\layer-db-sql-import.png" />
+    <Content Include="Forms\Icons\24x24\layer-db-sql-open.png" />
+    <Content Include="Forms\Icons\24x24\layer-db-sql-save.png" />
+    <Content Include="Forms\Icons\24x24\layer-db.png" />
+    <Content Include="Forms\Icons\24x24\layer-delete.png" />
+    <Content Include="Forms\Icons\24x24\layer-down.png" />
+    <Content Include="Forms\Icons\24x24\layer-edit.png" />
+    <Content Include="Forms\Icons\24x24\layer-export.png" />
+    <Content Include="Forms\Icons\24x24\layer-gps.png" />
+    <Content Include="Forms\Icons\24x24\layer-hide.png" />
+    <Content Include="Forms\Icons\24x24\layer-import.png" />
+    <Content Include="Forms\Icons\24x24\layer-info.png" />
+    <Content Include="Forms\Icons\24x24\layer-more.png" />
+    <Content Include="Forms\Icons\24x24\layer-opacity-decrease.png" />
+    <Content Include="Forms\Icons\24x24\layer-opacity-increase.png" />
+    <Content Include="Forms\Icons\24x24\layer-opacity.png" />
+    <Content Include="Forms\Icons\24x24\layer-open.png" />
+    <Content Include="Forms\Icons\24x24\layer-ows.png" />
+    <Content Include="Forms\Icons\24x24\layer-raster-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-raster-analyze.png" />
+    <Content Include="Forms\Icons\24x24\layer-raster-histogram.png" />
+    <Content Include="Forms\Icons\24x24\layer-raster-more.png" />
+    <Content Include="Forms\Icons\24x24\layer-raster-profile.png" />
+    <Content Include="Forms\Icons\24x24\layer-raster-scatterplot.png" />
+    <Content Include="Forms\Icons\24x24\layer-raster.png" />
+    <Content Include="Forms\Icons\24x24\layer-raster3d-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-remove.png" />
+    <Content Include="Forms\Icons\24x24\layer-save.png" />
+    <Content Include="Forms\Icons\24x24\layer-show.png" />
+    <Content Include="Forms\Icons\24x24\layer-sqlite-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-top.png" />
+    <Content Include="Forms\Icons\24x24\layer-up.png" />
+    <Content Include="Forms\Icons\24x24\layer-vector-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-vector-chart-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-vector-create.png" />
+    <Content Include="Forms\Icons\24x24\layer-vector-more.png" />
+    <Content Include="Forms\Icons\24x24\layer-vector-selected-create.png" />
+    <Content Include="Forms\Icons\24x24\layer-vector-thematic-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-vector.png" />
+    <Content Include="Forms\Icons\24x24\layer-wcs-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-wcs.png" />
+    <Content Include="Forms\Icons\24x24\layer-wfs-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-wfs.png" />
+    <Content Include="Forms\Icons\24x24\layer-wms-add.png" />
+    <Content Include="Forms\Icons\24x24\layer-wms-create.png" />
+    <Content Include="Forms\Icons\24x24\layer-wms-edit.png" />
+    <Content Include="Forms\Icons\24x24\layer-wms-remove.png" />
+    <Content Include="Forms\Icons\24x24\layer-wps-add.png" />
+    <Content Include="Forms\Icons\24x24\layer.png" />
+    <Content Include="Forms\Icons\24x24\layers-remove.png" />
+    <Content Include="Forms\Icons\24x24\layer_to_preview_add.png" />
+    <Content Include="Forms\Icons\24x24\legend-add.png" />
+    <Content Include="Forms\Icons\24x24\length-measure.png" />
+    <Content Include="Forms\Icons\24x24\line-create.png" />
+    <Content Include="Forms\Icons\24x24\line-delete.png" />
+    <Content Include="Forms\Icons\24x24\line-edit.png" />
+    <Content Include="Forms\Icons\24x24\line-move.png" />
+    <Content Include="Forms\Icons\24x24\line-polygon-edit.png" />
+    <Content Include="Forms\Icons\24x24\line-split.png" />
+    <Content Include="Forms\Icons\24x24\line.png" />
+    <Content Include="Forms\Icons\24x24\locked.png" />
+    <Content Include="Forms\Icons\24x24\loop-add.png" />
+    <Content Include="Forms\Icons\24x24\map-add.png" />
+    <Content Include="Forms\Icons\24x24\map-create.png" />
+    <Content Include="Forms\Icons\24x24\map-delete.png" />
+    <Content Include="Forms\Icons\24x24\map-edit.png" />
+    <Content Include="Forms\Icons\24x24\map-export.png" />
+    <Content Include="Forms\Icons\24x24\map-extent-info.png" />
+    <Content Include="Forms\Icons\24x24\map-import.png" />
+    <Content Include="Forms\Icons\24x24\map-info.png" />
+    <Content Include="Forms\Icons\24x24\map-open.png" />
+    <Content Include="Forms\Icons\24x24\map-redraw.png" />
+    <Content Include="Forms\Icons\24x24\map-remove.png" />
+    <Content Include="Forms\Icons\24x24\map-save.png" />
+    <Content Include="Forms\Icons\24x24\map-settings.png" />
+    <Content Include="Forms\Icons\24x24\map.png" />
+    <Content Include="Forms\Icons\24x24\mapserver-export.png" />
+    <Content Include="Forms\Icons\24x24\mapset-add.png" />
+    <Content Include="Forms\Icons\24x24\mapset-create.png" />
+    <Content Include="Forms\Icons\24x24\mapset-delete.png" />
+    <Content Include="Forms\Icons\24x24\mapset-edit.png" />
+    <Content Include="Forms\Icons\24x24\mapset-export.png" />
+    <Content Include="Forms\Icons\24x24\mapset-import.png" />
+    <Content Include="Forms\Icons\24x24\mapset-open.png" />
+    <Content Include="Forms\Icons\24x24\mapset-remove.png" />
+    <Content Include="Forms\Icons\24x24\mapset-save.png" />
+    <Content Include="Forms\Icons\24x24\mapset.png" />
+    <Content Include="Forms\Icons\24x24\measure.png" />
+    <Content Include="Forms\Icons\24x24\merge.png" />
+    <Content Include="Forms\Icons\24x24\modeler-main.png" />
+    <Content Include="Forms\Icons\24x24\modeler-variables.png" />
+    <Content Include="Forms\Icons\24x24\module-add.png" />
+    <Content Include="Forms\Icons\24x24\monitor-create.png" />
+    <Content Include="Forms\Icons\24x24\monitor-erase.png" />
+    <Content Include="Forms\Icons\24x24\monitor.png" />
+    <Content Include="Forms\Icons\24x24\move.png" />
+    <Content Include="Forms\Icons\24x24\north-arrow-add.png" />
+    <Content Include="Forms\Icons\24x24\north-arrow.png" />
+    <Content Include="Forms\Icons\24x24\open-street-maps.png" />
+    <Content Include="Forms\Icons\24x24\open-trad.png" />
+    <Content Include="Forms\Icons\24x24\options.png" />
+    <Content Include="Forms\Icons\24x24\order-higher.png" />
+    <Content Include="Forms\Icons\24x24\order-lower.png" />
+    <Content Include="Forms\Icons\24x24\order-to-back.png" />
+    <Content Include="Forms\Icons\24x24\order-to-front.png" />
+    <Content Include="Forms\Icons\24x24\overlay-add.png" />
+    <Content Include="Forms\Icons\24x24\ows.png" />
+    <Content Include="Forms\Icons\24x24\page-info.png" />
+    <Content Include="Forms\Icons\24x24\page-settings.png" />
+    <Content Include="Forms\Icons\24x24\page.png" />
+    <Content Include="Forms\Icons\24x24\pan-selection.png" />
+    <Content Include="Forms\Icons\24x24\pan.png" />
+    <Content Include="Forms\Icons\24x24\pdf-export.png" />
+    <Content Include="Forms\Icons\24x24\pgversion-commit.png" />
+    <Content Include="Forms\Icons\24x24\pgversion-diff.png" />
+    <Content Include="Forms\Icons\24x24\pgversion-drop.png" />
+    <Content Include="Forms\Icons\24x24\pgversion-help.png" />
+    <Content Include="Forms\Icons\24x24\pgversion-init.png" />
+    <Content Include="Forms\Icons\24x24\pgversion-load.png" />
+    <Content Include="Forms\Icons\24x24\pgversion-log.png" />
+    <Content Include="Forms\Icons\24x24\pgversion-revert.png" />
+    <Content Include="Forms\Icons\24x24\point-create.png" />
+    <Content Include="Forms\Icons\24x24\point.png" />
+    <Content Include="Forms\Icons\24x24\pointer-info.png" />
+    <Content Include="Forms\Icons\24x24\pointer.png" />
+    <Content Include="Forms\Icons\24x24\polygon-change.png" />
+    <Content Include="Forms\Icons\24x24\polygon-create.png" />
+    <Content Include="Forms\Icons\24x24\polygon-db-extract.png" />
+    <Content Include="Forms\Icons\24x24\polygon-delete.png" />
+    <Content Include="Forms\Icons\24x24\polygon-edit.png" />
+    <Content Include="Forms\Icons\24x24\polygon-merge.png" />
+    <Content Include="Forms\Icons\24x24\polygon-move.png" />
+    <Content Include="Forms\Icons\24x24\polygon-split.png" />
+    <Content Include="Forms\Icons\24x24\polygon.png" />
+    <Content Include="Forms\Icons\24x24\polygons-from-raster.png" />
+    <Content Include="Forms\Icons\24x24\print-compose.png" />
+    <Content Include="Forms\Icons\24x24\print-create.png" />
+    <Content Include="Forms\Icons\24x24\print.png" />
+    <Content Include="Forms\Icons\24x24\processing.png" />
+    <Content Include="Forms\Icons\24x24\projection-add.png" />
+    <Content Include="Forms\Icons\24x24\projection-export.png" />
+    <Content Include="Forms\Icons\24x24\projection.png" />
+    <Content Include="Forms\Icons\24x24\ps-export.png" />
+    <Content Include="Forms\Icons\24x24\ps-load.png" />
+    <Content Include="Forms\Icons\24x24\ps-save.png" />
+    <Content Include="Forms\Icons\24x24\ps-script.png" />
+    <Content Include="Forms\Icons\24x24\ps.png" />
+    <Content Include="Forms\Icons\24x24\python-export.png" />
+    <Content Include="Forms\Icons\24x24\query-spatial-vector.png" />
+    <Content Include="Forms\Icons\24x24\quit.png" />
+    <Content Include="Forms\Icons\24x24\raster-calculator.png" />
+    <Content Include="Forms\Icons\24x24\raster-clip.png" />
+    <Content Include="Forms\Icons\24x24\raster-info.png" />
+    <Content Include="Forms\Icons\24x24\raster-interpolate.png" />
+    <Content Include="Forms\Icons\24x24\raster-overview.png" />
+    <Content Include="Forms\Icons\24x24\raster-pyramids.png" />
+    <Content Include="Forms\Icons\24x24\raster-stats.png" />
+    <Content Include="Forms\Icons\24x24\rectangle-add.png" />
+    <Content Include="Forms\Icons\24x24\rectangle-create.png" />
+    <Content Include="Forms\Icons\24x24\rectangle-delete.png" />
+    <Content Include="Forms\Icons\24x24\rectangle-edit.png" />
+    <Content Include="Forms\Icons\24x24\rectangle-remove.png" />
+    <Content Include="Forms\Icons\24x24\redo.png" />
+    <Content Include="Forms\Icons\24x24\redraw.png" />
+    <Content Include="Forms\Icons\24x24\region.png" />
+    <Content Include="Forms\Icons\24x24\regression.png" />
+    <Content Include="Forms\Icons\24x24\relation-create.png" />
+    <Content Include="Forms\Icons\24x24\reload.png" />
+    <Content Include="Forms\Icons\24x24\ring-add.png" />
+    <Content Include="Forms\Icons\24x24\ring-delete.png" />
+    <Content Include="Forms\Icons\24x24\ring.png" />
+    <Content Include="Forms\Icons\24x24\saga.png" />
+    <Content Include="Forms\Icons\24x24\save-as-trad.png" />
+    <Content Include="Forms\Icons\24x24\save-as.png" />
+    <Content Include="Forms\Icons\24x24\save-edits-trad.png" />
+    <Content Include="Forms\Icons\24x24\save-trad.png" />
+    <Content Include="Forms\Icons\24x24\save.png" />
+    <Content Include="Forms\Icons\24x24\scale-bar.png" />
+    <Content Include="Forms\Icons\24x24\script-load.png" />
+    <Content Include="Forms\Icons\24x24\script-save.png" />
+    <Content Include="Forms\Icons\24x24\script.png" />
+    <Content Include="Forms\Icons\24x24\search.png" />
+    <Content Include="Forms\Icons\24x24\select-cancel.png" />
+    <Content Include="Forms\Icons\24x24\select-freehand.png" />
+    <Content Include="Forms\Icons\24x24\select-one.png" />
+    <Content Include="Forms\Icons\24x24\select-polygon.png" />
+    <Content Include="Forms\Icons\24x24\select-radius.png" />
+    <Content Include="Forms\Icons\24x24\select-rectangle.png" />
+    <Content Include="Forms\Icons\24x24\select.png" />
+    <Content Include="Forms\Icons\24x24\selected-delete.png" />
+    <Content Include="Forms\Icons\24x24\selected-rows-move-top.png" />
+    <Content Include="Forms\Icons\24x24\selection-invert.png" />
+    <Content Include="Forms\Icons\24x24\settings.png" />
+    <Content Include="Forms\Icons\24x24\shape.png" />
+    <Content Include="Forms\Icons\24x24\shortest-distance.png" />
+    <Content Include="Forms\Icons\24x24\show.png" />
+    <Content Include="Forms\Icons\24x24\split.png" />
+    <Content Include="Forms\Icons\24x24\square-add.png" />
+    <Content Include="Forms\Icons\24x24\square-create.png" />
+    <Content Include="Forms\Icons\24x24\square-delete.png" />
+    <Content Include="Forms\Icons\24x24\square-edit.png" />
+    <Content Include="Forms\Icons\24x24\square-remove.png" />
+    <Content Include="Forms\Icons\24x24\stats.png" />
+    <Content Include="Forms\Icons\24x24\svg-export.png" />
+    <Content Include="Forms\Icons\24x24\table-field-create.png" />
+    <Content Include="Forms\Icons\24x24\table-field-delete.png" />
+    <Content Include="Forms\Icons\24x24\table-manager.png" />
+    <Content Include="Forms\Icons\24x24\table.png" />
+    <Content Include="Forms\Icons\24x24\text-add.png" />
+    <Content Include="Forms\Icons\24x24\tiles.png" />
+    <Content Include="Forms\Icons\24x24\tips.png" />
+    <Content Include="Forms\Icons\24x24\tools.png" />
+    <Content Include="Forms\Icons\24x24\touch.png" />
+    <Content Include="Forms\Icons\24x24\undo.png" />
+    <Content Include="Forms\Icons\24x24\ungroup.png" />
+    <Content Include="Forms\Icons\24x24\unlocked.png" />
+    <Content Include="Forms\Icons\24x24\unselect.png" />
+    <Content Include="Forms\Icons\24x24\vector-create.png" />
+    <Content Include="Forms\Icons\24x24\vector-edit.png" />
+    <Content Include="Forms\Icons\24x24\vector-save.png" />
+    <Content Include="Forms\Icons\24x24\vector-tools.png" />
+    <Content Include="Forms\Icons\24x24\vertex-create.png" />
+    <Content Include="Forms\Icons\24x24\vertex-delete.png" />
+    <Content Include="Forms\Icons\24x24\vertex-move.png" />
+    <Content Include="Forms\Icons\24x24\vertex-tools.png" />
+    <Content Include="Forms\Icons\24x24\vertex.png" />
+    <Content Include="Forms\Icons\24x24\view-create.png" />
+    <Content Include="Forms\Icons\24x24\view.png" />
+    <Content Include="Forms\Icons\24x24\VRT.png" />
+    <Content Include="Forms\Icons\24x24\wps-add.png" />
+    <Content Include="Forms\Icons\24x24\wps.png" />
+    <Content Include="Forms\Icons\24x24\zoom-1to1.png" />
+    <Content Include="Forms\Icons\24x24\zoom-extent.png" />
+    <Content Include="Forms\Icons\24x24\zoom-in.png" />
+    <Content Include="Forms\Icons\24x24\zoom-last.png" />
+    <Content Include="Forms\Icons\24x24\zoom-layer.png" />
+    <Content Include="Forms\Icons\24x24\zoom-more.png" />
+    <Content Include="Forms\Icons\24x24\zoom-next.png" />
+    <Content Include="Forms\Icons\24x24\zoom-out.png" />
+    <Content Include="Forms\Icons\24x24\zoom-point.png" />
+    <Content Include="Forms\Icons\24x24\zoom-refresh.png" />
+    <Content Include="Forms\Icons\24x24\zoom-region.png" />
+    <Content Include="Forms\Icons\24x24\zoom-selection.png" />
+    <Content Include="Forms\Icons\24x24\zoom-touch.png" />
+    <Content Include="Forms\Icons\32x32\angle-measure.png" />
+    <Content Include="Forms\Icons\32x32\area-measure.png" />
+    <Content Include="Forms\Icons\32x32\calculator.png" />
+    <Content Include="Forms\Icons\32x32\check.png" />
+    <Content Include="Forms\Icons\32x32\color.png" />
+    <Content Include="Forms\Icons\32x32\command-add.png" />
+    <Content Include="Forms\Icons\32x32\data-add.png" />
+    <Content Include="Forms\Icons\32x32\data-select.png" />
+    <Content Include="Forms\Icons\32x32\db-add.png" />
+    <Content Include="Forms\Icons\32x32\db-connect-schema.png" />
+    <Content Include="Forms\Icons\32x32\db-connect.png" />
+    <Content Include="Forms\Icons\32x32\db-copy.png" />
+    <Content Include="Forms\Icons\32x32\db-create.png" />
+    <Content Include="Forms\Icons\32x32\db-execute.png" />
+    <Content Include="Forms\Icons\32x32\db-export.png" />
+    <Content Include="Forms\Icons\32x32\db-import.png" />
+    <Content Include="Forms\Icons\32x32\db-login.png" />
+    <Content Include="Forms\Icons\32x32\db-remove.png" />
+    <Content Include="Forms\Icons\32x32\db.png" />
+    <Content Include="Forms\Icons\32x32\execute.png" />
+    <Content Include="Forms\Icons\32x32\hide.png" />
+    <Content Include="Forms\Icons\32x32\layer-hide.png" />
+    <Content Include="Forms\Icons\32x32\layer-opacity-decrease.png" />
+    <Content Include="Forms\Icons\32x32\layer-opacity-increase.png" />
+    <Content Include="Forms\Icons\32x32\layer-point-create.png" />
+    <Content Include="Forms\Icons\32x32\layer-point-grass.png" />
+    <Content Include="Forms\Icons\32x32\layer-raster-grass.png" />
+    <Content Include="Forms\Icons\32x32\layer-raster.png" />
+    <Content Include="Forms\Icons\32x32\layer-show.png" />
+    <Content Include="Forms\Icons\32x32\layer-vector-connect.png" />
+    <Content Include="Forms\Icons\32x32\layer-vector-disconnect.png" />
+    <Content Include="Forms\Icons\32x32\layer-vector-grass.png" />
+    <Content Include="Forms\Icons\32x32\layer-vector.png" />
+    <Content Include="Forms\Icons\32x32\length-measure.png" />
+    <Content Include="Forms\Icons\32x32\mapserver-export.png" />
+    <Content Include="Forms\Icons\32x32\measure.png" />
+    <Content Include="Forms\Icons\32x32\module-add.png" />
+    <Content Include="Forms\Icons\32x32\point-grass.png" />
+    <Content Include="Forms\Icons\32x32\projection-add.png" />
+    <Content Include="Forms\Icons\32x32\python-export.png" />
+    <Content Include="Forms\Icons\32x32\raster-grass.png" />
+    <Content Include="Forms\Icons\32x32\raster-info.png" />
+    <Content Include="Forms\Icons\32x32\raster-overview.png" />
+    <Content Include="Forms\Icons\32x32\raster-pyramids.png" />
+    <Content Include="Forms\Icons\32x32\raster.png" />
+    <Content Include="Forms\Icons\32x32\relation-create.png" />
+    <Content Include="Forms\Icons\32x32\show.png" />
+    <Content Include="Forms\Icons\32x32\style-line.png" />
+    <Content Include="Forms\Icons\32x32\style-point.png" />
+    <Content Include="Forms\Icons\32x32\style-polygon.png" />
+    <Content Include="Forms\Icons\32x32\table-add.png" />
+    <Content Include="Forms\Icons\32x32\table-create.png" />
+    <Content Include="Forms\Icons\32x32\table-delete.png" />
+    <Content Include="Forms\Icons\32x32\table-field-add.png" />
+    <Content Include="Forms\Icons\32x32\table-field-create.png" />
+    <Content Include="Forms\Icons\32x32\table-field-delete.png" />
+    <Content Include="Forms\Icons\32x32\table-field-remove.png" />
+    <Content Include="Forms\Icons\32x32\table-remove.png" />
+    <Content Include="Forms\Icons\32x32\table.png" />
+    <Content Include="Forms\Icons\32x32\vector-grass.png" />
+    <Content Include="Forms\Icons\32x32\vector.png" />
+    <Content Include="Forms\Icons\ReadMe.txt" />
+    <Content Include="LOGO.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Report\FicheroModelo_Castellano_v4.0BETA.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Report\FicheroModelo_Ingles.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\icoMAL.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoOK.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar Day.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.bmp" />
+    <None Include="Resources\delete2.bmp" />
+    <None Include="Resources\no information.bmp" />
+    <None Include="Resources\CheckInterpolado.ico" />
+    <None Include="Resources\wait30trans.gif" />
+    <Content Include="conf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Globe 2.ico" />
+    <Content Include="IAHRISv2.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CargaPorLotes\CargaPorLotes.csproj">
+      <Project>{a86e23d0-d1e8-48c6-ad87-1a1b04d8d4af}</Project>
+      <Name>CargaPorLotes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBaseUtils\DataBaseUtils.csproj">
+      <Project>{f133d485-6ce3-437b-9e52-8859af1fb259}</Project>
+      <Name>DataBaseUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IAHRIS.Calculo\IAHRIS.Calculo.csproj">
+      <Project>{832e795d-6374-4b4f-998a-ec25a452f1f5}</Project>
+      <Name>IAHRIS.Calculo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MultiLangXML\MultiLangXML.csproj">
+      <Project>{f21347f3-fa96-047b-1e16-e244c449f2ad}</Project>
+      <Name>MultiLangXML</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_IncrementBeforeBuild="True" BuildVersion_UseGlobalSettings="False" BuildVersion_AssemblyInfoFilename="" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\GDAL.Native.3.7.2\build\netstandard2.0\GDAL.Native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GDAL.Native.3.7.2\build\netstandard2.0\GDAL.Native.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\GDAL.Native.3.7.2\build\netstandard2.0\GDAL.Native.targets" Condition="Exists('..\packages\GDAL.Native.3.7.2\build\netstandard2.0\GDAL.Native.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>
