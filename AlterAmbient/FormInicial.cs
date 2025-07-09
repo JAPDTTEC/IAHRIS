@@ -1,5 +1,4 @@
-﻿using global::System.Collections.ObjectModel;
-using IAHRIS.BBDD;
+﻿using IAHRIS.BBDD;
 using IAHRIS.Calculo;
 using IAHRIS.Calculo.CaudalesEcologicos;
 using IAHRIS.Calculo.CaudalesEcologicos.Escenarios;
@@ -9,10 +8,7 @@ using IAHRIS.Calculo.Tipologias;
 using IAHRIS.Rellenar;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
-using OxyPlot;
-using OxyPlot.Series;
-using OxyPlot.WindowsForms;
-using SharpCompress;
+using MultiLangXML;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,10 +17,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml;
 using XPTable.Models;
 using static IAHRIS.Calculo.TestFechas;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace IAHRIS
 {
@@ -47,7 +42,7 @@ namespace IAHRIS
         private ReportController _reportController;
 
         // Para poder centrar el formulario
-        private MultiLangXML.MultiIdiomasXML _traductor;
+        private MultiIdiomasXML _traductor;
 
 
         private Escenarios _escenarios;
@@ -130,7 +125,7 @@ namespace IAHRIS
                 esTipologiaNONE = tipologia.Nombre == enumTipologias.NONE.ToString();
                 _simulacion.Tipologia = tipologia;
                 nombreInformes = tipologia.GetInformes().Where(x => x.Active).Select(x => x.NombreInformeXML).ToList();
-                nombreTipologia = tipologia.Nombre.Replace("Tipo", "") +" Índices";
+                nombreTipologia = tipologia.Nombre.Replace("Tipo", "") + "  " + _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strIndices");
             }
             else
             {
@@ -193,12 +188,12 @@ namespace IAHRIS
                     esTipologiaNONE = true;
                 }
                 nombreInformes = tipologiaCE.GetInformes().Where(x => x.Active).Select(x => x.NombreInformeXML).ToList();
-                nombreTipologia = tipologiaCE.Nombre.Replace("Tipo", "") + "\n Caudales Ecológicos";
+                nombreTipologia = tipologiaCE.Nombre.Replace("Tipo", "") + " " + _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strCaudalesEcologicos");
             }
 
             if (!esTipologiaNONE)
             {
-                btnCalcular.Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strCalcular") + " " + _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strType") + " " + nombreTipologia;
+                btnCalcular.Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strCalcular") + " " + _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strType") + " " + nombreTipologia;
                 btnCalcular.Enabled = true;
             }
             else
@@ -257,58 +252,43 @@ namespace IAHRIS
             // -------------------------------------
             // ---- Traducir formulario ------------
             // -------------------------------------
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");     
+            _traductor = MultiIdiomasXML.Instancia;
             _RutaBBDD = Application.StartupPath + @"\IAHRISv2.mdb";
             _cMDB = new OleDbDataBase("Base", _RutaBBDD);
             _rellenar = new RellenarForm(_cMDB);
             _reportController = new ReportController(_traductor);
 
-            ValidarConfigYBBDD();
 
             var argcombo = cbProyectos;
             _rellenar.RellenarProyectos(ref argcombo);
             cbProyectos = argcombo;
 
-            _testFechas = new TestFechas(_cMDB);           
+            _testFechas = new TestFechas(_cMDB);
 
             Cursor = Cursors.WaitCursor;
 
             // Cargar el menu de idiomas
-            System.Collections.ObjectModel.ReadOnlyCollection<string> files;
-            files = My.MyProject.Computer.FileSystem.GetFiles(Application.StartupPath + @"\lang", Microsoft.VisualBasic.FileIO.SearchOption.SearchTopLevelOnly, "*.xml");
-            for (int i = 0, loopTo = files.Count - 1; i <= loopTo; i++)
-            {
-                string strIdioma = "";
-                string ruta = "";
-                if (_traductor.testFormatXML(files[i], ref strIdioma, ruta))
-                {
-                    var mnuIdioma = new ToolStripMenuItem(strIdioma);
-                    mnuIdioma.Tag = files[i];
-                    mnuIdioma.Click += OpcionMenu_Click;
-                    IdiomasToolStripMenuItem.DropDownItems.Add(mnuIdioma);
-                }
-                else if (string.IsNullOrEmpty(ruta))
-                {
-                    MessageBox.Show("Error al cargar: " + files[i] + Constants.vbCrLf + "Error no puedo encontrar el fichero excel", "Error al cargar idioma");
-                }
-                else if (string.IsNullOrEmpty(strIdioma))
-                {
-                    MessageBox.Show("Error al cargar: " + files[i] + Constants.vbCrLf + "Error encuentro el identificador de idioma correcto", "Error al cargar idioma");
-                }
-                else
-                {
-                    MessageBox.Show("Error al cargar: " + files[i], "Error al cargar idioma");
-                }
-            }
+            CargarMenuIdiomas();
 
-            Cursor = Cursors.Default;
+            Cursor = Cursors.Default;           
 
+            _informes = new GeneracionInformes(true);
+
+            tabpEscenarios.Parent = null;
+            tabpValoraciones.Parent = null;
+
+            if (_PtoSeleccionado != null)
+                InicializarTabEscenarios();
+
+            rbIndices.Enabled = false;
+            rbCaudalesEco.Enabled = false;
+
+            ValidarConfigYBBDD();
 
             // ------- Tabla de datos -----------------
             InicializarTablaDatos();
 
+            _traductor.TraducirForm(this);
 
             // Cambiar los label de los años
             lblAñosHidro.Text = 0.ToString();
@@ -326,24 +306,58 @@ namespace IAHRIS
             string myBuildInfo = Application.ProductVersion;//FileVersionInfo.GetVersionInfo(Application.ExecutablePath);
             Text += " - v" + myBuildInfo;
 
-            _informes = new GeneracionInformes(true);
 
-            tabpEscenarios.Parent = null;
-            tabpValoraciones.Parent = null;
+            //Añadir nombres botones mapas, (como son signos, no tienen traducción y son globales.
 
-            if (_PtoSeleccionado != null)
-                InicializarTabEscenarios();
 
-            rbIndices.Enabled = false;
-            rbCaudalesEco.Enabled = false;
         }
+
+        private void CargarMenuIdiomas()
+        {
+            System.Collections.ObjectModel.ReadOnlyCollection<string> files = My.MyProject.Computer.FileSystem.GetFiles(Application.StartupPath + @"\lang", Microsoft.VisualBasic.FileIO.SearchOption.SearchTopLevelOnly, "*.xml");
+
+
+            foreach (var ficheroConf in files)
+            {
+                string strIdioma = "";
+                string ruta = "";
+
+                if (!_traductor.testFormatXML(ficheroConf, ref strIdioma, ruta))
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorLoad") + ficheroConf, _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorLoadLang"));
+
+                XmlDocument doc = new XmlDocument();
+                doc.Load(ficheroConf);
+
+                XmlNode idiomaNode = doc.SelectSingleNode("/language/idioma");
+
+                string idiomaTraductor = idiomaNode.InnerText;        
+
+
+
+                var mnuIdioma = new ToolStripMenuItem(idiomaTraductor);
+                mnuIdioma.Tag = ficheroConf;
+                mnuIdioma.Text = idiomaTraductor;
+                mnuIdioma.Click += OpcionMenu_Click;
+                IdiomasToolStripMenuItem.DropDownItems.Add(mnuIdioma);
+
+            }
+
+            if (IdiomasToolStripMenuItem.DropDownItems.Count > 0)
+            {
+                IdiomasToolStripMenuItem.Visible = true;
+                IdiomasToolStripMenuItem.Enabled = true;
+            }
+
+        }
+
+
 
         private void ValidarConfigYBBDD()
         {
             // Testear el fichero modelo
             if (!My.MyProject.Computer.FileSystem.FileExists(_traductor.getRutaExcel))
             {
-                MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strNoFoundXLS") + _traductor.getRutaExcel, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorFatal"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strNoFoundXLS") + _traductor.getRutaExcel, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorFatal"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Close();
                 Dispose();
@@ -352,7 +366,7 @@ namespace IAHRIS
 
             if (!My.MyProject.Computer.FileSystem.FileExists(_traductor.getRutaExcelCE))
             {
-                MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strNoFoundXLS") + _traductor.getRutaExcel, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorFatal"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strNoFoundXLS") + _traductor.getRutaExcel, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorFatal"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Close();
                 Dispose();
@@ -363,7 +377,7 @@ namespace IAHRIS
             if (!My.MyProject.Computer.FileSystem.FileExists(_RutaBBDD))                                                          
             {
                 Console.WriteLine(Application.StartupPath);
-                MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strNoFoundDB") + Application.ExecutablePath, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorFatal"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strNoFoundDB") + Application.ExecutablePath, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorFatal"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Close();
                 Dispose();
@@ -453,12 +467,7 @@ namespace IAHRIS
             }
             bool contieneEscenario = listaEscenarios.Any(escenario =>
                     escenario.Nombre == "R_NORM");
-                    //(escenario.Caudales_Ecologicos[0] != 0 || escenario.Caudales_Ecologicos[1] != 0 ||
-                    //escenario.Caudales_Ecologicos[2] != 0 || escenario.Caudales_Ecologicos[3] != 0 ||
-                    //escenario.Caudales_Ecologicos[4] != 0 || escenario.Caudales_Ecologicos[5] != 0 ||
-                    //escenario.Caudales_Ecologicos[6] != 0 || escenario.Caudales_Ecologicos[7] != 0 ||
-                    //escenario.Caudales_Ecologicos[8] != 0 || escenario.Caudales_Ecologicos[9] != 0 ||
-                    //escenario.Caudales_Ecologicos[10] != 0 || escenario.Caudales_Ecologicos[11] != 0));
+
 
 
             _serieRCE.TipologiaCE = TipologiaCE.GetTipologia(_serieRCE.Aportaciones_R_NAT.ToArray(), _simulacion, contieneEscenario, 0);
@@ -668,7 +677,7 @@ namespace IAHRIS
             XPTablaListas.HeaderRenderer.Font = new Font(XPTablaListas.HeaderRenderer.Font.FontFamily, 7.5f);
 
             XPTablaListas.BeginUpdate();
-            XPTablaListas.NoItemsText = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "noitem");
+            XPTablaListas.NoItemsText = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "noitem");
 
             // Columna de los años
             TextColumn colTexto = new TextColumn();
@@ -811,7 +820,7 @@ namespace IAHRIS
             }
             else
             {
-                MessageBox.Show("No hay ningun proyecto creado.");
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorProjectDontExist"));
             }
 
         }
@@ -835,13 +844,13 @@ namespace IAHRIS
 
                 if (_PtoSeleccionado is null)
                 {
-                    MessageBox.Show("No hay punto seleccionado");
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strErrorImportList7"));
                     return;
                 }
 
                 if (_PtoSeleccionado.Id == -1)
                 {
-                    MessageBox.Show("No hay punto seleccionado");
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO,"strErrorImportList7"));
                     return;
                 }
 
@@ -852,7 +861,7 @@ namespace IAHRIS
             }
             catch (Exception)
             {
-                MessageBox.Show("No hay punto seleccionado");
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strErrorImportList7"));
             }
         }
 
@@ -869,7 +878,9 @@ namespace IAHRIS
                 return;
             }
 
-            MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strNoPointDefined"), _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strError"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strNoPointDefined"),
+                            _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strError"), 
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
 
         }
@@ -880,14 +891,14 @@ namespace IAHRIS
             {
                 if (cmbListaAlteradasDiarias.SelectedItem == null)
                 {
-                    MessageBox.Show("No hay alteración seleccionada.");
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorAltNotSelected"));
                     return;
                 }
 
                 _AltSeleccionada = (ComboItem)cmbListaAlteradasDiarias.SelectedItem;
                 if (_AltSeleccionada.Id == -1)
                 {
-                    MessageBox.Show("No hay alteración seleccionada.");
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorAltNotSelected"));
                     return;
                 }                  
 
@@ -898,7 +909,7 @@ namespace IAHRIS
             }
             catch (Exception)
             {
-                MessageBox.Show("No hay alteración seleccionada.");
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorAltNotSelected"));
             }
 
         }
@@ -969,12 +980,12 @@ namespace IAHRIS
                 if (sfd.ShowDialog() != DialogResult.OK) return;
                 
                 My.MyProject.Computer.FileSystem.CopyFile(_RutaBBDD, sfd.FileName, true);
-                MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strExportacion") + Constants.vbCrLf + sfd.FileName, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInfo"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strExportacion") + Constants.vbCrLf + sfd.FileName, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInfo"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
             }
             catch (Exception ex)
             {
-                MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorExport") + Constants.vbCrLf + ex.Message, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strError"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorExport") + Constants.vbCrLf + ex.Message, _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strError"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -984,25 +995,26 @@ namespace IAHRIS
             ToolStripMenuItem OpcionSeleccionada = (ToolStripMenuItem)sender;
 
             // OpcionSeleccionada.Tag
-            if (!_traductor.cambiarIdioma(Conversions.ToString(OpcionSeleccionada.Tag)))
-            {
+            if (!_traductor.CambiarIdioma(Conversions.ToString(OpcionSeleccionada.Tag)))            
                 return;
-            }
+            
 
-            _traductor.traducirForm(Conversions.ToString(OpcionSeleccionada.Tag), "");
+            _traductor = MultiIdiomasXML.Instancia; //Refrescar traductor para obtener el cambio de idioma.
+            _traductor.TraducirForm(this);
+
             XPTablaListas.BeginUpdate();
-            XPTablaListas.NoItemsText = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "noitem");
-            XPTablaListas.ColumnModel.Columns[0].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "year");
-            XPTablaListas.ColumnModel.Columns[6].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "dailynat");
-            XPTablaListas.ColumnModel.Columns[7].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "dailynatinter");
-            XPTablaListas.ColumnModel.Columns[8].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "dailyalt");
-            XPTablaListas.ColumnModel.Columns[9].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "dailyaltinter");
-            XPTablaListas.ColumnModel.Columns[10].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "coedaily");
-            XPTablaListas.ColumnModel.Columns[1].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "monthlynat");
-            XPTablaListas.ColumnModel.Columns[2].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "monthlynatinter");
-            XPTablaListas.ColumnModel.Columns[3].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "monthlyalt");
-            XPTablaListas.ColumnModel.Columns[4].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "monthlyaltinter");
-            XPTablaListas.ColumnModel.Columns[5].Text = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "coemonthly");
+            XPTablaListas.NoItemsText = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "noitem");
+            XPTablaListas.ColumnModel.Columns[0].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "year");
+            XPTablaListas.ColumnModel.Columns[6].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "dailynat");
+            XPTablaListas.ColumnModel.Columns[7].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "dailynatinter");
+            XPTablaListas.ColumnModel.Columns[8].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "dailyalt");
+            XPTablaListas.ColumnModel.Columns[9].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "dailyaltinter");
+            XPTablaListas.ColumnModel.Columns[10].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "coedaily");
+            XPTablaListas.ColumnModel.Columns[1].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "monthlynat");
+            XPTablaListas.ColumnModel.Columns[2].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "monthlynatinter");
+            XPTablaListas.ColumnModel.Columns[3].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "monthlyalt");
+            XPTablaListas.ColumnModel.Columns[4].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "monthlyaltinter");
+            XPTablaListas.ColumnModel.Columns[5].Text = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_TABLE, "coemonthly");
             XPTablaListas.EndUpdate();
             if (lstBoxInformes.Items.Count > 0)
             {
@@ -1011,6 +1023,8 @@ namespace IAHRIS
 
             var myBuildInfo = FileVersionInfo.GetVersionInfo(Application.ExecutablePath);
             Text += " - v" + myBuildInfo.FileMajorPart + "." + myBuildInfo.FileMinorPart;
+
+            MessageBox.Show( _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strIdiomaCambiado"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void cbProyectos_SelectedIndexChanged(object sender, EventArgs e)
@@ -1083,9 +1097,9 @@ namespace IAHRIS
 
                 // Rellenar nombres de las series en el combo lista
                 bool hayDiaria = default, hayMensual = default;
-                string stNone = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strNone");
-                string stSI = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "yes").ToUpper();
-                string stNO = _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "no").ToUpper();
+                string stNone = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strNone");
+                string stSI = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "yes").ToUpper();
+                string stNO = _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "no").ToUpper();
 
                 var argcomboAltD = cmbListaAlteradasDiarias;
                 _rellenar.RellenarListas(ref hayDiaria, ref hayMensual, ref argcomboAltD, (int)id_punto, stNone);
@@ -1484,21 +1498,23 @@ namespace IAHRIS
                         if (System.IO.File.Exists(filePath)) 
                         {
                             // Preguntar al usuario si desea sobrescribir el archivo existente
-                            DialogResult overwriteResult = MessageBox.Show("El archivo ya existe. ¿Desea sobrescribirlo?", "Sobrescribir archivo", MessageBoxButtons.YesNo);
+                            DialogResult overwriteResult = MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strOverwrite"), 
+                                                                            _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strSobrescribir)"),
+                                                                            MessageBoxButtons.YesNo);
 
                             if (overwriteResult == DialogResult.Yes)
                             {
                                 // Sobrescribir el archivo
                                 
                                 _reportController.GenerarInformeCE( _serieRCE.TipologiaCE, _simulacion,  _serieRCE, filePath);
-                                MessageBox.Show("Informe Generado en: \n"+ filePath); 
+                                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInformeGenerado") + " \n" + filePath); 
                             }
                         }
                         else
                         {
                             // El archivo no existe, generar el informe directamente
                             _reportController.GenerarInformeCE(_serieRCE.TipologiaCE, _simulacion, _serieRCE, filePath);
-                            MessageBox.Show("Informe Generado en: \n"+ filePath);
+                            MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInformeGenerado") + " \n"+ filePath);
                         }
                     }
                 }
@@ -1508,19 +1524,21 @@ namespace IAHRIS
         //TODO:Añadir con traductor mensajes en diferentes idiomas.
         private string ValidarSerieRCE(SerieRCE serieRCE)
         {
-             
-            if (serieRCE.Lista_Escenarios_Predefinidos == null || serieRCE.Lista_Escenarios_Predefinidos.Count == 0)   
-               return "no tiene escenarios predefinidos.";
+
+            if (serieRCE.Lista_Escenarios_Predefinidos == null || serieRCE.Lista_Escenarios_Predefinidos.Count == 0)
+                return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorSinEscenarioPredefinido");
+
             if (serieRCE.TipologiaCE.Nombre.Last()=='A')
             {
                 if (serieRCE.Lista_Escenarios_Seleccionados.Count == 0)
-                    return "no tiene escenarios seleccionados.";
+                    return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorSinEscenarioSeleccionado"); 
             }
             if (serieRCE.Aportaciones_R_NAT.Count == 0)
-                return "El regimen natural no tiene aportaciones";
+                return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorRegimenNaturalSinAportaciones");
 
             if (serieRCE.Mes_Inicio < 1 || serieRCE.Mes_Inicio > 12)
-                return "El Mes de Inicio de la serie está fuera del rango correcto. Mes Inicio: " + serieRCE.Mes_Inicio;
+                return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorMesInicioFueraRango") + " " +
+                        _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_MONTH, serieRCE.Mes_Inicio.ToString());
 
             return "";
         }
@@ -1598,8 +1616,7 @@ namespace IAHRIS
 
         private void cargaMasivaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("No es recomendable tener IAHRIS abierto mientras se usa la utilidad de carga masiva." +
-                                                     " Pulse Aceptar para cerrar IAHRIS", "Información", 
+            DialogResult result = MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strCerrarPorCargaMasiva"), "Información", 
                                                      MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (result == DialogResult.OK) 
@@ -1623,15 +1640,15 @@ namespace IAHRIS
 
         private void InicializarMesesEscenarios()
         {
-            int mes = cmbMesInicio.SelectedIndex;
+            //int mes = cmbMesInicio.SelectedIndex;
 
             //dGrid_Escenarios.Columns[0].Name = "Seleccionar";
-            dGrid_Escenarios.Columns[0].HeaderText = "Seleccionar";
+            //dGrid_Escenarios.Columns[0].HeaderText = "Seleccionar";
             dGrid_Escenarios.Columns[0].Frozen = true;
             dGrid_Escenarios.Columns[0].Width = 75;
 
             //dGrid_Escenarios.Columns[1].Name = "Escenario";
-            dGrid_Escenarios.Columns[1].HeaderText = "Escenario";
+            //dGrid_Escenarios.Columns[1].HeaderText = "Escenario";
             dGrid_Escenarios.Columns[1].Frozen = true;
             dGrid_Escenarios.Columns[1].Width = 75;
 
@@ -1689,7 +1706,7 @@ namespace IAHRIS
             //TipologiaCE tipologia = TipologiaCE.GetTipologia(_serieRCE.Aportaciones_R_NAT.ToArray(), _simulacion, true, 0);
 
             InicializarTabEscenarios();
-
+            _traductor.TraducirForm(this);
         }
 
         private void añadirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1727,15 +1744,10 @@ namespace IAHRIS
                 // Si se intenta marcar más de 3 checkboxes, revierte el cambio
                 if (checkedCount > 3)
                 {
-                    foreach (DataGridViewRow row in dGrid_Escenarios.Rows)
-                    {
-                    dGrid_Escenarios.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
-                    }
-
-
-
-
-                    MessageBox.Show("No puedes marcar más de 2 escenarios ademas del R_NORM");
+                    foreach (DataGridViewRow row in dGrid_Escenarios.Rows)                    
+                        dGrid_Escenarios.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+                
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorMasde2Escenarios"));
                 }
                 
         }
@@ -1848,7 +1860,7 @@ namespace IAHRIS
 
             if (ds.Tables[0].Rows .Count > 3)
             {
-                MessageBox.Show("Ya se han añadido 4 Escenarios de Usuario. No se pueden añadir más","Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorMasde4Escenarios"),"Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
                
@@ -1923,7 +1935,7 @@ namespace IAHRIS
 
             if (ds.Tables[0].Rows.Count == 0)
             {
-                MessageBox.Show("No existen escenarios de usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNoEscenarios"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -2018,7 +2030,7 @@ namespace IAHRIS
 
             if (ds.Tables[0].Rows.Count == 0)
             {
-                MessageBox.Show("No existen escenarios de usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNoEscenarios"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else

@@ -28,14 +28,16 @@ namespace IAHRIS
             // -------------------------------------
             // ---- Traducir formulario ------------
             // -------------------------------------
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor = MultiLangXML.MultiIdiomasXML.Instancia;
+
             _btnExaminar.Name = "btnExaminar";
             _btnCrearProy.Name = "btnCrearProy";
             _btnImportarPuntos.Name = "btnImportarPuntos";
             _btnImportarProyecto.Name = "btnImportarProyecto";
             _cmbProyectos.Name = "cmbProyectos";
+
+            _traductor.TraducirForm(this);
+
         }
 
         private string _rutaMDB;

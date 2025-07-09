@@ -37,46 +37,41 @@ namespace IAHRIS
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            lblSeleccion = new Label();
-            _btnExaminar = new Button();
-            _btnExaminar.Click += new EventHandler(btnExaminar_Click);
-            txtRuta = new TextBox();
-            gbPuntos = new GroupBox();
-            lblProyectoOrigen = new Label();
-            _btnCrearProy = new Button();
-            _btnCrearProy.Click += new EventHandler(btnCrearProy_Click);
-            cmbProyPuntos = new ComboBox();
-            chklstPuntos = new CheckedListBox();
-            _btnImportarPuntos = new Button();
-            _btnImportarPuntos.Click += new EventHandler(btnImportarPuntos_Click);
-            gbProyectos = new GroupBox();
-            _btnImportarProyecto = new Button();
-            _btnImportarProyecto.Click += new EventHandler(btnImportarProyecto_Click);
-            _cmbProyectos = new ComboBox();
-            _cmbProyectos.SelectedIndexChanged += new EventHandler(cmbProyectos_SelectedIndexChanged);
-            lblInformacion = new Label();
-            lbInfo = new ListBox();
-            PictureBox1 = new PictureBox();
-            gbPuntos.SuspendLayout();
-            gbProyectos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PictureBox1).BeginInit();
-            SuspendLayout();
+            this.lblSeleccion = new System.Windows.Forms.Label();
+            this._btnExaminar = new System.Windows.Forms.Button();
+            this.txtRuta = new System.Windows.Forms.TextBox();
+            this.gbPuntos = new System.Windows.Forms.GroupBox();
+            this.lblProyectoOrigen = new System.Windows.Forms.Label();
+            this._btnCrearProy = new System.Windows.Forms.Button();
+            this.cmbProyPuntos = new System.Windows.Forms.ComboBox();
+            this.chklstPuntos = new System.Windows.Forms.CheckedListBox();
+            this._btnImportarPuntos = new System.Windows.Forms.Button();
+            this.gbProyectos = new System.Windows.Forms.GroupBox();
+            this._btnImportarProyecto = new System.Windows.Forms.Button();
+            this._cmbProyectos = new System.Windows.Forms.ComboBox();
+            this.lblInformacion = new System.Windows.Forms.Label();
+            this.lbInfo = new System.Windows.Forms.ListBox();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gbPuntos.SuspendLayout();
+            this.gbProyectos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
+            this.SuspendLayout();
             // 
             // lblSeleccion
             // 
-            lblSeleccion.AutoSize = true;
-            lblSeleccion.Location = new Point(12, 13);
-            lblSeleccion.Name = "lblSeleccion";
-            lblSeleccion.Size = new Size(196, 13);
-            lblSeleccion.TabIndex = 7;
-            lblSeleccion.Text = "Seleccione la Base de Datos a importar:";
+            this.lblSeleccion.AutoSize = true;
+            this.lblSeleccion.Location = new System.Drawing.Point(9, 11);
+            this.lblSeleccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSeleccion.Name = "lblSeleccion";
+            this.lblSeleccion.Size = new System.Drawing.Size(196, 13);
+            this.lblSeleccion.TabIndex = 7;
+            this.lblSeleccion.Text = "Seleccione la Base de Datos a importar:";
             // 
-            // btnExaminar
+            // _btnExaminar
             // 
-            this._btnExaminar.Location = new System.Drawing.Point(347, 63);
-            this._btnExaminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnExaminar.Location = new System.Drawing.Point(260, 51);
             this._btnExaminar.Name = "_btnExaminar";
-            this._btnExaminar.Size = new System.Drawing.Size(127, 25);
+            this._btnExaminar.Size = new System.Drawing.Size(95, 20);
             this._btnExaminar.TabIndex = 6;
             this._btnExaminar.Text = "Examinar...";
             this._btnExaminar.UseVisualStyleBackColor = true;
@@ -84,11 +79,10 @@ namespace IAHRIS
             // 
             // txtRuta
             // 
-            this.txtRuta.Location = new System.Drawing.Point(20, 36);
-            this.txtRuta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRuta.Location = new System.Drawing.Point(15, 29);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.ReadOnly = true;
-            this.txtRuta.Size = new System.Drawing.Size(452, 22);
+            this.txtRuta.Size = new System.Drawing.Size(340, 20);
             this.txtRuta.TabIndex = 5;
             // 
             // gbPuntos
@@ -98,30 +92,28 @@ namespace IAHRIS
             this.gbPuntos.Controls.Add(this.cmbProyPuntos);
             this.gbPuntos.Controls.Add(this.chklstPuntos);
             this.gbPuntos.Controls.Add(this._btnImportarPuntos);
-            this.gbPuntos.Location = new System.Drawing.Point(16, 158);
-            this.gbPuntos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbPuntos.Location = new System.Drawing.Point(12, 128);
             this.gbPuntos.Name = "gbPuntos";
-            this.gbPuntos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbPuntos.Size = new System.Drawing.Size(457, 209);
+            this.gbPuntos.Size = new System.Drawing.Size(343, 170);
             this.gbPuntos.TabIndex = 8;
             this.gbPuntos.TabStop = false;
             this.gbPuntos.Text = "Importar Puntos a un Proyecto:";
             // 
             // lblProyectoOrigen
             // 
-            lblProyectoOrigen.AutoSize = true;
-            lblProyectoOrigen.Location = new Point(6, 15);
-            lblProyectoOrigen.Name = "lblProyectoOrigen";
-            lblProyectoOrigen.Size = new Size(125, 13);
-            lblProyectoOrigen.TabIndex = 4;
-            lblProyectoOrigen.Text = "Proyecto donde importar:";
+            this.lblProyectoOrigen.AutoSize = true;
+            this.lblProyectoOrigen.Location = new System.Drawing.Point(4, 12);
+            this.lblProyectoOrigen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProyectoOrigen.Name = "lblProyectoOrigen";
+            this.lblProyectoOrigen.Size = new System.Drawing.Size(125, 13);
+            this.lblProyectoOrigen.TabIndex = 4;
+            this.lblProyectoOrigen.Text = "Proyecto donde importar:";
             // 
-            // btnCrearProy
+            // _btnCrearProy
             // 
-            this._btnCrearProy.Location = new System.Drawing.Point(8, 68);
-            this._btnCrearProy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnCrearProy.Location = new System.Drawing.Point(6, 55);
             this._btnCrearProy.Name = "_btnCrearProy";
-            this._btnCrearProy.Size = new System.Drawing.Size(159, 42);
+            this._btnCrearProy.Size = new System.Drawing.Size(119, 34);
             this._btnCrearProy.TabIndex = 3;
             this._btnCrearProy.Text = "Crear Proyecto Nuevo";
             this._btnCrearProy.UseVisualStyleBackColor = true;
@@ -131,27 +123,24 @@ namespace IAHRIS
             // 
             this.cmbProyPuntos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProyPuntos.FormattingEnabled = true;
-            this.cmbProyPuntos.Location = new System.Drawing.Point(8, 38);
-            this.cmbProyPuntos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbProyPuntos.Location = new System.Drawing.Point(6, 31);
             this.cmbProyPuntos.Name = "cmbProyPuntos";
-            this.cmbProyPuntos.Size = new System.Drawing.Size(157, 24);
+            this.cmbProyPuntos.Size = new System.Drawing.Size(119, 21);
             this.cmbProyPuntos.TabIndex = 2;
             // 
             // chklstPuntos
             // 
             this.chklstPuntos.FormattingEnabled = true;
-            this.chklstPuntos.Location = new System.Drawing.Point(180, 27);
-            this.chklstPuntos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chklstPuntos.Location = new System.Drawing.Point(135, 22);
             this.chklstPuntos.Name = "chklstPuntos";
-            this.chklstPuntos.Size = new System.Drawing.Size(269, 174);
+            this.chklstPuntos.Size = new System.Drawing.Size(203, 139);
             this.chklstPuntos.TabIndex = 1;
             // 
-            // btnImportarPuntos
+            // _btnImportarPuntos
             // 
-            this._btnImportarPuntos.Location = new System.Drawing.Point(8, 157);
-            this._btnImportarPuntos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnImportarPuntos.Location = new System.Drawing.Point(6, 128);
             this._btnImportarPuntos.Name = "_btnImportarPuntos";
-            this._btnImportarPuntos.Size = new System.Drawing.Size(159, 44);
+            this._btnImportarPuntos.Size = new System.Drawing.Size(119, 36);
             this._btnImportarPuntos.TabIndex = 0;
             this._btnImportarPuntos.Text = "Importar";
             this._btnImportarPuntos.UseVisualStyleBackColor = true;
@@ -161,62 +150,56 @@ namespace IAHRIS
             // 
             this.gbProyectos.Controls.Add(this._btnImportarProyecto);
             this.gbProyectos.Controls.Add(this._cmbProyectos);
-            this.gbProyectos.Location = new System.Drawing.Point(16, 87);
-            this.gbProyectos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbProyectos.Location = new System.Drawing.Point(12, 71);
             this.gbProyectos.Name = "gbProyectos";
-            this.gbProyectos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbProyectos.Size = new System.Drawing.Size(457, 63);
+            this.gbProyectos.Size = new System.Drawing.Size(343, 51);
             this.gbProyectos.TabIndex = 9;
             this.gbProyectos.TabStop = false;
             this.gbProyectos.Text = "Importar un Proyecto completo";
             // 
-            // btnImportarProyecto
+            // _btnImportarProyecto
             // 
-            this._btnImportarProyecto.Location = new System.Drawing.Point(283, 23);
-            this._btnImportarProyecto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnImportarProyecto.Location = new System.Drawing.Point(212, 19);
             this._btnImportarProyecto.Name = "_btnImportarProyecto";
-            this._btnImportarProyecto.Size = new System.Drawing.Size(167, 26);
+            this._btnImportarProyecto.Size = new System.Drawing.Size(125, 21);
             this._btnImportarProyecto.TabIndex = 1;
             this._btnImportarProyecto.Text = "Importar";
             this._btnImportarProyecto.UseVisualStyleBackColor = true;
             this._btnImportarProyecto.Click += new System.EventHandler(this.btnImportarProyecto_Click);
             // 
-            // cmbProyectos
+            // _cmbProyectos
             // 
             this._cmbProyectos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cmbProyectos.FormattingEnabled = true;
-            this._cmbProyectos.Location = new System.Drawing.Point(8, 23);
-            this._cmbProyectos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._cmbProyectos.Location = new System.Drawing.Point(6, 19);
             this._cmbProyectos.Name = "_cmbProyectos";
-            this._cmbProyectos.Size = new System.Drawing.Size(233, 24);
+            this._cmbProyectos.Size = new System.Drawing.Size(176, 21);
             this._cmbProyectos.TabIndex = 0;
             this._cmbProyectos.SelectedIndexChanged += new System.EventHandler(this.cmbProyectos_SelectedIndexChanged);
             // 
             // lblInformacion
             // 
-            lblInformacion.AutoSize = true;
-            lblInformacion.Location = new Point(12, 314);
-            lblInformacion.Name = "lblInformacion";
-            lblInformacion.Size = new Size(68, 13);
-            lblInformacion.TabIndex = 10;
-            lblInformacion.Text = "Información: ";
+            this.lblInformacion.AutoSize = true;
+            this.lblInformacion.Location = new System.Drawing.Point(9, 315);
+            this.lblInformacion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInformacion.Name = "lblInformacion";
+            this.lblInformacion.Size = new System.Drawing.Size(68, 13);
+            this.lblInformacion.TabIndex = 10;
+            this.lblInformacion.Text = "Información: ";
             // 
             // lbInfo
             // 
             this.lbInfo.FormattingEnabled = true;
             this.lbInfo.HorizontalScrollbar = true;
-            this.lbInfo.ItemHeight = 16;
-            this.lbInfo.Location = new System.Drawing.Point(16, 407);
-            this.lbInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbInfo.Location = new System.Drawing.Point(12, 331);
             this.lbInfo.Name = "lbInfo";
-            this.lbInfo.Size = new System.Drawing.Size(456, 132);
+            this.lbInfo.Size = new System.Drawing.Size(343, 108);
             this.lbInfo.TabIndex = 11;
             // 
             // PictureBox1
             // 
             this.PictureBox1.Image = global::IAHRIS.My.Resources.Resources.wait30trans;
-            this.PictureBox1.Location = new System.Drawing.Point(231, 367);
-            this.PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PictureBox1.Location = new System.Drawing.Point(173, 298);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(30, 30);
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -225,9 +208,9 @@ namespace IAHRIS
             // 
             // FormImportar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 548);
+            this.ClientSize = new System.Drawing.Size(368, 445);
             this.Controls.Add(this.PictureBox1);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.lblInformacion);
@@ -237,7 +220,6 @@ namespace IAHRIS
             this.Controls.Add(this._btnExaminar);
             this.Controls.Add(this.txtRuta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormImportar";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

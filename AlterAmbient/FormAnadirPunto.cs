@@ -2,6 +2,7 @@
 using IAHRIS.Rellenar;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using MultiLangXML;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -41,13 +42,10 @@ namespace IAHRIS
             // This call is required by the Windows Form Designer.
             InitializeComponent();
 
-
             // -------------------------------------
             // ---- Traducir formulario ------------
             // -------------------------------------
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor =  MultiIdiomasXML.Instancia;
             _error = false;
 
             // Add any initialization after the InitializeComponent() call.
@@ -57,6 +55,9 @@ namespace IAHRIS
                 AñadirElemento(tipo, p);
             else
                 EditarElemento(tipo, p);
+
+            //_traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor.TraducirForm(this);   
         }
 
         private void EditarElemento(string tipo, int p)
@@ -70,7 +71,7 @@ namespace IAHRIS
                 lblDescrip.Text = "Descripción Punto";
                 _txtNombreReg.Text = "Natural";
                 _txtAbreviatura.Text = "nat";
-                gbAnadirPunto.Text = "Datos del Punto";
+                gbAnadirPunto.Name = "gbAnadirPunto";
 
                 _tabla = "Punto";
 
@@ -85,7 +86,7 @@ namespace IAHRIS
                 lblDescrip.Text = "Descripción Alteración";
                 _txtNombreReg.Text = "Alterado";
                 _txtAbreviatura.Text = "alt";
-                gbAnadirPunto.Text = "Datos de la Alteración";
+                gbAnadirPunto.Name = "gbAnadirAlteracion";
 
                 _tabla = "Alteracion";
 
@@ -165,7 +166,7 @@ namespace IAHRIS
                 _txtNombreReg.Text = "Natural";
                 _txtAbreviatura.Text = "nat";
 
-                gbAnadirPunto.Text = "Datos del Punto";
+                gbAnadirPunto.Name = "gbAnadirPunto";
 
                 lblPunto.Visible = false;
                 cmbPuntos.Visible = false;
@@ -182,7 +183,7 @@ namespace IAHRIS
                 lblDescrip.Text = "Descripción Alteración";
                 _txtNombreReg.Text = "Alterado";
                 _txtAbreviatura.Text = "alt";
-                gbAnadirPunto.Text = "Datos de la Alteración";
+                gbAnadirPunto.Name = "gbAnadirAlteracion";
 
                 _tabla = "Alteracion";
 

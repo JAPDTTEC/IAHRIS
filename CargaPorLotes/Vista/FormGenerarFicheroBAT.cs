@@ -36,11 +36,11 @@ namespace CargaPorLotes.Vista
             {
 
                 if (Procesar(false))
-                    MessageBox.Show("Fichero Guardado Correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInfoCMFichero1"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error Generando el Fichero BAT " + ex.Message , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorCMFichero")  + ex.Message , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -49,11 +49,11 @@ namespace CargaPorLotes.Vista
             try
             {
                 if (Procesar(true))
-                    MessageBox.Show("Fichero Ejecutado Correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInfoCMFichero2"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error Generando el Fichero BAT " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorCMFichero") + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -66,7 +66,7 @@ namespace CargaPorLotes.Vista
 
                 if (!string.IsNullOrWhiteSpace(resultado))
                 {
-                    MessageBox.Show(resultado, "Información",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(resultado, "Info",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return false;
                 }                   
 
@@ -106,14 +106,14 @@ namespace CargaPorLotes.Vista
         private string ValidarEjecutar()
         {
             //Comprobar que el valor del nombre del proyecto
-            if (string.IsNullOrEmpty(tbNomProyecto.Text) )            
-                return "El nombre del proyecto está vacío";            
+            if (string.IsNullOrEmpty(tbNomProyecto.Text))
+                return _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorDataCM1");          
 
             if (tbNomProyecto.Text.Length > 20)            
-                return "El nombre del proyecto es demasiado largo";            
+                return _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorDataCM2"); 
 
             if (cbExportar.Checked && string.IsNullOrWhiteSpace(tbRutaExportar.Text))
-                return "No se ha indicado ruta a la que exportar el fichero";
+                return _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorDataCM3");
 
             if (!cbExportar.Checked)
                 _rutaExportar = "";
@@ -160,15 +160,14 @@ namespace CargaPorLotes.Vista
 
         private void FormGenerarFicheroBAT_Load(object sender, EventArgs e)
         {
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor = MultiLangXML.MultiIdiomasXML.Instancia;
+            _traductor.TraducirForm(this);
         }
 
         private void lblRutaFichero_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(lblRutaFichero.Text);
-            MessageBox.Show("Copiado a portapapeles", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strCopiadoPortapapeles"), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

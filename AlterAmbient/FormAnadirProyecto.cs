@@ -35,8 +35,8 @@ namespace IAHRIS
             // -------------------------------------
             // ---- Traducir formulario ------------
             // -------------------------------------
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor = MultiLangXML.MultiIdiomasXML.Instancia;
+            _traductor.TraducirForm(this);
 
             _btnEditar.Enabled = false;
 
@@ -64,7 +64,7 @@ namespace IAHRIS
 
             //Validaciones
             if (string.IsNullOrEmpty(txtNombre.Text) & !string.IsNullOrEmpty(txtDescripcion.Text))            
-                MessageBox.Show("El campo NOMBRE y DESCRIPCIÓN no pueden estar vacíos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorValidationProj"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
           
             if (txtNombre.Text.Length > 20)           
                 MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strTooLongName"), _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strError"), MessageBoxButtons.OK, MessageBoxIcon.Error);

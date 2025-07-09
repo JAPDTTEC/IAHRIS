@@ -34,12 +34,12 @@ namespace IAHRIS
             // -------------------------------------
             // ---- Traducir formulario ------------
             // -------------------------------------
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor = MultiLangXML.MultiIdiomasXML.Instancia;
+
             _btnCargarLista.Name = "btnCargarLista";
             _btnExaminar.Name = "btnExaminar";
 
+            _traductor.TraducirForm(this);
             lblPuntoAs.Text = "";
         }
 
@@ -182,7 +182,6 @@ namespace IAHRIS
 
                 if (!_tFechas.ComprobarFechasCSV(_cabecera.TipoFechas, fecha, ref dt))
                 {
-                    // MessageBox.Show("Formato de la fechas DIARIAS no es correcto.")
                     MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, error), _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorRead"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -410,7 +409,9 @@ namespace IAHRIS
                 // Si hay error muestro un mensaje de error
                 if (nErrores > 0)
                 {
-                    if (MessageBox.Show("Se han encontrado " + nErrores + " errores. No se puede continuar. " + Constants.vbCrLf + "¿Desea un volcado con la información de los errores?", _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strError"), MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                    if (MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorReadList1") + nErrores + 
+                                        _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorReadList2"), 
+                                        _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strError"), MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
 
                     {
                         var ofd = new SaveFileDialog();

@@ -30,7 +30,7 @@ using global::System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // <Assembly: AssemblyVersion("1.0.*")> 
 
-[assembly: AssemblyVersion("4.0.*")]
-[assembly: AssemblyInformationalVersion("4.0")]
+[assembly: AssemblyVersion("4.1.*")]
+[assembly: AssemblyInformationalVersion("4.1")]
 //[assembly: AssemblyFileVersion("2.3.*")]
 

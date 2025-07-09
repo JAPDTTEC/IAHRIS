@@ -7,6 +7,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using IAHRIS;
 using IAHRIS.Calculo;
+using MultiLangXML;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -38,10 +39,10 @@ namespace DatosSimpa
 
         public FormGMaps()
         {
-            InitializeComponent();
-           
+            _traductor = MultiIdiomasXML.Instancia;
 
-            
+            InitializeComponent();
+            _traductor.TraducirForm(this);            
         }
 
         private void FormGMaps_Load(object sender, EventArgs e)
@@ -63,8 +64,7 @@ namespace DatosSimpa
             _progresoDatosForm = new ProgresoDatosForm();
             _motorDatos = new MotorDatos();
             _gestorDescargas = new GestorDescargas();
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor = MultiIdiomasXML.Instancia;
             _cMDB = new IAHRIS.BBDD.OleDbDataBase("Base", Application.StartupPath + @"\IAHRISv2.mdb");
             _tFechas = new TestFechas(new IAHRIS.BBDD.OleDbDataBase("Base", Application.StartupPath + @"\IAHRISv2.mdb"));
 
@@ -82,7 +82,10 @@ namespace DatosSimpa
             mapaHidro.Refresh();
 
 
-            this.lblZoom.Text = "Coordenadas Seleccionadas: ";
+            //this.lblZoom.Text = "Coordenadas Seleccionadas: ";
+
+            _traductor.TraducirForm(this);
+
         }
 
         private GMapOverlay CrearMarca(PointLatLng punto, EstacionAforoDTO estacion = null)
@@ -225,7 +228,7 @@ namespace DatosSimpa
                     return;
                 }catch(FileNotFoundException fnfex)
                 {
-                    MessageBox.Show("El rango de fechas no está soportado por SIMPA", "Rango de fechas erroneo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorSIMPAFechasNoSoportadas"), "Rango de fechas erroneo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     HabilitarForm(true);
                     return;
                     
@@ -281,10 +284,11 @@ namespace DatosSimpa
                 
                 while (saveFileDialog1.ShowDialog() != DialogResult.OK)
                 {              
-                    resp = MessageBox.Show("¿Está seguro que desea cancelar el proceso?", "Cancelar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    resp = MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strDeseaCancelar"), _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strCancel"),
+                                            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (resp == DialogResult.OK)
                     {
-                        MessageBox.Show("Proceso Cancelado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "srtProcesoCancelado"), _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInfo"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                         HabilitarForm(true);
                         return;
                     }                    
@@ -328,13 +332,15 @@ namespace DatosSimpa
 
 
                 //Termina y habilita formulario.
-                MessageBox.Show("Proceso Finalizado Correctamente. \n Fichero de datos csv: " + rutaFicheroDatos, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);     
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "srtProcesoFinalizado") + " \n Fichero de datos csv: " + rutaFicheroDatos,
+                                _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInfo"), MessageBoxButtons.OK, MessageBoxIcon.Information);     
                 HabilitarForm(true);
 
             }
             catch(System.IO.IOException ex)
             {
-                MessageBox.Show("Espacio en disco insuficiente. La descarga de estos datos requiere varios gigabits libres en disco","Espacio insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "srtEspacioDiscoInsuficiente"),
+                                _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "srtEspacioInsuficiente"), MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 HabilitarForm(true);
             }
             catch (Exception ex)
@@ -399,8 +405,9 @@ namespace DatosSimpa
                         mensajeFicheros += item.Substring(i + 1) + "\n";
                     }
 
-                    result = MessageBox.Show("Ficheros no actualizados:\n" + mensajeFicheros +
-                                    "¿Desea Actualizarlos?", "Información", MessageBoxButtons.OKCancel,
+                    result = MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInfoUpdate1") + " \n" + mensajeFicheros +
+                                    _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strInfoUpdate2") ,
+                                    "Info", MessageBoxButtons.OKCancel,
                                     MessageBoxIcon.Information);
                 }
 
@@ -435,7 +442,7 @@ namespace DatosSimpa
 
                 foreach (var item in archivos)
                 {
-                    _progresoDescargaForm.ActualizarEtiquetaArchivo("Descargando: " + item.Split('\\').Last());
+                    _progresoDescargaForm.ActualizarEtiquetaArchivo(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strDownload") + " " + item.Split('\\').Last());
                     try
                     {
                         await _gestorDescargas.IniciarDescarga(item, myWebClient);
@@ -459,17 +466,6 @@ namespace DatosSimpa
             }
 
         }
-
-
-        //private void panel1_Paint(object sender, PaintEventArgs e)
-        //{
-        //    ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle, Color.Blue, ButtonBorderStyle.Dashed);
-        //}
-
-        //private void panel2_Paint(object sender, PaintEventArgs e)
-        //{
-        //    ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle, Color.Blue, ButtonBorderStyle.Dashed);
-        //}
 
 
         private void btnBuscarEst_Click(object sender, EventArgs e)
@@ -546,13 +542,14 @@ namespace DatosSimpa
         {
 
             if (!double.TryParse(this.tbCoord_X.Text, out double x))
-                return "La coordenada X es incorrecta";
+                return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strErrorCoordX");
 
             if (!double.TryParse(this.tbCoord_Y.Text, out double y))
-                return "La coordenada Y es incorrecta";
+                return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strErrorCoordY");
 
             if (!int.TryParse(this.tbZona.Text, out int z))
-                return "El Huso es incorrecto";
+                return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strErrorCoordZone");
+
 
             return "";
         }

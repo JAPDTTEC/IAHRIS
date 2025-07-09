@@ -30,11 +30,13 @@ namespace IAHRIS
             // -------------------------------------
             // ---- Traducir formulario ------------
             // -------------------------------------
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+
+            _traductor = MultiLangXML.MultiIdiomasXML.Instancia;
+
             _cbProyectos.Name = "cbProyectos";
             _btnAceptar.Name = "btnAceptar";
+
+            _traductor.TraducirForm(this);
         }
 
         private BBDD.OleDbDataBase _cMDB;

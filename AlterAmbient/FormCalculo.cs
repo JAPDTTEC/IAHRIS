@@ -43,8 +43,8 @@ namespace IAHRIS
             pb.Image = new Bitmap(My.Resources.Resources.wait30trans);
             Controls.Add(pb);
             Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor = MultiLangXML.MultiIdiomasXML.Instancia;
+            _traductor.TraducirForm(this);
         }
 
         private TestFechas.Simulacion _simulacion;

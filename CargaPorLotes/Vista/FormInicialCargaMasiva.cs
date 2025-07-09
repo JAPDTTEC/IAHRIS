@@ -177,10 +177,10 @@ namespace CargaPorLotes.Vista
         private string ValidarFichero(string[] titulo, string fich)
         {
             if (titulo.Length != 3 && titulo.Length != 4)
-                return "Cabecera con formato erróneo";
+                return _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorCMHeaderCSV");
 
             if (string.IsNullOrEmpty(titulo[2]))
-                return "Fichero sin Punto con Nombre";
+                return _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorCMNoPointName");
 
             return "";
         }
@@ -202,7 +202,7 @@ namespace CargaPorLotes.Vista
                 }
                 catch (SecurityException ex)
                 {
-                    MessageBox.Show("Error message: " + ex.Message);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strError") + ex.Message);
                 }
             }
         }
@@ -263,9 +263,8 @@ namespace CargaPorLotes.Vista
 
         private void FormInicialCargaMasiva_Load(object sender, EventArgs e)
         {
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");   
+            _traductor = MultiLangXML.MultiIdiomasXML.Instancia;
+            _traductor.TraducirForm(this);
 
         }
     }

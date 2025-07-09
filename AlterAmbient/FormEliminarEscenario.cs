@@ -1,17 +1,9 @@
 ﻿using IAHRIS.Calculo.CaudalesEcologicos.Escenarios;
-using IAHRIS.Calculo.CaudalesEcologicos;
 using IAHRIS.Rellenar;
+using MultiLangXML;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using IAHRIS.Calculo;
 
 namespace IAHRIS
 {
@@ -19,20 +11,19 @@ namespace IAHRIS
     {
         
         Escenarios _escenarios;
+        MultiIdiomasXML _traductor;
         
         BBDD.OleDbDataBase _cMDB;
 
         public FormEliminarEscenario()
         {
+            _traductor = MultiIdiomasXML.Instancia;
             InitializeComponent();
         }
         public FormEliminarEscenario(BBDD.OleDbDataBase MDB, int idPunto, int idAlteracion)
         {
-            _escenarios = new Escenarios();
-
-          
-
-            
+            _traductor = MultiIdiomasXML.Instancia;
+            _escenarios = new Escenarios();     
 
             _cMDB = MDB;
             InitializeComponent();
@@ -62,14 +53,15 @@ namespace IAHRIS
         {
             ComboItem escSelec = (ComboItem)cmbEscenario.SelectedItem;
 
-            DialogResult result = MessageBox.Show("¿Está seguro de que desea borrar el escenario seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strDeseaBorrarEscenario"), _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strConfirmar"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             // Verificar la respuesta del usuario
             if (result == DialogResult.Yes)
             {
                 _escenarios.EliminarEscenarioBD(escSelec.Id);
                 // Si la respuesta es Sí
-                MessageBox.Show("Escenario borrado.","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "srtEscenarioBorrado"), "Info" ,
+                                                            MessageBoxButtons.OK,MessageBoxIcon.Information);
                 // Aquí puedes agregar la lógica para borrar
             }
             

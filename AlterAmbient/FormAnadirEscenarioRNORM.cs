@@ -1,18 +1,11 @@
-﻿using IAHRIS.Calculo.CaudalesEcologicos.Escenarios;
+﻿using IAHRIS.Calculo;
 using IAHRIS.Calculo.CaudalesEcologicos;
+using IAHRIS.Calculo.CaudalesEcologicos.Escenarios;
+using MultiLangXML;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using IAHRIS.Calculo;
-using XPTable.Models;
-using System.Web;
 
 namespace IAHRIS
 {
@@ -23,15 +16,18 @@ namespace IAHRIS
         Escenarios _escenarios;
         SerieRCE _serieRCE;
         bool _edit = false;
+        private MultiIdiomasXML _traductor;
 
         public FormAnadirEscenarioRNORM()
         {
+            _traductor = MultiIdiomasXML.Instancia;
             InitializeComponent();
         }
 
         public FormAnadirEscenarioRNORM(BBDD.OleDbDataBase MDB, SerieRCE serieRCE, int idPunto, int idAlteracion, EscenarioDTO escenario)
         {
-            
+            _traductor = MultiIdiomasXML.Instancia;
+
 
             foreach (double caudal in escenario.Caudales_Ecologicos) { 
                 if(caudal!= 0) {  _edit = true; break; }
@@ -58,7 +54,8 @@ namespace IAHRIS
 
         public FormAnadirEscenarioRNORM(BBDD.OleDbDataBase MDB, SerieRCE serieRCE, int idPunto, int idAlteracion)
         {
-          
+            _traductor = MultiIdiomasXML.Instancia;
+
 
             EscenarioDTO escenario = new EscenarioDTO();
 
@@ -119,7 +116,7 @@ namespace IAHRIS
                     _escenario.Caudales_Ecologicos[i] = Convert.ToDouble(txtMes.Text);
                 }catch(Exception ex)
                 {
-                    MessageBox.Show("Por favor, ingrese solo números válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNumeroValidos"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMes.Clear();
                     return;
                 }
@@ -128,14 +125,14 @@ namespace IAHRIS
                 string[] partes = txtMes.Text.Split('.');
                 if (partes.Length == 2 && partes[1].Length > 3)
                 {
-                    MessageBox.Show("El número no puede tener más de 3 decimales.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNumeroSolo3Decimales"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMes.Clear(); // Limpiar el TextBox
                     return;
                 }
                 string[] partes2 = txtMes.Text.Split(',');
                 if (partes2.Length == 2 && partes2[1].Length > 3)
                 {
-                    MessageBox.Show("El número no puede tener más de 3 decimales.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNumeroSolo3Decimales"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMes.Clear(); // Limpiar el TextBox
                     return;
                 }

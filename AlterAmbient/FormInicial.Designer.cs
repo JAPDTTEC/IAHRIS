@@ -232,8 +232,8 @@ namespace IAHRIS
             this.GestiónDeListasToolStripMenuItem,
             this.GestBBDDToolStripMenuItem,
             this.utilidadesToolStripMenuItem,
-            this._ManualesToolStripMenuItem,
-            this.IdiomasToolStripMenuItem});
+            this.IdiomasToolStripMenuItem,
+            this._ManualesToolStripMenuItem});
             this.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.MenuStrip1.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip1.Name = "MenuStrip1";
@@ -317,21 +317,21 @@ namespace IAHRIS
             // _AñadirAlteraciónToolStripMenuItem
             // 
             this._AñadirAlteraciónToolStripMenuItem.Name = "_AñadirAlteraciónToolStripMenuItem";
-            this._AñadirAlteraciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this._AñadirAlteraciónToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this._AñadirAlteraciónToolStripMenuItem.Text = "Añadir Alteración";
             this._AñadirAlteraciónToolStripMenuItem.Click += new System.EventHandler(this.AñadirAlteraciónToolStripMenuItem_Click);
             // 
             // _EditarAlteraciónToolStripMenuItem
             // 
             this._EditarAlteraciónToolStripMenuItem.Name = "_EditarAlteraciónToolStripMenuItem";
-            this._EditarAlteraciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this._EditarAlteraciónToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this._EditarAlteraciónToolStripMenuItem.Text = "Editar Alteración";
             this._EditarAlteraciónToolStripMenuItem.Click += new System.EventHandler(this._EditarAlteraciónToolStripMenuItem_Click);
             // 
             // _EliminarAlteraciónToolStripMenuItem
             // 
             this._EliminarAlteraciónToolStripMenuItem.Name = "_EliminarAlteraciónToolStripMenuItem";
-            this._EliminarAlteraciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this._EliminarAlteraciónToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this._EliminarAlteraciónToolStripMenuItem.Text = "Eliminar Alteración";
             this._EliminarAlteraciónToolStripMenuItem.Click += new System.EventHandler(this.EliminarAlteraciónToolStripMenuItem_Click);
             // 
@@ -414,7 +414,6 @@ namespace IAHRIS
             // 
             // IdiomasToolStripMenuItem
             // 
-            this.IdiomasToolStripMenuItem.Enabled = false;
             this.IdiomasToolStripMenuItem.Name = "IdiomasToolStripMenuItem";
             this.IdiomasToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
             this.IdiomasToolStripMenuItem.Text = "Idioma/Language";

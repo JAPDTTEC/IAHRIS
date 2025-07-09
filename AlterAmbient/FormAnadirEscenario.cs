@@ -1,18 +1,11 @@
 ﻿using IAHRIS.Calculo;
 using IAHRIS.Calculo.CaudalesEcologicos;
 using IAHRIS.Calculo.CaudalesEcologicos.Escenarios;
+using MultiLangXML;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static IAHRIS.Calculo.TestFechas;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace IAHRIS
 {
@@ -22,14 +15,18 @@ namespace IAHRIS
         EscenarioDTO _escenario;
         Escenarios _escenarios;
         SerieRCE _serieRCE;
+        private MultiIdiomasXML _traductor;
 
         public FormAnadirEscenario()
         {
             InitializeComponent();
+            _traductor = MultiIdiomasXML.Instancia;
         }
 
         public FormAnadirEscenario(BBDD.OleDbDataBase MDB, SerieRCE serieRCE, int idPunto, int idAlteracion)
         {
+            _traductor = MultiIdiomasXML.Instancia;
+
             _escenarios = new Escenarios();
 
             _escenario = new EscenarioDTO();
@@ -54,7 +51,7 @@ namespace IAHRIS
             _escenario.Por_Defecto = false;
             _escenario.Caudales_Ecologicos = new double[12];
 
-
+            _traductor.TraducirForm(this);
 
         }
 
@@ -63,19 +60,22 @@ namespace IAHRIS
 
             if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
-                MessageBox.Show("Por favor, complete el campo del nombre y la descripcion del Escenario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorSinNombreYDescripcion"), "Error", 
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
 
             if (txtNombre.Text.Length > 4)
             {
-                MessageBox.Show("El nombre del escenario tiene un tamaño máximo de 4 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNomEscenarioMaxCaracteres"), "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtDescripcion.Text.Length > 50)
             {
-                MessageBox.Show("La descripcion del escenario tiene un tamaño máximo de 50 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorDescEscenarioMaxCaracteres"), "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -89,14 +89,14 @@ namespace IAHRIS
 
             for (int i = 0; i < 12; i++)
             {
-                System.Windows.Forms.TextBox txtMes = Controls.Find("txtMes" + i.ToString(), true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                TextBox txtMes = Controls.Find("txtMes" + i.ToString(), true).FirstOrDefault() as TextBox;
 
                 txtMes.Text = txtMes.Text.Replace('.', SeparadorDecimal[0]);
                 txtMes.Text = txtMes.Text.Replace(',', SeparadorDecimal[0]);
 
                 if (!double.TryParse(txtMes.Text,  out _escenario.Caudales_Ecologicos[i])) 
                 {
-                    MessageBox.Show("Por favor, ingrese solo números válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNumeroValidos"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMes.Clear();
                     return;
                 }
@@ -104,14 +104,14 @@ namespace IAHRIS
                 string[] partes = txtMes.Text.Split('.');
                 if (partes.Length == 2 && partes[1].Length > 3)
                 {
-                    MessageBox.Show("El número no puede tener más de 3 decimales.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNumeroSolo3Decimales"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMes.Clear(); // Limpiar el TextBox
                     return;
                 }
                 string[] partes2 = txtMes.Text.Split(',');
                 if (partes2.Length == 2 && partes2[1].Length > 3)
                 {
-                    MessageBox.Show("El número no puede tener más de 3 decimales.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_ERROR, "strErrorNumeroSolo3Decimales"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMes.Clear(); // Limpiar el TextBox
                     return;
                 }

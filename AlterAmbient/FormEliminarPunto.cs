@@ -45,8 +45,8 @@ namespace IAHRIS
             // -------------------------------------
             // ---- Traducir formulario ------------
             // -------------------------------------
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
+
+            _traductor = MultiLangXML.MultiIdiomasXML.Instancia;
             if (tipo == "Punto")
             {
                 Name = "FormEliminarPunto";
@@ -57,12 +57,13 @@ namespace IAHRIS
             }           
 
             btnBorrar.Enabled = false;
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
             _lstboxPuntos.Name = "lstboxPuntos";
             _lstboxAlt.Name = "lstboxAlt";
             _btnBorrar.Name = "btnBorrar";
 
-             _Rellenar = new Rellenar.RellenarForm(_cMDB);
+            _traductor.TraducirForm(this);
+
+            _Rellenar = new Rellenar.RellenarForm(_cMDB);
             var argcombo = cmbProyectos;
             _Rellenar.RellenarProyectos(ref argcombo);
 

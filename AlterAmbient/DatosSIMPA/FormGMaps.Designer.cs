@@ -40,15 +40,16 @@ namespace DatosSimpa
             this.cb_ListaAforos = new System.Windows.Forms.ComboBox();
             this.cbCuencaHidrografica = new System.Windows.Forms.ComboBox();
             this.btnGetSimpa = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.lblCuencaH = new System.Windows.Forms.Label();
             this.lblEstaciones = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblCodigoNombre = new System.Windows.Forms.Label();
             this.btnBuscarEst = new System.Windows.Forms.Button();
             this.lblUTMTitle = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblBuscarEstacionAforo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblUTMWarning = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblHuso = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@ namespace DatosSimpa
             this.tbCoord_Y = new System.Windows.Forms.TextBox();
             this.btnBuscarCoord = new System.Windows.Forms.Button();
             this.tbCoord_X = new System.Windows.Forms.TextBox();
-            this.lblUTMWarning = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -157,15 +157,15 @@ namespace DatosSimpa
             this.btnGetSimpa.UseVisualStyleBackColor = true;
             this.btnGetSimpa.Click += new System.EventHandler(this.btnGetSimpa_Click);
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Importar Datos SIMPA";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(19, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(223, 25);
+            this.lblTitulo.TabIndex = 8;
+            this.lblTitulo.Text = "Importar Datos SIMPA";
             // 
             // lblCuencaH
             // 
@@ -190,7 +190,7 @@ namespace DatosSimpa
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblCodigoNombre);
             this.panel1.Controls.Add(this.btnBuscarEst);
             this.panel1.Controls.Add(this.tb_BuscadorAforos);
             this.panel1.Controls.Add(this.cbCuencaHidrografica);
@@ -202,16 +202,15 @@ namespace DatosSimpa
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(311, 211);
             this.panel1.TabIndex = 19;
-            
             // 
-            // label5
+            // lblCodigoNombre
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Código o nombre:";
+            this.lblCodigoNombre.AutoSize = true;
+            this.lblCodigoNombre.Location = new System.Drawing.Point(11, 8);
+            this.lblCodigoNombre.Name = "lblCodigoNombre";
+            this.lblCodigoNombre.Size = new System.Drawing.Size(90, 13);
+            this.lblCodigoNombre.TabIndex = 11;
+            this.lblCodigoNombre.Text = "Código o nombre:";
             // 
             // btnBuscarEst
             // 
@@ -233,15 +232,15 @@ namespace DatosSimpa
             this.lblUTMTitle.Text = "Buscar por Coordenada UTM: ";
             this.lblUTMTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // lblBuscarEstacionAforo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(803, 45);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 13);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Buscar por estación de aforo:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBuscarEstacionAforo.AutoSize = true;
+            this.lblBuscarEstacionAforo.Location = new System.Drawing.Point(803, 45);
+            this.lblBuscarEstacionAforo.Name = "lblBuscarEstacionAforo";
+            this.lblBuscarEstacionAforo.Size = new System.Drawing.Size(146, 13);
+            this.lblBuscarEstacionAforo.TabIndex = 27;
+            this.lblBuscarEstacionAforo.Text = "Buscar por estación de aforo:";
+            this.lblBuscarEstacionAforo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -261,6 +260,16 @@ namespace DatosSimpa
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(311, 124);
             this.panel2.TabIndex = 20;
+            // 
+            // lblUTMWarning
+            // 
+            this.lblUTMWarning.Location = new System.Drawing.Point(11, 54);
+            this.lblUTMWarning.Name = "lblUTMWarning";
+            this.lblUTMWarning.Size = new System.Drawing.Size(145, 57);
+            this.lblUTMWarning.TabIndex = 28;
+            this.lblUTMWarning.Text = "El usuario debe verificar en el mapa la correcta ubicación del punto respecto a l" +
+    "a red hidrográfica";
+            this.lblUTMWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -331,25 +340,15 @@ namespace DatosSimpa
             this.tbCoord_X.Size = new System.Drawing.Size(68, 20);
             this.tbCoord_X.TabIndex = 37;
             // 
-            // lblUTMWarning
-            // 
-            this.lblUTMWarning.Location = new System.Drawing.Point(11, 54);
-            this.lblUTMWarning.Name = "lblUTMWarning";
-            this.lblUTMWarning.Size = new System.Drawing.Size(145, 57);
-            this.lblUTMWarning.TabIndex = 28;
-            this.lblUTMWarning.Text = "El usuario debe verificar en el mapa la correcta ubicación del punto respecto a l" +
-    "a red hidrográfica";
-            this.lblUTMWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FormGMaps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 518);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblBuscarEstacionAforo);
             this.Controls.Add(this.lblUTMTitle);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnGetSimpa);
             this.Controls.Add(this.labelZoom);
             this.Controls.Add(this.trackBar1);
@@ -381,14 +380,14 @@ namespace DatosSimpa
         private ComboBox cb_ListaAforos;
         private ComboBox cbCuencaHidrografica;
         private Button btnGetSimpa;
-        private Label label1;
+        private Label lblTitulo;
         private Label lblCuencaH;
         private Label lblEstaciones;
         private Panel panel1;
         private Button btnBuscarEst;
         private Label lblUTMTitle;
-        private Label label5;
-        private Label label6;
+        private Label lblCodigoNombre;
+        private Label lblBuscarEstacionAforo;
         private Panel panel2;
         private Label label7;
         private Label lblHuso;

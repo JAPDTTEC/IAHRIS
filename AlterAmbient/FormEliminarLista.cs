@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using IAHRIS.BBDD;
 using IAHRIS.Rellenar;
 using Microsoft.VisualBasic.CompilerServices;
+using MultiLangXML;
 
 namespace IAHRIS
 {
@@ -34,8 +35,9 @@ namespace IAHRIS
             // ---- Traducir formulario ------------
             // -------------------------------------
             Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            _traductor = MultiIdiomasXML.Instancia;
+           
+
             _lstboxListas.Name = "lstboxListas";
             _btnAltDiaria.Name = "btnAltDiaria";
             _btnBorrarNatDiaria.Name = "btnBorrarNatDiaria";
@@ -43,7 +45,7 @@ namespace IAHRIS
             _cmboxAlt.Name = "cmboxAlt";
             _btnAltMensual.Name = "btnAltMensual";
 
-            
+            _traductor.TraducirForm(this);
            
         }
 

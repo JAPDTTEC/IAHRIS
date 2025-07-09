@@ -1,5 +1,6 @@
 ﻿using DatosSimpa.API;
 using DatosSimpa.DTO;
+using MultiLangXML;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,7 @@ namespace DatosSimpa
 
         private readonly MitecoAPI _mitecoAPI;
         private readonly string _remoteUri;
+        private readonly MultiIdiomasXML _traductor;
 
         /// <summary>
         /// Constructor.
@@ -26,6 +28,7 @@ namespace DatosSimpa
         {
             _mitecoAPI = new MitecoAPI();
             _remoteUri = @"https://ceh-flumen64.cedex.es/descargas/ERH_Entregamayo2019B/";
+            _traductor = MultiIdiomasXML.Instancia;
         }
 
 
@@ -95,7 +98,7 @@ namespace DatosSimpa
                 DatoFicheroGuia linea = contenidoGuia.Find(x => x.Ruta.EndsWith(nomFichero));
 
                 if (linea == null)
-                    throw new FileNotFoundException("Fichero no encontrado");
+                    throw new FileNotFoundException(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "strFicheroNoEncontrado"));
 
                 //Para que esté actualizado, la fecha de escritura debe ser mayor que la fecha de actualización indicada
                 bool resultado = fichero.CreationTime > linea.FechaActualizacion;
@@ -139,9 +142,14 @@ namespace DatosSimpa
             }
             catch (Exception e)
             {
-                MessageBox.Show("Espacio en disco insuficiente. La descarga de estos datos requiere varios gigabits libres en disco", "Espacio insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                try { File.Delete(archivo); } catch { }
-                throw new OutOfMemoryException("Espacio en disco insuficiente", e);
+                MessageBox.Show(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "srtEspacioDiscoInsuficiente"), 
+                                _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "srtEspacioInsuficiente"), MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                try 
+                { 
+                    File.Delete(archivo);
+                } 
+                catch { }
+                    throw new OutOfMemoryException(_traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_INFO, "srtEspacioInsuficiente"), e);
             }
         }
 

@@ -9,6 +9,8 @@ using static IAHRIS.Calculo.TestFechas;
 
 namespace IAHRIS.Calculo
 {
+
+
     public static class Utiles
     {
 
@@ -17,10 +19,7 @@ namespace IAHRIS.Calculo
         //los meses iran desde 1: Enero a 12:Diciembre
         public static string ObtenerMes(int mes)
         {
-            Form form = new Form(); 
-            MultiIdiomasXML _traductor = new MultiIdiomasXML(ref form);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
-
+            MultiIdiomasXML _traductor = MultiIdiomasXML.Instancia;
             return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_MONTH, (mes).ToString());         
 
         }
@@ -29,10 +28,7 @@ namespace IAHRIS.Calculo
         //Devuelve el literal de un informe XML recibido en el idioma del conf.
         public static string ObtenerNombreInforme(string nombreInformeXML)
         {
-            Form form = new Form();
-            MultiIdiomasXML _traductor = new MultiIdiomasXML(ref form);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
-
+            MultiIdiomasXML _traductor = MultiIdiomasXML.Instancia;
             return _traductor.traducirMensaje(MultiIdiomasXML.TIPO_MENSAJE.M_OTHER, nombreInformeXML);
 
         }
@@ -300,5 +296,9 @@ namespace IAHRIS.Calculo
             }
 
         }
+
+
+
+
     }
 }

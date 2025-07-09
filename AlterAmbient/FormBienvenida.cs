@@ -1,18 +1,14 @@
 ﻿using IAHRIS.Calculo;
 using IAHRIS.Rellenar;
-using Microsoft.VisualBasic.CompilerServices;
-using Microsoft.VisualBasic.FileIO;
+using MultiLangXML;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using System.Web.UI.Design.WebControls;
 using System.Windows.Forms;
 
 namespace IAHRIS
@@ -30,9 +26,9 @@ namespace IAHRIS
             Thread.CurrentThread.CurrentUICulture = culture;
 
             Console.Title = "IAHRIS " + Application.ProductVersion + " " + new FileInfo(Application.ExecutablePath).LastWriteTime.Year.ToString();
-            Form argform = this;
-            _traductor = new MultiLangXML.MultiIdiomasXML(ref argform);
-            _traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
+            //Form argform = this;
+            _traductor = MultiIdiomasXML.Instancia; 
+                //_traductor.traducirFormPorConf(Application.StartupPath, @"\conf.xml");
             _cMDB = new IAHRIS.BBDD.OleDbDataBase("Base", Application.StartupPath + @"\IAHRISv2.mdb");
             _tFechas = new TestFechas(new IAHRIS.BBDD.OleDbDataBase("Base", Application.StartupPath + @"\IAHRISv2.mdb"));
 
@@ -45,10 +41,10 @@ namespace IAHRIS
                 InitializeComponent();
                 _pbPrograma.Name = "pbPrograma";
                 DateTime fileDate = new FileInfo(Application.ExecutablePath).LastWriteTime;
-                _traductor.cambiarIdioma(Application.StartupPath + @"\lang\english.xml");
-                lblVersionEN.Text = Application.ProductVersion + "                 " + _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_MONTH, fileDate.Month.ToString()) + " " + fileDate.Year.ToString();
-                _traductor.cambiarIdioma(Application.StartupPath + @"\lang\spanish.xml");
-                lblVersionES.Text = Application.ProductVersion + "                 " + _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_MONTH, fileDate.Month.ToString()) + " " + fileDate.Year.ToString();
+            //    _traductor.cambiarIdioma(Application.StartupPath + @"\lang\english.xml");
+            //    lblVersionEN.Text = Application.ProductVersion + "                 " + _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_MONTH, fileDate.Month.ToString()) + " " + fileDate.Year.ToString();
+            //    _traductor.cambiarIdioma(Application.StartupPath + @"\lang\spanish.xml");
+            //    lblVersionES.Text = Application.ProductVersion + "                 " + _traductor.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE.M_MONTH, fileDate.Month.ToString()) + " " + fileDate.Year.ToString();
             }
             else
             {

@@ -1,9 +1,9 @@
-﻿using System;
-using global::System.Windows.Forms;
+﻿using global::System.Windows.Forms;
 using global::System.Xml;
 using global::System.Xml.Schema;
 using global::System.Xml.XPath;
 using Microsoft.VisualBasic;
+using System;
 
 namespace MultiLangXML
 {
@@ -15,10 +15,20 @@ namespace MultiLangXML
         private Form _form;
         private string _appPath;
         private string _rutaConf;
-        private string _rutaXML;
+
+
+        public string RutaXMLConfiguracion
+        {
+            get { return _rutaConf; }
+            private set { _rutaConf = value; }
+        }
+
         private string _rutaExcel;
         private string _rutaExcelCE;
+        private string rutaXMLIdioma;
         private bool _OK;
+        private static bool _configurado = false;
+        private static MultiIdiomasXML _instancia;
 
         /// <summary>
         /// Enumeración con Tipos de Mensaje
@@ -57,6 +67,10 @@ namespace MultiLangXML
             _form = form;
         }
 
+        public MultiIdiomasXML()
+        {
+
+        }
 
         public void ValidationHandler(object sender, ValidationEventArgs args)
         {
@@ -78,44 +92,39 @@ namespace MultiLangXML
         /// <param name="rutaXSD">Ruta donde se encuentra el XSD de validación del XML</param>
         /// <returns>Devuelve true si la traduccion ha sido correcta y false si ha habido algun error</returns>
         /// <remarks>El fichero XSD no se puede modificar y esta unido a cada versión de la librería</remarks>
-        public bool traducirForm(string rutaXML, string rutaXSD)
+        public bool TraducirForm(Form formulario)
         {
             XPathDocument xmldoc;
             XPathNavigator xmlnav;
             try
             {
-                xmldoc = new XPathDocument(rutaXML);
+                xmldoc = new XPathDocument(rutaXMLIdioma);
                 xmlnav = xmldoc.CreateNavigator();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "Error Traducir\nError Translate", MessageBoxButtons.OK, MessageBoxIcon.Error);              
+                MessageBox.Show(ex.Message.ToString(), traducirMensaje(TIPO_MENSAJE.M_ERROR, "XmlnoEncontrado"), MessageBoxButtons.OK, MessageBoxIcon.Error);              
                 return false;
             }
 
             // Traducir el formulario
             XPathNodeIterator iterador;
-            iterador = xmlnav.Select("//forms/form[@id=\"" + _form.Name + "\"]");
+            iterador = xmlnav.Select("//forms/form[@id=\"" + formulario.Name + "\"]");
             if (iterador.MoveNext())
             {
                 var node = iterador.Current;
-                _form.Text = node.GetAttribute("string", "");
+                formulario.Text = node.GetAttribute("string", "");
             }
             // Traducir los controles
-            foreach (Control ctrl in _form.Controls)
-                traducirControl(ctrl, xmldoc, xmlnav);
+            foreach (Control ctrl in formulario.Controls)
+                TraducirControl(ctrl, xmldoc, xmlnav, formulario.Name);
+
             xmlnav = null;
             xmldoc = null;
             return true;
         }
-        /// <summary>
-        /// Traducir formulario
-        /// </summary>
-        /// <param name="rutaApp">Ruta a la carpeta donde se encuentra la aplicación</param>
-        /// <param name="rutaXML">Ruta al XML donde se encuentra la traducción</param>
-        /// <returns>Si todo ha ido bien</returns>
-
-        public bool traducirFormPorConf(string rutaApp, string rutaXML)
+       
+        public static void ConfigurarTraductor(string rutaApp, string rutaXMLConf)
         {
             XPathDocument xmldoc;
             XPathNavigator xmlnav;
@@ -123,151 +132,174 @@ namespace MultiLangXML
             string rutaLangXML;
             try
             {
-                _rutaConf = rutaApp + rutaXML;
-                _appPath = rutaApp;
-                xmldoc = new XPathDocument(_rutaConf);
+                _instancia = new MultiIdiomasXML();
+                _instancia._rutaConf = rutaXMLConf;
+                _instancia._rutaConf = rutaApp + rutaXMLConf;
+                _instancia._appPath = rutaApp;
+                xmldoc = new XPathDocument(_instancia._rutaConf);
                 xmlnav = xmldoc.CreateNavigator();
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentra el fichero XML\nXML file not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-                return false;
+                MessageBox.Show(_instancia.traducirMensaje(TIPO_MENSAJE.M_ERROR, "XmlnoEncontrado"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
             }
 
             iterador = xmlnav.Select("configuracion/idioma");
             if (iterador.MoveNext())
             {
                 rutaLangXML = iterador.Current.Value;
-                _rutaXML = _appPath + @"\" + rutaLangXML;
+                _instancia.SetFicheroIdioma(_instancia._appPath + @"\" + rutaLangXML);
             }
             else
             {
                 xmlnav = null;
                 xmldoc = null;
-                return false;
+                return;
             }
 
             // Sacar el excel
-            xmldoc = new XPathDocument(_rutaXML);
+            xmldoc = new XPathDocument(_instancia.rutaXMLIdioma);
             xmlnav = xmldoc.CreateNavigator();
             iterador = xmlnav.Select("/language/excelFile");
             if (iterador.MoveNext())
             {
-                _rutaExcel = _appPath + @"\Report\" + iterador.Current.Value;
+                _instancia._rutaExcel = _instancia._appPath + @"\Report\" + iterador.Current.Value;
                 xmlnav = null;
                 xmldoc = null;
             }
             else
             {
-                _rutaExcel = "";
+                _instancia._rutaExcel = "";
                 xmlnav = null;
                 xmldoc = null;
-                return false;
+                return;
             }
 
-            // Sacar el excel
-            xmldoc = new XPathDocument(_rutaXML);
+            // Obtener ruta excel segun idioma.
+            xmldoc = new XPathDocument(_instancia.rutaXMLIdioma);
             xmlnav = xmldoc.CreateNavigator();
             iterador = xmlnav.Select("/language/excelCEFile");
             if (iterador.MoveNext())
             {
-                _rutaExcelCE = _appPath + @"\Report\" + iterador.Current.Value;
+                _instancia._rutaExcelCE = _instancia._appPath + @"\Report\" + iterador.Current.Value;
                 xmlnav = null;
                 xmldoc = null;
             }
             else
             {
-                _rutaExcelCE = "";
+                _instancia._rutaExcelCE = "";
                 xmlnav = null;
                 xmldoc = null;
-                return false;
+                return;
             }
 
-            return traducirForm(rutaApp + @"\" + rutaLangXML, "");
+            _configurado = true;
+
         }
 
+
         /// <summary>
-    /// Traducir un control
-    /// </summary>
-    /// <param name="ctrlObj">Control a traducir</param>
-    /// <param name="xmldoc">XML que se usa para traducir</param>
-    /// <param name="xmlnav">El navegador de XML</param>
-    /// <returns></returns>
-    /// <remarks></remarks>
-        private bool traducirControl(object ctrlObj, XPathDocument xmldoc, XPathNavigator xmlnav)
+        /// Traducir un control
+        /// </summary>
+        /// <param name="ctrlObj">Control a traducir</param>
+        /// <param name="xmldoc">XML que se usa para traducir</param>
+        /// <param name="xmlnav">El navegador de XML</param>
+        /// <returns></returns>
+        /// <remarks></remarks>
+        private bool TraducirControl(object ctrlObj, XPathDocument xmldoc, XPathNavigator xmlnav, string nombreFormulario)
         {
-            XPathNodeIterator iterador;
-            if (ctrlObj is MenuStrip)
-            {
-                MenuStrip menu = ctrlObj as MenuStrip;
-                if (menu.Items.Count > 0)
-                {
-                    foreach (ToolStripItem ctrlAux in menu.Items)
-                        traducirControl(ctrlAux, xmldoc, xmlnav);
-                }
-            }
-            else if (ctrlObj is ToolStripMenuItem)
-            {
-                ToolStripMenuItem ctrl = ctrlObj as ToolStripMenuItem;
-                // Cambiar el TEXT si existe en nuestro XML
-                iterador = xmlnav.Select("//forms/form[@id=\"" + _form.Name + "\"]/control[@id=\"" + ctrl.Name + "\"]");
-                if (iterador.MoveNext())
-                {
-                    ctrl.Text = iterador.Current.Value;
-                }
+            if (ctrlObj == null)
+                return false;
 
-                if (ctrl.DropDownItems.Count > 0)
-                {
-                    foreach (ToolStripMenuItem ctrlAux in ctrl.DropDownItems)
-                        traducirControl(ctrlAux, xmldoc, xmlnav);
-                }
-            }
-            else if (ctrlObj is ComboBox)
-            {
-                ComboBox ctrl = ctrlObj as ComboBox;
-                iterador = xmlnav.Select("//forms/form[@id=\"" + _form.Name + "\"]/control[@id=\"" + ctrl.Name + "\"]/item");
-                if (iterador.Count == 0)
-                {
-                    return false;
-                }
-                // Liberar los items anteriores o por defecto
-                ctrl.Items.Clear();
-                while (iterador.MoveNext())
-                    ctrl.Items.Add(iterador.Current.Value);
-                ctrl.SelectedIndex = 0;
-            }
-            else
-            {
-                Control ctrl = ctrlObj as Control;
-                // Cambiar el TEXT si existe en nuestro XML
-                iterador = xmlnav.Select("//forms/form[@id=\"" + _form.Name + "\"]/control[@id=\"" + ctrl.Name + "\"]");
-                if (iterador.MoveNext())
-                {
-                    string stSalida = iterador.Current.InnerXml;
-                    if (iterador.Current.InnerXml.Contains("<br/>") | iterador.Current.InnerXml.Contains("<br />"))
-                    {
-                        stSalida = stSalida.Replace("<br/>", Constants.vbCrLf);
-                        stSalida = stSalida.Replace("<br />", Constants.vbCrLf);
-                    }
-                    else
-                    {
-                        stSalida = iterador.Current.Value;
-                    }
 
-                    ctrl.Text = stSalida;
-                }
+            switch (ctrlObj)
+            {
+                case MenuStrip menu when menu.Items.Count > 0:
+                    foreach (ToolStripItem item in menu.Items)
+                        TraducirControl(item, xmldoc, xmlnav, nombreFormulario);
+                    break;
 
-                // Comprobar si el control contiene a otros controles
-                if (ctrl.Controls.Count > 0)
-                {
-                    foreach (Control ctrlAux in ctrl.Controls)
-                        traducirControl(ctrlAux, xmldoc, xmlnav);
-                }
+                case ToolStripMenuItem menuItem:
+                    var traduccion = ObtenerTextoPorNombreEtiqueta(menuItem.Name, xmlnav, nombreFormulario);
+
+                    if (!string.IsNullOrEmpty(traduccion)) //Si no encuentra el valor mantiene el valor por defecto.
+                        menuItem.Text = traduccion;
+
+
+                    foreach (ToolStripItem item in menuItem.DropDownItems)
+                        TraducirControl(item, xmldoc, xmlnav, nombreFormulario);
+                    break;
+
+                case ComboBox comboBox:
+                    XPathNodeIterator itemsIterator = xmlnav.Select($"//forms/form[@id='{nombreFormulario}']/control[@id='{comboBox.Name}']/item");
+
+                    if (itemsIterator.Count == 0)
+                        return false;
+
+                    comboBox.Items.Clear();
+                    while (itemsIterator.MoveNext())
+                        comboBox.Items.Add(itemsIterator.Current.Value);
+
+                    comboBox.SelectedIndex = 0;
+                    break;
+
+                case DataGridView dgv:
+                    foreach (DataGridViewColumn column in dgv.Columns)
+                        TraducirControl(column, xmldoc, xmlnav, nombreFormulario);
+                    break;
+
+                case Control control:
+                    traduccion = ObtenerTextoPorNombreEtiqueta(control.Name, xmlnav, nombreFormulario);
+                    
+                    if (!string.IsNullOrEmpty(traduccion)) //Si no encuentra el valor mantiene el valor por defecto.
+                        control.Text = traduccion;
+
+                    foreach (Control child in control.Controls)
+                        TraducirControl(child, xmldoc, xmlnav, nombreFormulario);
+                    break;
+
+
+                case DataGridViewColumn column:
+                    column.HeaderText = ObtenerTextoPorNombreEtiqueta(column.Name, xmlnav, nombreFormulario);
+                    break;
+
+
             }
 
             return true;
         }
+
+
+
+
+        /// <summary>
+        /// Devuelve el texto de la etiqueta recibida en el fichero xml de idioma
+        /// </summary>
+        /// <param name="nombreEtiqueta">nombre de la etiqueta de la que obtener el texto traducido.</param>
+        /// <param name="xmlnav">xml de idioma seleccionado.</param>
+        /// <returns></returns>
+        public static string ObtenerTextoPorNombreEtiqueta(string nombreEtiqueta, XPathNavigator xmlnav, string nombreForm)
+        {
+            XPathNodeIterator iterator = xmlnav.Select($"//forms/form[@id='{nombreForm}']/control[@id='{nombreEtiqueta}']");
+
+            if (!iterator.MoveNext())
+                return "";
+
+            string content = iterator.Current.InnerXml;
+            if (content.Contains("<br/>") || content.Contains("<br />"))
+            {
+                content = content.Replace("<br/>", Environment.NewLine).Replace("<br />", Environment.NewLine);
+            }
+            else
+            {
+                content = iterator.Current.Value;
+            }
+
+            return content;
+        }
+
 
         /// <summary>
         /// Traducir un literal
@@ -281,12 +313,12 @@ namespace MultiLangXML
             XPathNavigator xmlnav;
             try
             {
-                xmldoc = new XPathDocument(_rutaXML);
+                xmldoc = new XPathDocument(_instancia.rutaXMLIdioma);
                 xmlnav = xmldoc.CreateNavigator();
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentra el fichero XML\nXML file not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);            
+                MessageBox.Show(traducirMensaje(TIPO_MENSAJE.M_ERROR, "XmlnoEncontrado"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "";
             }
 
@@ -357,13 +389,14 @@ namespace MultiLangXML
         /// <summary>
         /// Cambiar el idioma
         /// </summary>
-        /// <param name="ruta">ruta del xml de la traduccion</param>
+        /// <param name="nombreFicheroXml">nombre del xml de la traduccion</param>
         /// <returns>devuelve true si el cambio ha sido correcto y false si ha habido algun error.</returns>
-        public bool cambiarIdioma(string ruta)
+        public bool CambiarIdioma(string nombreFicheroXml)
         {
-            string rutaXML;
+
             var sepStr = new string[] { _appPath + @"\" };
-            rutaXML = ruta.Split(sepStr, StringSplitOptions.RemoveEmptyEntries)[0];
+            string idioma = nombreFicheroXml.Split(sepStr, StringSplitOptions.RemoveEmptyEntries)[0];
+
             try
             {
                 var myXmlDocument = new XmlDocument();
@@ -371,73 +404,35 @@ namespace MultiLangXML
                 XmlNode node;
                 node = myXmlDocument.DocumentElement;
 
-                // Dim node2 As XmlNode
-                foreach (XmlNode currentNode in node.ChildNodes)
-                {
-                    node = currentNode;
-                    // Buscar el nodo secundario precio. 
-                    // For Each node2 In node.ChildNodes
-                    if (node.Name == "idioma")
-                    {
-                        // 
-                        node.InnerText = rutaXML;
-                        break;
-                    }
-                    // Next
-                }
 
-                myXmlDocument.Save(_rutaConf);
+                //// Crear instancia del documento XML y cargar el archivo
+                // Obtener el nodo <idioma>
+                XmlNode idiomaNode = myXmlDocument.SelectSingleNode("configuracion/idioma");
 
-                // Marcar internamente este cambio
-                _rutaXML = ruta;
-                // Cambiar el excel
-                XPathDocument xmldoc;
-                XPathNavigator xmlnav;
-                XPathNodeIterator iterador;
-                xmldoc = new XPathDocument(_rutaXML);
-                xmlnav = xmldoc.CreateNavigator();
-                iterador = xmlnav.Select("/language/excelFile");
-                if (iterador.MoveNext())
+                if (idiomaNode != null)
                 {
-                    _rutaExcel = _appPath + @"\Report\" + iterador.Current.Value;
-                    xmlnav = null;
-                    xmldoc = null;
+                    idiomaNode.InnerText = idioma; // nuevo valor
+                    myXmlDocument.Save(_rutaConf);
                 }
                 else
                 {
-                    _rutaExcel = "";
-                    MessageBox.Show("Error al intentar cambiar de idioma, el fichero no existe\ncChanging language Error, the does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                  
-                    xmlnav = null;
-                    xmldoc = null;
-                    return false;
+                    Console.WriteLine("Nodo <idioma> no encontrado.");
                 }
 
-                xmldoc = new XPathDocument(_rutaXML);
-                xmlnav = xmldoc.CreateNavigator();
-                iterador = xmlnav.Select("/language/excelCEFile");
-                if (iterador.MoveNext())
-                {
-                    _rutaExcelCE = _appPath + @"\Report\" + iterador.Current.Value;
-                    xmlnav = null;
-                    xmldoc = null;
-                }
-                else
-                {
-                    _rutaExcelCE = "";
-                    MessageBox.Show("Error al intentar cambiar de idioma, el fichero no existe\ncChanging language Error, the does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    xmlnav = null;
-                    xmldoc = null;
-                    return false;
-                }
+                _configurado = false;
+                _instancia = Instancia;
+
 
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se encuentra el fichero XML.\nXML file not found" + Constants.vbCrLf + ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(traducirMensaje(TIPO_MENSAJE.M_ERROR, "XmlnoEncontrado"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
+
+
 
         public bool testFormatXML(string rutaXML, ref string strIdioma, string rutaExcel)
         {
@@ -466,7 +461,7 @@ namespace MultiLangXML
             reader = null;
             if (!_OK)
             {
-                MessageBox.Show("El XML no es válido, no tiene el formato correcto\nThe XML file is not valid, it does not have the correct format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);               
+                MessageBox.Show(traducirMensaje(TIPO_MENSAJE.M_ERROR, "XmlnoValido"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);               
                 return false;
             }
 
@@ -478,27 +473,19 @@ namespace MultiLangXML
             }
             catch (Exception)
             {
-                MessageBox.Show("No se encuentra el fichero XML\nXML file not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);               
+                MessageBox.Show(traducirMensaje(TIPO_MENSAJE.M_ERROR, "XmlnoEncontrado"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);               
                 return false;
             }
 
             iterador = xmlnav.Select("/language/excelFile");
-            if (iterador.MoveNext())
-            {
-                rutaExcel = iterador.Current.Value;
-            }
-            else
+            if (!iterador.MoveNext())
             {
                 rutaExcel = "";
                 return false;
             }
 
             iterador = xmlnav.Select("/language/excelCEFile");
-            if (iterador.MoveNext())
-            {
-                _rutaExcelCE = iterador.Current.Value;
-            }
-            else
+            if (!iterador.MoveNext())
             {
                 _rutaExcelCE = "";
                 return false;
@@ -507,20 +494,15 @@ namespace MultiLangXML
             
 
             iterador = xmlnav.Select("/language/idString");
-            if (iterador.MoveNext())
-            {
-                strIdioma = iterador.Current.Value;
-                xmlnav = null;
-                xmldoc = null;
-                return true;
-            }
-            else
-            {
+            if (!iterador.MoveNext())
+            { 
                 strIdioma = "";
                 xmlnav = null;
                 xmldoc = null;
                 return false;
             }
+
+            return true;
         }
 
         /// <summary>
@@ -537,6 +519,32 @@ namespace MultiLangXML
         public string getRutaExcelCE
         {
             get { return _rutaExcelCE; }
+        }
+
+
+        public string GetFicheroConfiguracion
+        {
+            get { return _rutaConf; }
+        }
+
+        public void SetFicheroIdioma(string rutaConfiguracion)
+        {
+            rutaXMLIdioma = rutaConfiguracion;  
+        }
+
+
+        public static MultiIdiomasXML Instancia
+        {
+            get
+            {
+                if (!_configurado)
+                {
+                    ConfigurarTraductor(Application.StartupPath, @"\conf.xml");
+                    return _instancia;
+                }
+
+                return _instancia;
+            }
         }
     }
 }

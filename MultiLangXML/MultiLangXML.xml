@@ -62,7 +62,7 @@
             <param name="form">Formulario a traducir</param>
             <remarks></remarks>
         </member>
-        <member name="M:MultiLangXML.MultiIdiomasXML.traducirForm(System.String,System.String)">
+        <member name="M:MultiLangXML.MultiIdiomasXML.TraducirForm(System.Windows.Forms.Form)">
             <summary>
             Traducir formulario
             </summary>
@@ -71,15 +71,7 @@
             <returns>Devuelve true si la traduccion ha sido correcta y false si ha habido algun error</returns>
             <remarks>El fichero XSD no se puede modificar y esta unido a cada versión de la librería</remarks>
         </member>
-        <member name="M:MultiLangXML.MultiIdiomasXML.traducirFormPorConf(System.String,System.String)">
-            <summary>
-            Traducir formulario
-            </summary>
-            <param name="rutaApp">Ruta a la carpeta donde se encuentra la aplicación</param>
-            <param name="rutaXML">Ruta al XML donde se encuentra la traducción</param>
-            <returns>Si todo ha ido bien</returns>
-        </member>
-        <member name="M:MultiLangXML.MultiIdiomasXML.traducirControl(System.Object,System.Xml.XPath.XPathDocument,System.Xml.XPath.XPathNavigator)">
+        <member name="M:MultiLangXML.MultiIdiomasXML.TraducirControl(System.Object,System.Xml.XPath.XPathDocument,System.Xml.XPath.XPathNavigator,System.String)">
             <summary>
             Traducir un control
             </summary>
@@ -89,6 +81,14 @@
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:MultiLangXML.MultiIdiomasXML.ObtenerTextoPorNombreEtiqueta(System.String,System.Xml.XPath.XPathNavigator,System.String)">
+            <summary>
+            Devuelve el texto de la etiqueta recibida en el fichero xml de idioma
+            </summary>
+            <param name="nombreEtiqueta">nombre de la etiqueta de la que obtener el texto traducido.</param>
+            <param name="xmlnav">xml de idioma seleccionado.</param>
+            <returns></returns>
+        </member>
         <member name="M:MultiLangXML.MultiIdiomasXML.traducirMensaje(MultiLangXML.MultiIdiomasXML.TIPO_MENSAJE,System.String)">
             <summary>
             Traducir un literal
@@ -97,11 +97,11 @@
             <param name="strID"></param>
             <returns>Devuelve un string con el mensaje en el idioma que esta seleccionado</returns>
         </member>
-        <member name="M:MultiLangXML.MultiIdiomasXML.cambiarIdioma(System.String)">
+        <member name="M:MultiLangXML.MultiIdiomasXML.CambiarIdioma(System.String)">
             <summary>
             Cambiar el idioma
             </summary>
-            <param name="ruta">ruta del xml de la traduccion</param>
+            <param name="nombreFicheroXml">nombre del xml de la traduccion</param>
             <returns>devuelve true si el cambio ha sido correcto y false si ha habido algun error.</returns>
         </member>
         <member name="P:MultiLangXML.MultiIdiomasXML.getRutaExcel">
