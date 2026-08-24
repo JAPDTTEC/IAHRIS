@@ -1,6 +1,5 @@
 ﻿
 using IAHRIS.Calculo.IndicesHidro.Informes;
-using MathNet.Numerics.Distributions;
 using MultiLangXML;
 using OfficeOpenXml;
 using System;
@@ -333,48 +332,55 @@ namespace IAHRIS.Calculo.Tipologias
             //El minimo de años admisible para las series es de 7 años.
             //si las series tienen menos de 15 años validos, las consideramos reducidas.
 
+            int anosValidosNatDiarios = simulacion.listas[0].nValidos;
+            int anosValidosAltDiarios = simulacion.listas[1].nValidos;
+            int anosValidosNatMens = simulacion.listas[2].nValidos + (simulacion.añosInterNat == null ? 0 : simulacion.añosInterNat.Length);
+            int anosValidosAltMens = simulacion.listas[3].nValidos + (simulacion.añosInterAlt == null ? 0 : simulacion.añosInterAlt.Length);
+
 
             /// listas[0] -> Nat diaria
-            if (simulacion.listas[0].nValidos > 6)
+            if (anosValidosNatDiarios > 6)
             {
                 isNatDia = true;
                 isNat = true;
-                esSerieReducida = simulacion.listas[0].nValidos < 15;
+                if (!esSerieReducida)
+                    esSerieReducida = anosValidosNatDiarios < 15;
+
             }
 
             /// listas[1] -> Alt diaria
-            if (simulacion.listas[1].nValidos > 6)
+            if (anosValidosAltDiarios > 6)
             {
                 isAltDia = true;
                 isAlt = true;
-                esSerieReducida = simulacion.listas[1].nValidos < 15;
+                if (!esSerieReducida)
+                    esSerieReducida = anosValidosAltDiarios < 15;
             }
 
             /// listas[2] -> Nat mensual
-            if (simulacion.listas[2].nValidos > 6)
+            if (anosValidosNatMens > 6)
             {
                 isNatMens = true;
                 isNat = true;
-                esSerieReducida = simulacion.listas[2].nValidos < 15;
+                if (!esSerieReducida)
+                    esSerieReducida = anosValidosNatMens < 15;
             }
             /// listas[3] -> Alt mensual
-            if (simulacion.listas[3].nValidos > 6)
+            if (anosValidosAltMens > 6)
             {
                 isAltMens = true;
                 isAlt = true;
-
-                if(esSerieReducida == false)  
-                    esSerieReducida = simulacion.listas[3].nValidos < 15;
-                
+                if (!esSerieReducida)
+                    esSerieReducida = anosValidosAltMens < 15;
             }
 
             //Régimen natural y alterado con datos diarios, basta con que uno de los dos tenga <15 años
             if (isNatDia && isAltDia)            
                 esSerieReducida = simulacion.listas[0].nValidos < 15 || simulacion.listas[1].nValidos < 15;
 
-            //Régimen natural y alterado con datos mensuales, basta con que uno de los dos tenga<15 años
+            //Régimen natural y alterado con datos mensuales, basta con que uno de los dos tenga<15 años. Tener en cuanta datos interpolados.
             if (isNatMens && isAltMens)
-                esSerieReducida = simulacion.listas[2].nValidos < 15 || simulacion.listas[3].nValidos < 15;
+                esSerieReducida = anosValidosNatMens < 15 || anosValidosAltMens < 15;
 
             if (simulacion.usarCoeDiara)            
                 usarCoeDia = true;

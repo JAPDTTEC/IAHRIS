@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using MathNet.Numerics.Statistics;
+using System.Linq;
 
 
 namespace IAHRIS.Calculo
@@ -5677,7 +5678,8 @@ namespace IAHRIS.Calculo
             }
 
             CVNat = (float)((naños * aux1 - Math.Pow(aux2, 2d)) / (naños * (naños - 1)));
-            CVNat = (float)Math.Sqrt(CVNat);
+            float media = aux2 / naños;
+            CVNat = (float)Math.Sqrt(CVNat) / media;
             naños = _dataSet._AportacionAltAnual.aportacion.Length;
             aux1 = 0f;
             aux2 = 0f;
@@ -5690,7 +5692,8 @@ namespace IAHRIS.Calculo
             }
 
             CVAlt = (float)((naños * aux1 - Math.Pow(aux2, 2d)) / (naños * (naños - 1)));
-            CVAlt = (float)Math.Sqrt(CVAlt);
+            media = aux2 / naños;
+            CVAlt = (float)Math.Sqrt(CVAlt) / media;
             if (CVAlt == 0f & CVNat == 0f)
             {
                 _dataSet._IndicesHabitualesAgregados[2].indeterminacion[0] = true;
@@ -5754,7 +5757,7 @@ namespace IAHRIS.Calculo
 
             for (i = 0; i <= 11; i++)
             {
-                desviacionMesNat[i] = Statistics.PopulationStandardDeviation(auxLista1[i]);
+                desviacionMesNat[i] = Statistics.PopulationStandardDeviation(auxLista1[i]) / auxLista1[i].Average();
             }
 
            
@@ -5775,7 +5778,7 @@ namespace IAHRIS.Calculo
 
             for (i = 0; i <= 11; i++)
             {
-                desviacionMesAlt[i] = Statistics.PopulationStandardDeviation(auxLista1[i]);
+                desviacionMesAlt[i] = Statistics.PopulationStandardDeviation(auxLista1[i])/ auxLista1[i].Average();
             }
 
             for (i = 0; i <= 11; i++)
@@ -6740,9 +6743,9 @@ namespace IAHRIS.Calculo
         {
             int i;
             float aux1 = default, aux2 = default;
-            int nCal;
-            nCal = 0;
-            for (i = 0; i <= 6; i++)
+            int nCal = 0;
+            int numAvenidas = _dataSet._IndicesAvenidas.Length;
+            for (i = 0; i <= numAvenidas - 1; i++)
             {
                 if (_dataSet._IndicesAvenidas[i].calculado)
                 {
@@ -6759,9 +6762,9 @@ namespace IAHRIS.Calculo
         {
             int i;
             float aux1 = default, aux2 = default;
-            int nCal;
-            nCal = 0;
-            for (i = 0; i <= 6; i++)
+            int nCal = 0;
+            int numIndices = _dataSet._IndicesSequias.Length;
+            for (i = 0; i <= numIndices - 1; i++)
             {
                 if (_dataSet._IndicesSequias[i].calculado)
                 {
@@ -6773,8 +6776,8 @@ namespace IAHRIS.Calculo
 
             _dataSet._IndiceIAG_Seq = (float)((Math.Pow(aux1, 2d) - aux2) / (nCal * (nCal - 1)));
         }
-        /* TODO ERROR: Skipped EndRegionDirectiveTrivia */
-        /* TODO ERROR: Skipped RegionDirectiveTrivia */
+
+
         public void CalcularRegimenNatural()
         {
             float[] percentil10;
