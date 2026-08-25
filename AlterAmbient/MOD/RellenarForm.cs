@@ -354,6 +354,7 @@ namespace IAHRIS.Rellenar
                 if (añoMax < fechaF.Year)
                 {
                     añoMax = fechaF.Year;
+                
                 }
 
                 validosNM = _Fechas.TestMesAño("Valor", "fecha", fechaI, fechaF, Conversions.ToInteger(dr["id_lista"]));

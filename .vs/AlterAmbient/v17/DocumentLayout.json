@@ -1,0 +1,229 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{832E795D-6374-4B4F-998A-EC25A452F1F5}|IAHRIS.Calculo\\IAHRIS.Calculo.csproj|c:\\users\\aalons23\\desktop\\iahris\\iahris-4.1\\iahris-4.2\\iahris.calculo\\indiceshidro\\informes\\informe1bsr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{832E795D-6374-4B4F-998A-EC25A452F1F5}|IAHRIS.Calculo\\IAHRIS.Calculo.csproj|solutionrelative:iahris.calculo\\indiceshidro\\informes\\informe1bsr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{832E795D-6374-4B4F-998A-EC25A452F1F5}|IAHRIS.Calculo\\IAHRIS.Calculo.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\iahris.calculo\\indiceshidro\\tipologias\\tipologia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{832E795D-6374-4B4F-998A-EC25A452F1F5}|IAHRIS.Calculo\\IAHRIS.Calculo.csproj|solutionrelative:iahris.calculo\\indiceshidro\\tipologias\\tipologia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{832E795D-6374-4B4F-998A-EC25A452F1F5}|IAHRIS.Calculo\\IAHRIS.Calculo.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\iahris.calculo\\calculations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{832E795D-6374-4B4F-998A-EC25A452F1F5}|IAHRIS.Calculo\\IAHRIS.Calculo.csproj|solutionrelative:iahris.calculo\\calculations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\alterambient\\forminicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|solutionrelative:alterambient\\forminicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\alterambient\\mod\\rellenarform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|solutionrelative:alterambient\\mod\\rellenarform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\alterambient\\forminicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|solutionrelative:alterambient\\forminicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{832E795D-6374-4B4F-998A-EC25A452F1F5}|IAHRIS.Calculo\\IAHRIS.Calculo.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\iahris.calculo\\indiceshidro\\informes\\informe1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{832E795D-6374-4B4F-998A-EC25A452F1F5}|IAHRIS.Calculo\\IAHRIS.Calculo.csproj|solutionrelative:iahris.calculo\\indiceshidro\\informes\\informe1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\alterambient\\formcalculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|solutionrelative:alterambient\\formcalculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\alterambient\\formcalculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|solutionrelative:alterambient\\formcalculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\alterambient\\formbienvenida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D47E6B2-9513-028F-14FF-07C2C8EB9DE8}|AlterAmbient\\AlterAmbient.csproj|solutionrelative:alterambient\\formbienvenida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Informe1bSR.cs",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\IAHRIS.Calculo\\IndicesHidro\\Informes\\Informe1bSR.cs",
+              "RelativeDocumentMoniker": "IAHRIS.Calculo\\IndicesHidro\\Informes\\Informe1bSR.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\IAHRIS.Calculo\\IndicesHidro\\Informes\\Informe1bSR.cs",
+              "RelativeToolTip": "IAHRIS.Calculo\\IndicesHidro\\Informes\\Informe1bSR.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAAAJQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T06:11:17.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormInicial.cs",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormInicial.cs",
+              "RelativeDocumentMoniker": "AlterAmbient\\FormInicial.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormInicial.cs",
+              "RelativeToolTip": "AlterAmbient\\FormInicial.cs",
+              "ViewState": "AgIAAGoFAAAAAAAAAAAvwHsFAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T16:03:17.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormInicial.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormInicial.cs",
+              "RelativeDocumentMoniker": "AlterAmbient\\FormInicial.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormInicial.cs [Dise\u00F1o]",
+              "RelativeToolTip": "AlterAmbient\\FormInicial.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T16:03:14.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Calculations.cs",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\IAHRIS.Calculo\\Calculations.cs",
+              "RelativeDocumentMoniker": "IAHRIS.Calculo\\Calculations.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\IAHRIS.Calculo\\Calculations.cs",
+              "RelativeToolTip": "IAHRIS.Calculo\\Calculations.cs",
+              "ViewState": "AgIAAHsaAAAAAAAAAAAEwGUaAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T14:45:33.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RellenarForm.cs",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\MOD\\RellenarForm.cs",
+              "RelativeDocumentMoniker": "AlterAmbient\\MOD\\RellenarForm.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\MOD\\RellenarForm.cs",
+              "RelativeToolTip": "AlterAmbient\\MOD\\RellenarForm.cs",
+              "ViewState": "AgIAAFEBAAAAAAAAAAAiwHABAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T10:04:09.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Informe1.cs",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\IAHRIS.Calculo\\IndicesHidro\\Informes\\Informe1.cs",
+              "RelativeDocumentMoniker": "IAHRIS.Calculo\\IndicesHidro\\Informes\\Informe1.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\IAHRIS.Calculo\\IndicesHidro\\Informes\\Informe1.cs",
+              "RelativeToolTip": "IAHRIS.Calculo\\IndicesHidro\\Informes\\Informe1.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwBgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T06:50:59.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Tipologia.cs",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\IAHRIS.Calculo\\IndicesHidro\\Tipologias\\Tipologia.cs",
+              "RelativeDocumentMoniker": "IAHRIS.Calculo\\IndicesHidro\\Tipologias\\Tipologia.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\IAHRIS.Calculo\\IndicesHidro\\Tipologias\\Tipologia.cs",
+              "RelativeToolTip": "IAHRIS.Calculo\\IndicesHidro\\Tipologias\\Tipologia.cs",
+              "ViewState": "AgIAAIcBAAAAAAAAAAAmwLkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T11:19:28.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormCalculo.cs",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormCalculo.cs",
+              "RelativeDocumentMoniker": "AlterAmbient\\FormCalculo.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormCalculo.cs",
+              "RelativeToolTip": "AlterAmbient\\FormCalculo.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowD0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T11:19:17.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormCalculo.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormCalculo.cs",
+              "RelativeDocumentMoniker": "AlterAmbient\\FormCalculo.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormCalculo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "AlterAmbient\\FormCalculo.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T11:19:09.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FormBienvenida.cs",
+              "DocumentMoniker": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormBienvenida.cs",
+              "RelativeDocumentMoniker": "AlterAmbient\\FormBienvenida.cs",
+              "ToolTip": "C:\\Users\\aalons23\\Desktop\\IAHRIS\\IAHRIS-4.1\\IAHRIS-4.2\\AlterAmbient\\FormBienvenida.cs",
+              "RelativeToolTip": "AlterAmbient\\FormBienvenida.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAwwDgFAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-17T09:39:16.086Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{28836128-fc2c-11d2-a433-00c04f72d18a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5a4e9529-b6a0-46b5-be4f-0f0b239bc0eb}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

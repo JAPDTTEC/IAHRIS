@@ -13,8 +13,8 @@ namespace IAHRIS.Calculo.IndicesHidro.Informes
 
         public override void Escribir(ExcelPackage excel, ref DatosCalculo datos, ref IAHRISDataSet dataset, MultiIdiomasXML traductor)
         {
-            
-           
+
+
             ExcelWorksheet objSheet = ((ExcelWorksheet)excel.Workbook.Worksheets[Index]);
 
             // Escribir cabecera
@@ -78,8 +78,6 @@ namespace IAHRIS.Calculo.IndicesHidro.Informes
             }
 
 
-
-
             //Formateo de todas las celdas de la tabla.
             string sRango = "B14:D";
             sRango = sRango + (13 + rowLength).ToString();
@@ -93,25 +91,62 @@ namespace IAHRIS.Calculo.IndicesHidro.Informes
 
             objSheet.Calculate();
 
-
+            int filaFinal = 13 + rowLength;
             ExcelChart ec = (ExcelChart)objSheet.Drawings[0];
+            string nombreHoja = objSheet.Name;
 
-            ec.Series[0].Series = "'Informe nº1b SR'!$C$14:$C$" + (13 + rowLength);
-            ec.Series[0].XSeries = "'Informe nº1b SR'!$Z$14:$Z$" + (13 + rowLength);
-            ec.Series[1].Series = "'Informe nº1b SR'!$D$14:$D$" + (13 + rowLength);
-            ec.Series[1].XSeries = "'Informe nº1b SR'!$Z$14:$Z$" + (13 + rowLength);
+            // 1. Recrear el rango para el Régimen Natural (Columna C)
+            if (objSheet.Names.ContainsKey("SeriesNat"))
+            {
+                objSheet.Names.Remove("SeriesNat");
+            }
+            // Al pasar objSheet.Cells, EPPlus construye el XML interno a la perfección
+            objSheet.Names.Add("SeriesNat", objSheet.Cells[$"C14:C{filaFinal}"]);
 
-            //Ponemos los valores personalizados del gráfico, necesarios para que se visualize correctamente
+            // 2. Recrear el rango para el Régimen Alterado (Columna D)
+            if (objSheet.Names.ContainsKey("SeriesAlt"))
+            {
+                objSheet.Names.Remove("SeriesAlt");
+            }
+            objSheet.Names.Add("SeriesAlt", objSheet.Cells[$"D14:D{filaFinal}"]);
+
+            // 3. Recrear el rango para el Eje X (Columna Z)
+            //if (objSheet.Names.ContainsKey("SeriesX"))
+            //{
+            //    objSheet.Names.Remove("SeriesX");
+            //}
+            //objSheet.Names.Add("SeriesX", objSheet.Cells[$"Z14:Z{filaFinal}"]);
+
+
+
+            ////Ponemos los valores personalizados del gráfico, necesarios para que se visualize correctamente
 
             ec = (ExcelChart)objSheet.Drawings[1];
 
-            ec.Series[0].Series = "'Informe nº1b SR'!$C$14:$C$" + (13 + rowLength);
-            ec.Series[0].XSeries = "'Informe nº1b SR'!$Z$14:$Z$" + (13 + rowLength);
+            // Verificamos si existe para evitar excepciones, 
+            // pero ahora SÍ los encontrará en la plantilla compilada.
+            // 1. Recrear el rango para el Régimen Natural (Columna C)
+            if (objSheet.Names.ContainsKey("SeriesNat2"))
+            {
+                objSheet.Names.Remove("SeriesNat2");
+            }
+            // Al pasar objSheet.Cells, EPPlus construye el XML interno a la perfección
+            objSheet.Names.Add("SeriesNat2", objSheet.Cells[$"C14:C{filaFinal}"]);
 
-            ec.Series[1].Series = "'Informe nº1b SR'!$D$14:$D$" + (13 + rowLength);
-            ec.Series[1].XSeries = "'Informe nº1b SR'!$Z$14:$Z$" + (13 + rowLength);
+            // 2. Recrear el rango para el Régimen Alterado (Columna D)
+            if (objSheet.Names.ContainsKey("SeriesAlt2"))
+            {
+                objSheet.Names.Remove("SeriesAlt2");
+            }
+            objSheet.Names.Add("SeriesAlt2", objSheet.Cells[$"D14:D{filaFinal}"]);
 
-           
+            // 3. Recrear el rango para el Eje X (Columna Z)
+            if (objSheet.Names.ContainsKey("SeriesX2"))
+            {
+                objSheet.Names.Remove("SeriesX2");
+            }
+            objSheet.Names.Add("SeriesX2", objSheet.Cells[$"Z14:Z{filaFinal}"]);
         }
+
     }
 }

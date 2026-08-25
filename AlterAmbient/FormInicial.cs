@@ -141,8 +141,6 @@ namespace IAHRIS
                     idalte = 0;
                 }
 
-
-
                 List<DataGridViewRow> selectedRows = new List<DataGridViewRow>();
                 List<EscenarioDTO> listaEscenarios = _escenarios.GetEscenarioPorIDPunto(idpunt, idalte);
 

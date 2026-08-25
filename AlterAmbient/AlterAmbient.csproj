@@ -1027,7 +1027,11 @@
     </Content>
     <Content Include="gdal\share\nad.lst">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+<<<<<<< Updated upstream
     </Content>   
+=======
+    </Content>
+>>>>>>> Stashed changes
     <Content Include="Report\FicheroModelo_Castellano.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -81,7 +81,11 @@ namespace IAHRIS
             this.lblVersionES.Name = "lblVersionES";
             this.lblVersionES.Size = new System.Drawing.Size(276, 28);
             this.lblVersionES.TabIndex = 1;
+<<<<<<< Updated upstream
             this.lblVersionES.Text = "v.4.1";
+=======
+            this.lblVersionES.Text = "v.4.2";
+>>>>>>> Stashed changes
             this.lblVersionES.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblVersionEN
@@ -93,7 +97,11 @@ namespace IAHRIS
             this.lblVersionEN.Name = "lblVersionEN";
             this.lblVersionEN.Size = new System.Drawing.Size(276, 28);
             this.lblVersionEN.TabIndex = 2;
+<<<<<<< Updated upstream
             this.lblVersionEN.Text = "v.4.1";
+=======
+            this.lblVersionEN.Text = "v.4.2";
+>>>>>>> Stashed changes
             this.lblVersionEN.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbMITECO
