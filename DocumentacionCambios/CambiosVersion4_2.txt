@@ -1,0 +1,21 @@
+NOTAS DE LA VERSIÓN (CHANGELOG)
+===============================
+
+ACTUALIZACIONES DE VERSIÓN Y DEPENDENCIAS
+-----------------------------------------
+* Instalador: Actualización de la versión del instalador.
+* Aplicación: Actualización de la versión de la aplicación.
+* Dependencias: Actualización de la biblioteca "Microsoft.IO.RecyclableMemoryStream" (v1.4.6 -> v2.2.0) por requerimiento del sistema.
+
+
+MEJORAS Y CAMBIOS
+-----------------
+* Informes: Cambio del nombre del título en los informes 8, 8a, 8b, 8c y 8d.
+
+
+CORRECCIONES DE ERRORES (BUG FIXES)
+-----------------------------------
+* Cálculo IAG (Índice de Alteración Global de avenidas): Solucionado un error en el bucle 'for' que omitía algunas avenidas durante el cálculo.
+* Cálculo CV (Coeficiente de Variación): Corregida la fórmula matemática para dividir correctamente la desviación típica entre la media.
+* Detección de Serie Reducida (SR): Solucionado un error en la lógica del código al evaluar la tipología; ahora se contemplan los años ponderados para determinar correctamente si es una tipología SR.
+* Informe 1b SR (Gráficos Excel): Corregido un problema con el formato del nombre de los datos pasados al gráfico, el cual impedía que Excel los interpretara y guardara correctamente.
